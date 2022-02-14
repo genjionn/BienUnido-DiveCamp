@@ -1,16 +1,48 @@
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="UserLogin.css">
+  
+    <title>Login - DiveCamp Website</title>
 
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<title>DiveCamp</title>
-</head>
-<body>
-<h1>DiveCamp Login</h1>
-<label>Username:</label>
-<input type="text"/>
-<label>Password:</label>
-<input type="Password"/>
-<button>Login</button>
-</body>
-
+  </head>
+  
+  <body>  
+    <div class="container">
+        <form action="#">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" name="password" id="pass" placeholder="Password" required>
+                        </div>
+                        <div class="text"><a href="#">Forgot password?</a></div>
+                        <div class="button input-box">
+                            <input type="submit" value="Login">
+                        </div>
+                        <div class="text login-text">Don't have an account? <a href="registerPage.html"><label>Signup now</label></a></div>
+                    </div>
+                </div>
+                <div class="picture-form">        
+                    <div class="cover">
+                        <img src="dc.jpg" alt="logo">
+                    </div>
+              </div>   
+        </form>
+    </div>
+  </body>
 </html>
