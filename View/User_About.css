@@ -3,8 +3,11 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
 }
 .header {
+	position: fixed;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -42,7 +45,9 @@
     letter-spacing: 2px;
 }
 .side-bar {
-	width: 250px;
+	position: relative;
+	top:50px;
+	width: 240px;
 	background: #7d2ae8;
 	min-height: 100vh;
 	transition: 500ms width;

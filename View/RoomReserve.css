@@ -3,8 +3,11 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
 }
 .header {
+	position: fixed;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -42,7 +45,9 @@
     letter-spacing: 2px;
 }
 .side-bar {
-	width: 250px;
+	position: relative;
+	top:50px;
+	width: 240px;
 	background: #7d2ae8;
 	min-height: 100vh;
 	transition: 500ms width;
@@ -159,7 +164,17 @@
 
 #backButton{
 	position: relative;
-	float: left;
-	width: 20%;
-	margin: 5px;
+	padding: 15px 0px;
+	border-radius: 50px;
+	border: none;
+	background-color: #009688;
+	color: white;
+	font-size: 18px;
+	top: 100px;
+	left: 50%;
+	width: 150px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
 }
