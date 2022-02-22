@@ -10,14 +10,32 @@ body{
     align-items: center;
     justify-content: center;
     padding: 30px;
-    background: white;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.u-name {
+    position: relative;
+    right: 75px;
+    bottom: 300px;
+    width: 135px;
+    cursor: pointer;
+	font-size: 26px;
+    color: #fff;
+}
+.u-name b {
+    position: relative;
+    bottom: 10px;
+	color: #D4A91C;
 }
 .container{
     position: relative;
     max-width: 850px;
     width: 100%;
     padding: 10px 50px;
-    background-color: #fff;
+    background-color: whitesmoke;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     perspective: 2700px;
 }
@@ -28,17 +46,21 @@ body{
     height: 100%;
     width: 40%;
     z-index: 98;
-    opacity: 0.5;
+    background: #D4A91C;
     transition: all 1s ease;
     transform-style: preserve-3d;
     transform-origin: left;
 }
-
+.container .cover h1{
+    position: relative;
+    top: 180px;
+    color: white;
+}
 .container form{
     height: 100%;
     width: 100%;
     padding: 20px 0px;
-    background: #fff;
+    background: whitesmoke;
 }
 .container .cover img{
     position: absolute;
@@ -56,6 +78,7 @@ body{
 .form-content .signup-form{
     width: calc(100% / 2 - 25px);
 }
+
 form .form-content .title{
     position: relative;
     font-size: 26px;
@@ -69,7 +92,7 @@ form .form-content .title::before{
     bottom: 0;
     height: 3px;
     width: 25px;
-    background:#7d2ae8;
+    background:#D4A91C;
 }
 form .signup-form .form-content .title::before{
     width: 20px;
@@ -100,11 +123,11 @@ form .form-content .input-box{
 }
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
-    border-color: #7d2ae8;
+    border-color: #D4A91C;
 }
 .form-content .input-box i{
     position: absolute;
-    color: #7d2ae8;
+    color: #E3BF48;
     font-size: 17px;
 }
 form .form-content .button{
@@ -112,18 +135,20 @@ form .form-content .button{
     margin-top: 40px;
 }
 form .form-content .button input{
-    color: #fff;
-    background: #7d2ae8;
+    color: #000;
+    font-size: 20px;
+    background: #E3BF48;
     border-radius: 15px;
     padding: 0;
     cursor: pointer;
     transition: all 0.4s ease;
 }
 form .form-content .button input:hover{
-    background: #5b13b9;
+    color: white;
+    background: #D4A91C;
 }
 form .form-content label{
-    color: #5b13b9;
+    color: #916F00;
     cursor: pointer;
 }
 form .form-content label:hover{
@@ -133,6 +158,9 @@ form .form-content .login-text{
     text-align: center;
     justify-content: center;
     margin-top: 25px;
+}
+form .text a{
+    color: #916F00;
 }
 .container #flip{
     display: none;
