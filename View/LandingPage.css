@@ -15,19 +15,19 @@ button{
     margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #009688;
+    border: 2px solid #fff;
     background: transparent;
     color: #fff;
     cursor: pointer;
 }
 button:hover{
-    background-color: #fff;
+    background-color: #FFE9A3;
     color: #000;
 }
 .cover{
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("bg.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("bg.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -35,10 +35,10 @@ button:hover{
     width: 120px;
     cursor: pointer;
 	font-size: 26px;
-    color: #fff;
+    color: #FFE9A3;
 }
 .u-name b {
-	color: #009688;
+	color: #004F5D;
 }
 .navbar{
     width: 85%;
@@ -67,13 +67,16 @@ button:hover{
 }
 .navbar ul li::after{
     content: '';
-    height: 3px;
+    height: 2px;
     width: 100%;
-    background: #009688;
+    background: #fff;
     position: absolute;
     left: 0;
     bottom: -10px;
     transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    background: #D4891C;
 }
 .content{
     width: 100%;
@@ -88,16 +91,16 @@ button:hover{
     margin-top: 80px;
 }
 .content h1 b{
-    color: #7d2ae8;
+    color: #fff;
 }
 .content h1 .website-txt{
-    color: #009688;
+    color: #fff;
 }
 .content h2{
-    color: #009688;
+    color: #fff;
     font-size: 25px;
 }.content .camp{
-    color: #009688;
+    color: #fff;
 }
 .content p{
     font-size: 18px;

@@ -1,127 +1,130 @@
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-	overflow: hidden;
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
 }
+body{
+    background: #fff;
+}
+.wrapper .header{
+    z-index: 1;
+    background: #E1A84B;
+    position: fixed;
+    width: calc(100% - 0%);
+    height: 70px;
+    display: flex;
+    top: 0;
 
-.header {
-	position: fixed;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 30px;
-	background: #7d2ae8;
-	color: #fff;
 }
-.u-name {
-	font-size: 16px;
-	padding-left: 17px;
+.wrapper .header .header-menu{
+    width: calc(100% - 0%);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
-.u-name b {
-	color: black;
+.wrapper .header .header-menu .title{
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 800;
 }
-.header i {
-	font-size: 16px;
-	cursor: pointer;
-	color: #fff;
+.wrapper .header .header-menu .title span{
+	color: #004F5D;
+
 }
-.header i:hover {
-	color: black;
+.wrapper .header .header-menu .sidebar-btn{
+    color: white;
+    position: absolute;
+    margin-left: 210px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+
 }
-.user-p {
-	text-align: center;
-	padding-left: 10px;
-	padding-top: 25px;
+.wrapper .header .header-menu .sidebar-btn:hover{
+    color: #004F5D;
 }
-.user-p img {
-	width: 100px;
-	border-radius: 50%;
+.wrapper .header .header-menu ul{
+    display: flex;
 }
-.user-p h4 {
-	color: black;
-	padding: 5px 0;
-    letter-spacing: 2px;
+.wrapper .header .header-menu ul li a{
+    background: #fff;
+    color: #000;
+    display: block;
+    margin: 0 10px;
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    transition-property: background, color;
 }
-.side-bar {
-	position: relative;
-	top:50px;
-	width: 240px;
-	background: #7d2ae8;
-	min-height: 100vh;
-	transition: 500ms;
+.wrapper .header .header-menu ul li a:hover{
+    background: #004F5D;
+    color: #fff;
+
 }
-.body {
-	display: flex;
+.wrapper .sidebar{
+    z-index: 1;
+    background: #E1A84B;
+    position: fixed;
+    top: 70px;
+    width: 250px;
+    height: calc(100% - 9%);
+    transition: 0.3s;
+    transition-property: width;
+    overflow-y: auto;
 }
-.section-1 {
-	width: 100%;
-	/* background: url("../img/bg.jpg"); */
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	
+.wrapper .sidebar .sidebar-menu{
+    overflow: hidden;
+
 }
-.section-1 h1 {
-	color: black;
-	font-size: 30px;
+.wrapper .sidebar .sidebar-menu .profile img{
+    margin: 20px 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
-.section-1 p {
-	color: black;
-	font-size: 20px;
-	background: #fff;
-	padding: 7px;
-	border-radius: 5px;
+.wrapper .sidebar .sidebar-menu .profile p{
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
-.side-bar ul {
-	margin-top: 20px;
-	list-style: none;
+.wrapper .sidebar .sidebar-menu .item{
+    width: 250px;
+    overflow: hidden;
 }
-.side-bar ul li {
-	font-size: 16px;
-	padding: 15px 0px;
-	padding-left: 20px;
-	transition: 500ms background;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+.wrapper .sidebar .sidebar-menu .item .menu-btn{
+    display: block;
+    color: #000;
+    position: relative;
+    padding: 10px 20px;
+    transition: 0.3s;
+    transition-property: color;
 }
-.side-bar ul li:hover {
-	background: #fff;
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
+    color: #fff;
+    background: #004F5D;
 }
-.side-bar ul li a {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-	letter-spacing: 2px;
-}
-.side-bar ul li a i {
-	display: inline-block;
-	padding-right: 10px;
-	font-size: 16px;
-}
-#navbtn {
-	display: inline-block;
-	margin-left: 50px;
-	font-size: 16px;
-	transition: 500ms color;
-}
-#checkbox {
-	display: none;
-}
-#checkbox:checked ~ .body .side-bar {
-	width: 60px;
-}
-#checkbox:checked ~ .body .side-bar .user-p{
-	visibility: hidden;
-}
-#checkbox:checked ~ .body .side-bar a span{
-	display: none;
+.wrapper .sidebar .sidebar-menu .item .menu-btn i{
+    margin: 20px;
+} 
+.wrapper .main-container{
+    width: (100% - 250px);
+    margin-top: 70px;
+    margin-left: 250px;
+    padding: 15px;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.3s;
 }
 
 /* */
@@ -135,6 +138,9 @@
 	width: 40%;
 	margin: 0px 15px 30px 15px;	
 	height: 420px;
+}
+.main-container h1{
+    text-align: center;
 }
 .card a{
 	text-decoration: none;
@@ -165,9 +171,8 @@
 
 .previous {
 	color: black;
-  }
+}
   
-  .next {
+.next {
 	color: black;
-  }
-
+}
