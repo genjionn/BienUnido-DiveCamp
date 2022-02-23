@@ -27,7 +27,7 @@ button:hover{
 .cover{
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("bg.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("../img/bg.jpg");
     background-size: cover;
     background-position: center;
 }

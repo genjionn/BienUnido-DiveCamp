@@ -3,7 +3,7 @@
 <head>
 	<title>DiveCamp-About</title>
 
-    <link rel="stylesheet" href="User_About.css">
+    <link rel="stylesheet" href="css/User_About.css">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
 		<div class="sidebar">
 			<div class="sidebar-menu">
 				 <center class="profile">
-					<img src="dc.jpg" alt="">
+					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
 				 <li class="item"><a href="User_HomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>

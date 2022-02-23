@@ -3,7 +3,7 @@
 <head>
 	<title>DiveCamp-Dashboard</title>
 
-    <link rel="stylesheet" href="RoomReserve.css">
+    <link rel="stylesheet" href="css/RoomReserve.css">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -23,12 +23,12 @@
 	<div class="body">
 		<nav class="side-bar">
 			<div class="user-p">
-				<img src="dc.jpg">
+				<img src="img/dc.jpg">
 				<h4>Profile</h4>
 			</div>
 			<ul>
 				<li>
-					<a href="User_HomePage.php">
+					<a href="UserHomePage.php">
 						<i class="fa fa-desktop" aria-hidden="true"></i>
 						<span>Dashboard</span>
 					</a>
@@ -40,19 +40,19 @@
 					</a>
 				</li>
 				<li>
-					<a href="User_ContactUs.php">
+					<a href="UserContactUs.php">
 						<i class="fa fa-message" aria-hidden="true"></i>
 						<span>Contact us</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_About.php">
+					<a href="UserAbout.php">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 						<span>About</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_Profile.php">
+					<a href="UserProfile.php">
 						<i class="fa fa-user" aria-hidden="true"></i>
 						<span>Profile</span>
 					</a>

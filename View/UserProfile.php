@@ -33,7 +33,7 @@
 		<div class="sidebar">
 			<div class="sidebar-menu">
 				 <center class="profile">
-					<img src="dc.jpg" alt="">
+					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
 				 <li class="item"><a href="User_HomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>

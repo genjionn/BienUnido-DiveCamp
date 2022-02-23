@@ -23,7 +23,7 @@
 	<div class="body">
 		<nav class="side-bar">
 			<div class="user-p">
-				<img src="dc.jpg">
+				<img src="img/dc.jpg">
 				<h4>Profile</h4>
 			</div>
 			<ul>
@@ -73,7 +73,7 @@
 			<div class="cardGrid">
 				<div class="card" >
 					<a href="RoomReserve.php">
-						<img src="hotel.jpg" alt="Avatar" style="width:10%;"	class="imgHotel">
+						<img src="img/hotel.jpg" alt="Avatar" style="width:10%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
 						<p>Starting from: ₱ 2000</p>
@@ -83,7 +83,7 @@
 
 				<div class="card" >
 					<a href="RoomReserve.php">
-						<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+						<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
 						<p>Starting from: ₱ 2000</p>
@@ -93,7 +93,7 @@
 
 				<div class="card" >
 					<a href="RoomReserve.php">
-						<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+						<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
 						<p>Starting from: ₱ 2000</p>
@@ -104,7 +104,7 @@
 				
 					<div class="card" >
 						<a href="RoomReserve.php">
-							<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+							<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 							<center><h4>Rare Hotel</h4></center>
 							<p>Location: Bohol</p>
 							<p>Starting from: ₱ 2000</p>
