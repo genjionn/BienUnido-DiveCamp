@@ -28,7 +28,7 @@
 			</div>
 			<ul>
 				<li>
-					<a href="User_HomePage.html">
+					<a href="User_HomePage.php">
 						<i class="fa fa-desktop" aria-hidden="true"></i>
 						<span>Dashboard</span>
 					</a>
@@ -40,25 +40,25 @@
 					</a>
 				</li>
 				<li>
-					<a href="User_ContactUs.html">
+					<a href="User_ContactUs.php">
 						<i class="fa fa-message" aria-hidden="true"></i>
 						<span>Contact us</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_About.html">
+					<a href="User_About.php">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 						<span>About</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_Profile.html">
+					<a href="User_Profile.php">
 						<i class="fa fa-user" aria-hidden="true"></i>
 						<span>Profile</span>
 					</a>
 				</li>
 				<li>
-					<a href="LandingPage.html">
+					<a href="LandingPage.php">
 						<i class="fa fa-power-off" aria-hidden="true"></i>
 						<span>Logout</span>
 					</a>

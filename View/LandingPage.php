@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="LandingPage.css"/>
+	<link rel="stylesheet" type="text/css" href="css/LandingPage.css"/>
 	<title>DiveCamp</title>
 </head>
 <body>
@@ -22,8 +22,8 @@
 			<h2>New here?</h2>
 			<p>Signup and discover great experience and be more relaxed<br> here in Dive<b class="camp">Camp</b> resort.</p>
 			<div>
-				<a href="UserLogin.html"><button type="button">Login</button></a>
-				<a href="RegistrationPage.html"><button type="button">Signup</button></a>
+				<a href="UserLogin.php"><button type="button">Login</button></a>
+				<a href="RegistrationPage.php"><button type="button">Signup</button></a>
 			</div>
 		</div>
 		
