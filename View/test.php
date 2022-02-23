@@ -34,31 +34,31 @@
 					</a>
 				</li>
 				<li>
-					<a href="User_Reservation.html">
+					<a href="User_Reservation.php">
 						<i class="fa fa-book" aria-hidden="true"></i>
 						<span>Reservation</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_ContactUs.html">
+					<a href="User_ContactUs.php">
 						<i class="fa fa-message" aria-hidden="true"></i>
 						<span>Contact us</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_About.html">
+					<a href="User_About.php">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 						<span>About</span>
 					</a>
 				</li>
 				<li>
-					<a href="User_Profile.html">
+					<a href="User_Profile.php">
 						<i class="fa fa-user" aria-hidden="true"></i>
 						<span>Profile</span>
 					</a>
 				</li>
 				<li>
-					<a href="LandingPage.html">
+					<a href="LandingPage.php">
 						<i class="fa fa-power-off" aria-hidden="true"></i>
 						<span>Logout</span>
 					</a>
@@ -72,7 +72,7 @@
 
 			<div class="cardGrid">
 				<div class="card" >
-					<a href="RoomReserve.html">
+					<a href="RoomReserve.php">
 						<img src="hotel.jpg" alt="Avatar" style="width:10%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
@@ -82,7 +82,7 @@
 				</div>
 
 				<div class="card" >
-					<a href="RoomReserve.html">
+					<a href="RoomReserve.php">
 						<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="card" >
-					<a href="RoomReserve.html">
+					<a href="RoomReserve.php">
 						<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 						<center><h4>Rare Hotel</h4></center>
 						<p>Location: Bohol</p>
@@ -103,7 +103,7 @@
 
 				
 					<div class="card" >
-						<a href="RoomReserve.html">
+						<a href="RoomReserve.php">
 							<img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 							<center><h4>Rare Hotel</h4></center>
 							<p>Location: Bohol</p>

@@ -3,7 +3,7 @@
 <head>
 	<title>DiveCamp-Reservation</title>
 
-    <link rel="stylesheet" href="User_Reservation.css">
+    <link rel="stylesheet" href="css/User_Reservation.css">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -36,12 +36,12 @@
 					<img src="dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
-				 <li class="item"><a href="User_HomePage.html" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="User_Reservation.html" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="User_ContactUs.html" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="User_About.html" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="User_Profile.html" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="UserLogin.html" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				 <li class="item"><a href="User_HomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				 <li class="item" id="reservation"><a href="User_Reservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				 <li class="item" id="contact-us"><a href="User_ContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				 <li class="item" id="about"><a href="User_About.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				 <li class="item" id="profile"><a href="User_Profile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				 <li class="item" id="logout"><a href="UserLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
  
@@ -52,7 +52,7 @@
 		 <br>
 		 <div class="cardGrid">
 			 <div class="card" >
-				 <a href="RoomReserve.html">
+				 <a href="RoomReserve.php">
 					 <img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -62,7 +62,7 @@
 			 </div>
  
 			 <div class="card" >
-				 <a href="RoomReserve.html">
+				 <a href="RoomReserve.php">
 					 <img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -72,7 +72,7 @@
 			 </div>
  
 			 <div class="card" >
-				 <a href="RoomReserve.html">
+				 <a href="RoomReserve.php">
 					 <img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -81,7 +81,7 @@
 				 </a>
 			 </div>
 			 <div class="card" >
-				 <a href="RoomReserve.html">
+				 <a href="RoomReserve.php">
 					 <img src="hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
