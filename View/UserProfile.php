@@ -45,7 +45,39 @@
 			</div>
 		</div>
  
-		<div class="main-container">WELCOME TO PROFILE</div>
+		<div class="main-container">
+		<div class="grid">
+				<div id="item-1">
+					<img src="img/dc.jpg" alt="profile"><br>
+					<h3>Kyle Autida</h3>
+					<input type="file" id="file" accept="images/*" style="display: none;">
+					<center><label for="file">Edit Profile</label></center><br>
+				</div>
+				<div id="acc-info">
+					<h3>Account Information</h3>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>First name</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="First name"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>Last name</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Last name"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>Email Address</label>
+					<input type="email" placeholder="Email Address"><br>
+				</div>
+
+				<div id="pass-info">
+					<h3>Change Password</h3>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>Current Password</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Current Password"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>New Password</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="New Password"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label>Confirm Password</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Confirm Password"><br>
+				</div>
+				<div id="btn"><br>
+					<button class="cancel">Cancel</button>
+					<button class="save" type="submit">Save</button>
+				</div>
+			</div>
+		</div>
 		
 	</div>
  </body>
