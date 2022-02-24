@@ -18,13 +18,16 @@
   <body>
     <h1 class="u-name">DIVE<b> CAMP</b></h1> 
     <div class="container">
-        <form action="#">
+        <form action="../Model/UserLoginForm.php" method="POST">
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Login</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
+                            <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?></p>
+                            <?php } ?>
                             <input type="email" name="email" id="email" placeholder="Email Address" required>
                         </div>
                         <div class="input-box">
