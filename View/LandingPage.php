@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/LandingPage.css"/>
+<link rel="stylesheet" type="text/css" href="css/LandingPage.css?v=<?php echo time(); ?>" />
 	<title>DiveCamp</title>
 </head>
 <body>
