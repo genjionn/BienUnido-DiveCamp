@@ -1,3 +1,46 @@
+<?php
+include '../Controller/db_conn.php';
+
+error_reporting(0); //Hides undefined values in the textbox
+session_start();
+
+if (isset($_SESSION['email'])) { //If user Changes the URL or press back ReEnter Page will apear instead of the Page itself
+    header("Location: UserHomePage.php");
+}
+
+if (isset($_POST['submit'])) { //Model
+	$firstname = $_POST['firstname'];
+	$lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+	$password = $_POST['password'];
+	$confirmpassword = $_POST['confirmpassword'];
+
+	if ($password == $confirmpassword) { //Checks if password and confirm password is equal
+		$sql = "SELECT * FROM users WHERE email='$email'";
+		$result = mysqli_query($conn, $sql);
+		if (!$result->num_rows > 0) { //If email doesnt exist creates a user
+			$sql = "INSERT INTO users (firstname, lastname, email, password)
+					VALUES ('$firstname', '$lastname', '$email', '$password')";
+			$result = mysqli_query($conn, $sql);
+			if ($result) { //After Registering popup success msg and empty textbox
+				echo "<script>alert('User Successfully Registered.')</script>";
+				$firstname = "";
+                $lastname = "";
+				$email = "";
+				$_POST['password'] = "";
+				$_POST['confirmpassword'] = "";
+			} else { 
+				echo "<script>alert('Something went wrong.')</script>";
+			}
+		} else {
+			echo "<script>alert('Email Already Exists.')</script>";
+		}	
+	} else {
+		echo "<script>alert('Password Not Matched.')</script>";
+	}
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,63 +61,25 @@
   <body> 
     <h1 class="u-name">DIVE<b> CAMP</b></h1>    
     <div class="container">
-        <form action="../Model/UserRegistrationForm.php" method="POST">
+        <form action="" method="POST">
             <div class="form-content">
                 <div class="register-form">
                     <div class="title">Register</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
-                            <?php if (isset($_GET['error2'])) { ?>
-                            <p class="error"><?php echo $_GET['error2']; ?></p>
-                            <?php } ?>
-
-                            <?php if (isset($_GET['success2'])) { ?>
-                                <p class="success"><?php echo $_GET['success2']; ?></p>
-                            <?php } ?>
                             <!--FIRSTNAME-->
-                            <?php if (isset($_GET['firstname'])) { ?>
-                                <input type="text" 
-                                       name="firstname" 
-                                       id="firstname" 
-                                        placeholder="Firstname"
-                                       value="<?php echo $_GET['firstname']; ?>" 
-                                       required>
-                            <?php }else{ ?>
-                                <input id="firstname" 
-                                    type="text"
-                                    name="firstname"> 
-                            <?php }?>
+                            <input type="text" name="firstname" id="firstname" placeholder="Firstname" value="<?php echo $firstname;?>" required>
                         </div>
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
                             <!--LASTNAME-->
-                            <?php if (isset($_GET['lastname'])) { ?>
-                                <input type="text" 
-                                       name="Lastname" 
-                                       id="lastname" 
-                                       value="<?php echo $_GET['lastname']; ?>" 
-                                       required>
-                            <?php }else{ ?>
-                            <input id="lastname" 
-                                type="text" 
-                                name="lastname">
-                            <?php }?>
+                            <input type="text" name="lastname" id="lastname" placeholder="Lastname" value="<?php echo $lastname;?>" required>
                         </div>
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
                             <!--EMAIL-->
-                            <?php if (isset($_GET['email'])) { ?>
-                            <input type="email" 
-                                   name="email" 
-                                   id="email" 
-                                   value="<?php echo $_GET['email']; ?>" 
-                                   required>
-                            <?php }else{ ?>
-                                <input id="email" 
-                                    type="text" 
-                                    name="email">
-                            <?php }?>
+                            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email;?>" required>
                         </div>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
@@ -84,10 +89,10 @@
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
                             <!--RE_PASSWORD-->
-                            <input type="password" name="ConfirmPassword" id="confirmPass" placeholder="Confirm your Password" required>
+                            <input type="password" name="confirmpassword" id="confirmPass" placeholder="Confirm your Password" required>
                         </div>
                         <div class="button input-box">
-                            <input type="submit" value="Register">
+                            <input name="submit" type="submit" value="Register">
                         </div>
                         <div class="text reg-text">Already have an account? <a href="UserLogin.php"><label>Login now</label></a></div>
                     </div>

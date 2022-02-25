@@ -1,3 +1,29 @@
+<?php
+include '../Controller/db_conn.php';
+
+session_start();
+error_reporting(0);
+
+if (isset($_SESSION['email'])) {
+    header("Location: UserHomePage.php");
+}
+
+if (isset($_POST['submit'])) {
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+
+	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'"; //query
+	$result = mysqli_query($conn, $sql);
+	if ($result->num_rows > 0) {
+		$row = mysqli_fetch_assoc($result); //Fetching from query if data exist
+		$_SESSION['email'] = $row['email'];
+		header("Location: UserHomePage.php");
+	} else {
+		echo "<script>alert('Credentials are Invalid.')</script>";
+	}
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,17 +44,14 @@
   <body>
     <h1 class="u-name">DIVE<b> CAMP</b></h1> 
     <div class="container">
-        <form action="../Model/UserLoginForm.php" method="POST">
+        <form action="" method="POST">
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Login</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
-                            <?php if (isset($_GET['error'])) { ?>
-                            <p class="error"><?php echo $_GET['error']; ?></p>
-                            <?php } ?>
-                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                            <input type="email" name="email" id="email" placeholder="Email Address" value="<?php echo $email;?>" required>
                         </div>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
@@ -36,7 +59,7 @@
                         </div>
                         <div class="text"><a href="#">Forgot password?</a></div>
                         <div class="button input-box">
-                            <input type="submit" value="Login">
+                            <input name="submit" type="submit" value="Login">
                         </div>
                         <div class="text login-text">Don't have an account? <a href="RegistrationPage.php"><label>Signup now</label></a></div>
                     </div>
