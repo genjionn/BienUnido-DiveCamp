@@ -1,4 +1,4 @@
-*{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
+/* *{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
 body{ background: #fff; }
 .wrapper .header{ z-index: 1; background: #004F5D; position: fixed; width: calc(100% - 0%); height: 70px; display: flex; top: 0;}
 .wrapper .header .header-menu{ width: calc(100% - 0%); height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;}
@@ -18,7 +18,6 @@ body{ background: #fff; }
 .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{ color: #000; background: #D4A91C; }
 .wrapper .sidebar .sidebar-menu .item .menu-btn i{ margin: 20px;} 
 .wrapper .main-container{ width: (100% - 250px); margin-top: 70px; margin-left: 250px; padding: 15px; background-size: cover; height: 100vh; transition: 0.3s;}
-/* */
 .grid { display: grid; width: 100%; border-radius: 10px; box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); -webkit-box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); -moz-box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); grid-template-rows:  1fr 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; padding: 35px 15px; gap: 0px; height: 595px;}  
 #acc-info{ position: relative; left: 20px; grid-row-start: 2; grid-column-start: 1; grid-row-end: 3; grid-column-end: 4; width: 450px;}
 input{ width: 270px; border: 1px solid; margin: 5px; border-radius: 10px; padding: 10px 10px;}
@@ -32,4 +31,4 @@ input{ width: 270px; border: 1px solid; margin: 5px; border-radius: 10px; paddin
 button{ margin: 10px;}
 .cancel:hover{ background-color: darkred;}
 .save:hover{ background-color: darkblue;}
- 
+  */

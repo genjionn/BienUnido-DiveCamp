@@ -1,4 +1,4 @@
-*, *:before, *:after{
+/* *, *:before, *:after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -108,4 +108,4 @@ button:hover{
     margin: 20px auto;
     font-weight: 100;
     line-height: 35px;
-}
+} */

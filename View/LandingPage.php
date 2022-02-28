@@ -1,7 +1,28 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/LandingPage.css?v=<?php echo time(); ?>" />
+<style>
+	*, *:before, *:after{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+	p{font-size:24px;}
+	button{font-size:18px;width:200px;padding:15px 0;text-align:center;margin:20px 10px;border-radius:25px;font-weight:bold;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer;}
+	button:hover{background-color:#FFE9A3;color:#000;}
+	.cover{width:100%;height:100%;background-image:linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("img/bg.jpg");background-size:cover;background-position:center;}
+	.u-name{width:120px;cursor:pointer;font-size:26px;color:#FFE9A3;}
+	.u-name b{color:#004F5D;}
+	.navbar{width:85%;margin:auto;padding:15px;display:flex;align-items:center;justify-content:space-between;}
+	.navbar ul li{list-style:none;display:inline-block;margin:0 20px;position:relative;}
+	.navbar ul li:hover{padding:10px 0px;color:#000;background:transparent;}
+	.navbar ul li a{text-decoration:none;color:#fff;text-transform:uppercase;}
+	.navbar ul li::after{content:'';height:2px;width:100%;background:#fff;position:absolute;left:0;bottom:-10px;transition:0.5s;}
+	.navbar ul li:hover::after{background:#D4891C;}
+	.content{width:100%;position:absolute;top:50%;transform:translateY(-50%);text-align:center;color:#fff;}
+	.content h1{font-size:50px;margin-top:80px;}
+	.content h1 b{color:#fff;}
+	.content h1 .website-txt{color:#fff;}
+	.content h2{color:#fff;font-size:25px;}
+	.content .camp{color:#fff;}
+	.content p{font-size:18px;color:lightgray;margin:20px auto;font-weight:100;line-height:35px;}
+</style>
 	<title>DiveCamp</title>
 </head>
 <body>

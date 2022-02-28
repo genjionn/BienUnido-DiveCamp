@@ -1,4 +1,4 @@
-*{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
+/* *{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
 body{ background: #fff; }
 .wrapper .header{ z-index: 1; background: #004F5D; position: fixed; width: calc(100% - 0%); height: 70px; display: flex; top: 0;}
 .wrapper .header .header-menu{ width: calc(100% - 0%); height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;}
@@ -17,4 +17,4 @@ body{ background: #fff; }
 .wrapper .sidebar .sidebar-menu .item .menu-btn{ display: block; color: #fff; position: relative; padding: 10px 20px; transition: 0.3s; transition-property: color;}
 .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{ color: #000; background: #D4A91C; }
 .wrapper .sidebar .sidebar-menu .item .menu-btn i{ margin: 20px;} 
-.wrapper .main-container{ width: (100% - 250px); margin-top: 70px; margin-left: 250px; padding: 15px; background-size: cover; height: 100vh; transition: 0.3s;}
+.wrapper .main-container{ width: (100% - 250px); margin-top: 70px; margin-left: 250px; padding: 15px; background-size: cover; height: 100vh; transition: 0.3s;} */
