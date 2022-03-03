@@ -23,6 +23,8 @@
 		.wrapper .sidebar .sidebar-menu .item .menu-btn{display:block;color:#000;position:relative;padding:10px 20px;transition:0.3s;transition-property:color;}
 		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{color:#fff;background:#004F5D;}
 		.wrapper .sidebar .sidebar-menu .item .menu-btn i{margin:20px;}
+		.wrapper #hide-sidebar{display: none;}
+		/* Card */
 		.wrapper .main-container{width:(100% - 250px);margin-top:70px;margin-left:250px;padding:15px;background-size:cover;height:100vh;transition:0.3s;}
 		.card{padding:15px 15px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);border-radius:25px;transition:0.2s;float:left;width:40%;margin:0px 15px 30px 15px;height:420px;}
 		.main-container h1{text-align:center;}
@@ -34,6 +36,11 @@
 		.cardGrid{background-position:center;display:flex;justify-content:center;align-items:center;}
 		.previous{color:black;}
 		.next{color:black;}
+		/* Modal */
+		.main-modal-container .modal-container{position: relative; bottom: 115%; width: 100%; height: 95%; background:#004F5D; border-radius: 15px; display: none;}
+		.main-modal-container .modal-container .modal-header{ background: #E1A84B; width: 100%; margin: 0; border-radius: 15px 15px 0 0;}
+		.main-modal-container .modal-container .modal-header h2{text-align: center; }
+		.close {position: relative; font-size: 18px; left: 1025px;background: none;color:#000; cursor: pointer;text-decoration: none; padding: 10px 10px;margin: 0;}
 	</style>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,8 +88,8 @@
 		 </h1>
 		 <br>
 		 <div class="cardGrid">
-			 <div class="card" >
-				 <a href="RoomReserve.php">
+			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+				 <a href="#modal">
 					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -91,8 +98,8 @@
 				 </a>
 			 </div>
  
-			 <div class="card" >
-				 <a href="RoomReserve.php">
+			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+				 <a href="#modal">
 					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -101,8 +108,8 @@
 				 </a>
 			 </div>
  
-			 <div class="card" >
-				 <a href="RoomReserve.php">
+			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+				 <a href="#modal">
 					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -110,8 +117,8 @@
 					 <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
 				 </a>
 			 </div>
-			 <div class="card" >
-				 <a href="RoomReserve.php">
+			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+				 <a href="#modal">
 					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
 					 <center><h4>Rare Hotel</h4></center>
 					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
@@ -126,6 +133,14 @@
 				 <a href="#" class="next">Next &raquo;</a>
 			 </center>
 		 </div>
+		</div>
+		<div class="main-modal-container">
+			<div id="modal" class="modal-container">
+				<div class="modal-header">
+					<i class="close fa fa-circle-xmark" onclick="document.getElementById('modal').style.display='none'"></i>
+					<h2>Room Reservation</h2><br>
+				</div>
+			</div>
 		</div>
 	</div>
  </body>
