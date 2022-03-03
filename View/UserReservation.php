@@ -37,9 +37,9 @@
 		.previous{color:black;}
 		.next{color:black;}
 		/* Modal */
-		.main-modal-container .modal-container{position: relative; bottom: 115%; width: 100%; height: 95%; background:#004F5D; border-radius: 15px; display: none;}
-		.main-modal-container .modal-container .modal-header{ background: #E1A84B; width: 100%; margin: 0; border-radius: 15px 15px 0 0;}
-		.main-modal-container .modal-container .modal-header h2{text-align: center; }
+		.main-container .modal-container{position: relative; bottom: 115%; width: 100%; height: 95%; background:#004F5D; border-radius: 15px; display: none;}
+		.main-container .modal-container .modal-header{ background: #E1A84B; width: 100%; margin: 0; border-radius: 15px 15px 0 0;}
+		.main-container .modal-container .modal-header h2{text-align: center; }
 		.close {position: relative; font-size: 18px; left: 1025px;background: none;color:#000; cursor: pointer;text-decoration: none; padding: 10px 10px;margin: 0;}
 	</style>
 
@@ -134,7 +134,7 @@
 			 </center>
 		 </div>
 		</div>
-		<div class="main-modal-container">
+		<div class="main-container">
 			<div id="modal" class="modal-container">
 				<div class="modal-header">
 					<i class="close fa fa-circle-xmark" onclick="document.getElementById('modal').style.display='none'"></i>
