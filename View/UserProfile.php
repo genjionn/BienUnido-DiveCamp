@@ -25,27 +25,42 @@
 		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{color:#fff;background:#004F5D;}
 		.wrapper .sidebar .sidebar-menu .item .menu-btn i{margin:20px;}
 		.wrapper .main-container{width:(100% - 250px);margin-top:70px;margin-left:250px;padding:15px;background-size:cover;height:100vh;transition:0.3s;}
-		.grid{display:grid;width:100%;border-radius:10px;box-shadow:3px 3px 33px -2px rgba(0,0,0,0.41);-webkit-box-shadow:3px 3px 33px -2px rgba(0,0,0,0.41);-moz-box-shadow:3px 3px 33px -2px rgba(0,0,0,0.41);grid-template-rows:1fr 1fr 1fr 1fr 1fr;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;padding:35px 15px;gap:0px;height:595px;}
-		#acc-info{position:relative;left:20px;grid-row-start:2;grid-column-start:1;grid-row-end:3;grid-column-end:4;width:450px;}
-		input{width:270px;border:1px solid;margin:5px;border-radius:10px;padding:10px 10px;}
-		#item-1{grid-row-start:1;grid-column-start:4;grid-row-end:2;grid-column-end:5;}
-		#item-1 img{display:flex;border:5px solid #004F5D;border-radius:50px;width:150px;height:150px;}
-		#item-1 h3{text-align:center;}
-		#pass-info{position:relative;right:60px;grid-row-start:2;grid-column-start:5;grid-row-end:3;grid-column-end:8;width:480px;}
-		#btn{position:relative;left:365px;grid-row-start:3;grid-column-start:1;grid-row-end:4;grid-column-end:4;width:350px;}
-		.cancel{font-size:16px;color:white;background-color:red;border:1px solid darkred;border-radius:10px;width:150px;padding:10px 15px;}
-		.save{font-size:16px;color:white;background-color:blue;border:1px solid darkblue;border-radius:10px;width:150px;padding:10px 15px;}
-		button{margin:10px;}
-		.cancel:hover{background-color:darkred;}
-		.save:hover{background-color:darkblue;}
-	</style>
+		/* Profile */
+		.main-container{background:#fff;}
+		.main-container .profile-grid{display:flex;height: auto;width:100%;padding: 20px 20px;background: #fff;border-radius:15px;box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);-webkit-box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);-moz-box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);}
+		.main-container .profile-grid img{display: block;width: 100px;height: 100px;border-radius: 100px;}
+		.main-container .profile-grid .u-info{padding: 15px 20px;display: inline-block;}
+		.main-container .profile-grid .u-info label{border: 1px solid #004F5D;border-radius: 100px;width: 150px;text-align:center;padding: 0 5px;}
+		.main-container .profile-grid .u-info i{font-size: 12px;}
+		.main-container .profile-grid input{display:none;}
+		.main-container .profile-info{display:block;height: auto;width:100%;padding: 20px 20px;background: #fff;border-top-right-radius: 15px;border-top-left-radius: 15px;box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);-webkit-box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);-moz-box-shadow: -2px 0px 21px 1px rgba(0,0,0,0.56);}
+		input[type=text], select, textarea {width: 100%;padding: 12px;border: 1px solid #004F5D;border-radius: 15px;resize: vertical;}
+		input[type=email], select, textarea {width: 100%;padding: 12px;border: 1px solid #004F5D;border-radius: 15px;resize: vertical;}
+		input[type=password], select, textarea {width: 100%;padding: 12px;border: 1px solid #004F5D;border-radius: 15px;resize: vertical;}
+		label {padding: 12px 12px 12px 0;display: inline-block;}
+		input[type=submit] {width: 100px;margin: 5px;background-color: blue;color: white;padding: 15px 20px;border: 1px solid darkblue;border-radius: 15px;cursor: pointer;float: right;}
+		input[type=button] {width: 100px;margin: 5px;background-color: red;color: white;padding: 15px 20px;border: 1px solid darkred;border-radius: 15px;cursor: pointer;float: right;}
+		input[type=button]:hover {background-color: darkred;}
+		input[type=submit]:hover {background-color: darkblue;}
+		.profile-info form {border-top-right-radius: 15px;border-top-left-radius: 15px;background-color: #f2f2f2;padding: 20px;}
+		.col-25 {font-size: 14px;float: left;width: 15%;margin-top: 6px;margin-left: 50px;}
+		.col-75 {float: left;width: 70%;margin-top: 10px;}
+		.row:after {content: "";display: table;clear: both;}
+
+		@media screen and (max-width: 600px) {.col-25, .col-75, input[type=submit], input[type=button],input[type=text] {font-size: 12px;width: 100px;height: 50px;margin-top: 0;}body h3{font-size:14px;}
+		.main-container .profile-grid{width: 100%;margin-top: 0;}
+		.main-container .profile-grid img{width: 50px;height:50px;margin-top: 0;}
+		.main-container .profile-grid .u-info h2{font-size: 12px;}
+		.main-container .profile-grid .u-info label{border-width:1px;font-size: 10px;width: 100%;margin-top: 0;}}
+		/* Media queries */
+</style>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
 
 	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
-	
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="header">
@@ -53,67 +68,105 @@
 				<div class="title">Dive <span>Camp</span></div>
 				<div class="sidebar-btn">
 				 <input type="checkbox" name="hide-sidebar" id="hide-sidebar" value="true" />
-					 <label for="hide-sidebar">
-						 <i id="navbtn" class="fa-solid fa-bars" aria-hidden="true"></i>
-					 </label>
+					<label for="hide-sidebar">
+						<i id="navbtn" class="fa-solid fa-bars" aria-hidden="true"></i>
+					</label>
 				</div>
-				 <ul>
-					 <li><a href="#"><i class="fas fa-desktop"></i></a></li>
-					 <li><a href="#"><i class="fas fa-book"></i></a></li>
-					 <li><a href="#"><i class="fas fa-power-off"></i></a></li>
+				<ul>
+					<li><a href="#"><i class="fas fa-desktop"></i></a></li>
+					<li><a href="#"><i class="fas fa-book"></i></a></li>
+					<li><a href="#"><i class="fas fa-power-off"></i></a></li>
 				 </ul>
 			</div>
 		</div>
- 
 		<div class="sidebar">
 			<div class="sidebar-menu">
-				 <center class="profile">
+				<center class="profile">
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
-				 </center>
-				 <li class="item"><a href="UserHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="UserReservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="UserContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="UserAbout.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="UserProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="UserLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				</center>
+				<li class="item"><a href="UserHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				<li class="item" id="reservation"><a href="UserReservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				<li class="item" id="contact-us"><a href="UserContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				<li class="item" id="about"><a href="UserAbout.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				<li class="item" id="profile"><a href="UserProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				<li class="item" id="logout"><a href="UserLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
- 
 		<div class="main-container">
-		<div class="grid">
-				<div id="item-1">
-					<img src="img/dc.jpg" alt="profile"><br>
-					<h3>Kyle Autida</h3>
-					<input type="file" id="file" accept="images/*" style="display: none;">
-					<center><label for="file">Edit Profile</label></center><br>
-				</div>
-				<div id="acc-info">
-					<h3>Account Information</h3>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>First name</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="First name"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Last name</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Last name"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Email Address</label>
-					<input type="email" placeholder="Email Address"><br>
-				</div>
-
-				<div id="pass-info">
-					<h3>Change Password</h3>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Current Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Current Password"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>New Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="New Password"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Confirm Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Confirm Password"><br>
-				</div>
-				<div id="btn"><br>
-					<button class="cancel">Cancel</button>
-					<button class="save" type="submit">Save</button>
+			<div class="profile-grid">
+				<img src="img/dc.jpg" alt="">
+				<div class="u-info">
+					<h2>Profile Picture</h2>
+					<input type="file" id="file">
+					<label for="file">Edit Profile</label><br>
+					<i>Acceptable formats: .jpg and .png only</i>
 				</div>
 			</div>
+			<br>
+			<div class="profile-info">
+				<form action="#">
+					<!-- Account Information -->
+					<div class="row">
+						<h3>Account Information</h3>
+						<div class="col-25">
+							<label for="fname">First Name</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">Last Name</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">Email Address</label>
+						</div>
+						<div class="col-75">
+							<input type="email" id="email" name="email" placeholder="Your email address..">
+						</div>
+					</div>
+					<br>
+					<!-- Password Information -->
+					<div class="row">
+						<h3>Password Information</h3>
+						<div class="col-25">
+							<label for="fname">Current Password</label>
+						</div>
+						<div class="col-75">
+							<input type="password" id="current-pass" name="current-pass" placeholder="Your current password..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">New Password</label>
+						</div>
+						<div class="col-75">
+							<input type="password" id="new-password" name="new-password" placeholder="Your new password..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">Confirm Password</label>
+						</div>
+						<div class="col-75">
+							<input type="password" id="confirm-pass" name="confirm-pass" placeholder="Confirm your pasasword..">
+						</div>
+					</div>
+					<br>
+					<div class="row">
+					<input type="submit" value="Save">
+						<input type="button" value="Cancel">		
+					</div>
+ 				</form>
+			</div>
 		</div>
-		
 	</div>
- </body>
+</body>
 </html>
