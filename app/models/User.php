@@ -1,0 +1,52 @@
+<?php 
+    class User{
+        private $db;
+
+        public function __construct(){
+            $this->db = new Database; //Instantiate Database
+        }
+
+        public function register($data){
+            $this->db->query('INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)');
+            //Bind Values
+            $this->db->bind(':firstname', $data['firstname']);
+            $this->db->bind(':lastname', $data['lastname']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            //when it word execute this function
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function login($email, $password){
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            //bind value
+            $this->db->bind(':email', $email);
+            $row = $this->db->single();
+            //$hashedPassword = !empty($row) ? $row->password:'';
+            $hashedPassword = $row->password;
+            if(password_verify($password, $hashedPassword)){
+                return $row;
+            }else{
+                return false;
+            }
+        }
+
+        //find email. email passed in by the controller
+        public function findUserByEmail($email){
+            //prepared statement
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // email param will be binded w/ the email variable
+            $this->db->bind(':email', $email);
+            //check if email exist
+            if($this->db->rowCount() > 0){
+                return true;
+            } else{
+                return false;
+            }
+        }
+    }
+?>
