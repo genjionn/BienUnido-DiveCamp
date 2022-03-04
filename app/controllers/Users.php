@@ -31,7 +31,8 @@ class Users extends Controller{ //Takes care of the flow of the Users
                 'lastname' => trim($_POST['lastname']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
-                'confirmpassword' => trim($_POST['confirmpassword']) 
+                'confirmpassword' => trim($_POST['confirmpassword']),
+                'priviledge' => 'Regular'
             ];//Gamit sa trim kai tangtangon ang spaces.
 
             $nameValidation = "/^[a-zA-Z]*$/";
@@ -62,7 +63,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
             //Validate password on length and numeric values
             if(empty($data['password'])){
                 $data['passwordError'] = 'Please enter password';
-            } elseif(strlen($data['password'])<6){
+            } elseif(strlen($data['password'])<8){
                 $data['passwordError'] = 'Password is atleast 8 characters';
             } elseif(preg_match($passwordValidation, $data['password'])){
                 $data['passwordError'] = 'Password must have atleast one numberic value';
@@ -81,6 +82,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
             empty($data['confirmpasswordError'])){
                 //HASH PASSWORD para di makita ni misis
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                $data['password'] = $data['password'];
                 //Register user from model function kung wlai errors
                 if($this->userModel->register($data)){
                     header('location:' . URLROOT . '/users/login');
@@ -120,8 +122,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
             }
             //check if all errors are empty
             if(empty($data['emailError']) && empty($data['passwordError'])){
-                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-                
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);   
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
                 } else{
@@ -142,12 +143,16 @@ class Users extends Controller{ //Takes care of the flow of the Users
     public function createUserSession($user){ //basta mo login ang User kuhaon ni siya ang ID og Email
         $_SESSION['user_id'] = $user->id;
         $_SESSION['email'] = $user->email;
-        header('location:' . URLROOT . '/pages/index');
+        header('location:' . URLROOT . '/pages/dashboard');
     }
     public function logout(){
         unset($_SESSION['user_id']); //unset tong na set na session kai naa mn to naka stack na info silbi delete to.
         unset($_SESSION['email']);
-        header('location:' . URLROOT . '/users/login');
+        header('location:' . URLROOT); // Back sa Landing page
+    }
+
+    public function admin(){ //Wla pai admin login
+        $this->view('users/register', $data);
     }
 }
 

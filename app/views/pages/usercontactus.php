@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DiveCamp-Dashboard</title>
+	<title>DiveCamp-ContactUs</title>
 
     <style>
 		*{margin:0;padding:0;list-style:none;text-decoration:none;box-sizing:border-box;font-family:"Poppins",sans-serif;}
@@ -24,7 +24,7 @@
 		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{color:#fff;background:#004F5D;}
 		.wrapper .sidebar .sidebar-menu .item .menu-btn i{margin:20px;}
 		.wrapper .main-container{width:(100% - 250px);margin-top:70px;margin-left:250px;padding:15px;background-size:cover;height:100vh;transition:0.3s;}
-	</style><link rel="stylesheet" type="text/css" href="css/User_HomePage.css?v=<?php echo time(); ?>" />
+	</style>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
 	
 </head>
 <body>
-	
 	<div class="wrapper">
 		<div class="header">
 			<div class="header-menu">
@@ -58,16 +57,16 @@
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
-				 <li class="item"><a href="UserHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="UserReservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="UserContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="UserAbout.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="UserProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				 <li class="item"><a href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				 <li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				 <li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				 <li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				 <li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
 				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
  
-		<div class="main-container">WELCOME TO DASHBOARD</div>
+		<div class="main-container">WELCOME TO CONTACT US</div>
 		
 	</div>
  </body>

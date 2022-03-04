@@ -7,12 +7,13 @@
         }
 
         public function register($data){
-            $this->db->query('INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)');
+            $this->db->query('INSERT INTO users (firstname, lastname, email, password, priviledge) VALUES (:firstname, :lastname, :email, :password, :priviledge)');
             //Bind Values
             $this->db->bind(':firstname', $data['firstname']);
             $this->db->bind(':lastname', $data['lastname']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
+            $this->db->bind(':priviledge', $data['priviledge']);
             //when it word execute this function
             if($this->db->execute()){
                 return true;
@@ -26,11 +27,11 @@
             //bind value
             $this->db->bind(':email', $email);
             $row = $this->db->single();
-            //$hashedPassword = !empty($row) ? $row->password:'';
+            //$hashedPassword = !empty($row) ? $row->password'';
             $hashedPassword = $row->password;
-            if(password_verify($password, $hashedPassword)){
+            if (password_verify($password, $hashedPassword)) {
                 return $row;
-            }else{
+            } else {
                 return false;
             }
         }

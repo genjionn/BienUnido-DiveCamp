@@ -45,7 +45,7 @@
     <title>Login - DiveCamp Website</title>
 
   </head>
-  
+
   <body>
     <h1 class="u-name">DIVE<b> CAMP</b></h1> 
     <div class="container">

@@ -8,7 +8,7 @@
     //APPROOT
     define('APPROOT', dirname(dirname(__FILE__))); //dirname goes back to the previous folder kai lain ang directory
     //URLROOT Dynamic Link
-    define('URLROOT', 'http://localhost/divecamp_project');
+    define('URLROOT', 'http://localhost/BienUnido-DiveCamp');
     //Sitename
     define('SITENAME', 'DiveCamp');
 ?>
