@@ -1,0 +1,41 @@
+=== NGANO NAAY .htaccess FILES ===
+
+app/.htaccess na file (maka prevent sa local host maka access sa files sud sa app folders)
+sulod sa .htaccess:
+Options -Indexes   (Forbids anyone to access the app folder in localhost url/IF "-" replaced by "+" accessable balik)
+
+public/.htaccess na file (Rewrite module) reason naa ni siya kai if ever mo type lain ang user og URL
+basta naa sa sud sa public automatic ang index ang Iread dli siya mo read og lain php file.
+Example: URL gi type sa user kai: localhost/Divecamp_Project/public/contactUs.php (since wla mai file na contect.php mo ditso siya read sa index.php)
+
+Divecamp_Project/.htaccess na file (Core/Root link) reason naa ni siya para no need na mo type og /public sa URL
+Ditso na siya Folder name sa Divecamp. 
+Example: localhost/Divecamp_Project    (Ditso na access sa index)
+
+=== NGANO NAAY Core.php file ===
+
+Divecamp_Project/app/libraries/core.php
+iyaha ibreakdown ang URL to words isud niya sa array.
+If imo itype: http://localhost/DiveCamp_Project/Hotels/Rooms
+mo output ang Core.php file or mo execute automatically niya mo result: Array ( [0] => Hotels [1] => Rooms )
+
+.ucwords  <==  need ni siya para mo search sa words in capitalize .php files sud sa controller.
+(other code explaination in the Source Code)
+
+=== NGANO NAAY Controller.php sa libraries/Controller.php ===
+Mao ni mo load sa Model and View. 
+Controllers sud sa libraries naka extend ni sa Pages.php sud sa controllers folder. then si Controller.php
+loads the app/views folder then mo link sa Pages.php to search/load the index.php/about.php na file sud sa views folder.
+
+Pages.php sa controllers/Pages.php diri ilink ang data gikan sa index.
+
+=== NGANO NAAY config/config.php ===
+config.php ari ibutang ang details/information about sa pag link sa Database.
+Kani si APP root URL ni siya pdung sa: \xampp\htdocs\DiveCamp_Project\app naka shortcut key ning APPROOT para dli pag cgeh og type sa URL.
+kaning URLROOT Shortcut pdung sa localhost/Divecamp/Project
+
+
+
+
+
+
