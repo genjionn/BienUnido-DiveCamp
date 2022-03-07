@@ -24,6 +24,16 @@
 		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{color:#fff;background:#004F5D;}
 		.wrapper .sidebar .sidebar-menu .item .menu-btn i{margin:20px;}
 		.wrapper .main-container{width:(100% - 250px);margin-top:70px;margin-left:250px;padding:15px;background-size:cover;height:100vh;transition:0.3s;}
+		.about-picture{height: 150px; width: 150px; margin: 0 auto;margin-top: 15px;box-shadow: 5px 5px 10px gray;}
+		.card-dodong{padding: 10px;margin-top: 15px;max-height: 800px;height: 100%;transition:  0.35s;border: 1px solid gainsboro;box-shadow: 5px 5px 10px gainsboro;}
+		.card-dodong:hover{transform: translateY(-0.25em);}
+		.a-get{transition: 0.5s;}
+		.a-get:hover,.a-get:focus:hover{transform: translateY(-0.40em);}
+		@media (max-width:1200px ){
+		.about-picture{height: 100px;width: 100px;}
+		.card-dodong{font-size: 12px;height: 100%;}}
+ 		@media (max-width:768px) {
+     	.border-mid{display: none;}}
 	</style>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,16 +68,55 @@
 					<p>Profile</p>
 				 </center>
 				 <li class="item"><a href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				<li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				<li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				<li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				<li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				<li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
  
-		<div class="main-container">WELCOME TO ABOUT US</div>
-		
+		<div class="main-container">
+		<h4 class="display-4 text-center">THE TEAM</h4>
+		<hr>
+		<div class="container" >
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card card-dodong">
+						<div style="border-radius: 50%;" class="bg-image hover-overlay ripple about-picture" data-mdb-ripple-color="light">
+							<img src="{% static 'img/image1.jpg' %}"
+								class="img-fluid" height="100%"/>
+							<a href="#!">
+								<div class="mask" style="background: rgba(251, 251, 251, 0.15);"></div>
+							</a>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title text-center">John Philip Samson</h4>
+							<p class="card-text text-center"><strong>Front-end Developer</strong></p>
+							<p class="card-text text-md-left">
+							<b>Professional Goals:</b> <i>Web Developer</i> <br>
+							<b>Hobbies:</b> Playing Online Games, Basketball, Taking care of pets, Watching movies <br>
+							<b>Skills:</b> Listening, Communication, Adaptability skills <br>
+							<b>Areas of Expertise:</b> <i>Python, Wordpress, Html, Css, Java</i>
+							</p>
+						</div>
+						<hr>
+						<li class="nav-item me-3 me-lg-0 d-flex flex-row justify-content-center mb-2" style="list-style: none; text-align: center;">
+							<a class="nav-link a-get" href="https://www.facebook.com/EphilipsY" rel="nofollow"
+								target="_blank">
+								<i class="fab fa-facebook text-primary fa-2x"></i>
+							</a>
+							<a class="nav-link a-get" href="#" rel="nofollow">
+								<i class="fab fa-twitter text-primary fa-2x"></i>
+							</a>
+							<a class="nav-link a-get" href="https://github.com/EphilipsY" rel="nofollow">
+								<i class="fab fa-github text-dark fa-2x"></i>
+							</a>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</div>
  </body>
 </html>

@@ -87,12 +87,12 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				</center>
-				<li class="item"><a href="UserHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				<li class="item" id="reservation"><a href="UserReservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				<li class="item" id="contact-us"><a href="UserContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				<li class="item" id="about"><a href="UserAbout.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				<li class="item" id="profile"><a href="UserProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				<li class="item" id="logout"><a href="UserLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				<li class="item"><a href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				<li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				<li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				<li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				<li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				<li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
  
