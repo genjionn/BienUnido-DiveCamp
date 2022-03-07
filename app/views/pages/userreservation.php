@@ -37,10 +37,24 @@
 		.previous{color:black;}
 		.next{color:black;}
 		/* Modal */
-		.main-container .modal-container{position: relative; bottom: 115%; width: 100%; height: 95%; background:#004F5D; border-radius: 15px; display: none;}
-		.main-container .modal-container .modal-header{ background: #E1A84B; width: 100%; margin: 0; border-radius: 15px 15px 0 0;}
-		.main-container .modal-container .modal-header h2{text-align: center; }
-		.close {position: relative; font-size: 18px; left: 1025px;background: none;color:#000; cursor: pointer;text-decoration: none; padding: 10px 10px;margin: 0;}
+		#modal {left: 35%;margin: -250px 0 0 -32%;opacity: 0;position: absolute;top: -50%;visibility: hidden;width: 95%;box-shadow: 0 3px 7px rgba(0,0,0,.25);box-sizing: border-box;transition: all .4s ease-in-out;-moz-transition: all .4s ease-in-out;-webkit-transition: all .4s ease-in-out;}
+		#modal:target {opacity: 1;top: 50%;visibility: visible;}
+		#modal .modal-header {border-bottom: 1px solid #E1A84B;border-radius: 5px 5px 0 0}
+		#modal h2 {text-align: center;	margin: 0;color: #fff;}
+		#modal .btn { float: right; }
+		#modal .modal-body, #modal .modal-header {padding: 10px;color: #fff;}
+		.modal-content {background: #E1A84B;position: relative;z-index: 20;border-radius: 5px;color: #fff}
+		#modal .modal-body { background: #004F5D }
+		#modal .overlay {background-color: #000;background: rgba(0,0,0,.8);height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 10;}
+		.modal-body a {color: #fff;text-decoration: none;display: inline-block;padding: 5px 10px;border-radius: 5px;background-color: #E74C3C; }		
+		.column {
+  float: left;
+  width: 50%;
+  padding: 10px; /* Should be removed. Only for demonstration */
+}
+input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid #004F5D;border-radius: 15px;resize: vertical;}
+		input[type=number], select, textarea {width: 100%;padding: 12px;border: 1px solid #004F5D;border-radius: 15px;resize: vertical;}
+		label {padding: 12px 12px 12px 0;display: inline-block;}
 	</style>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,16 +83,16 @@
  
 		<div class="sidebar">
 			<div class="sidebar-menu">
-				 <center class="profile">
+				<center class="profile">
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
-				 </center>
-				 <li class="item"><a href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				</center>
+				<li class="item"><a href="UserHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				<li class="item" id="reservation"><a href="UserReservation.php" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
+				<li class="item" id="contact-us"><a href="UserContactUs.php" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
+				<li class="item" id="about"><a href="UserAbout.php" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
+				<li class="item" id="profile"><a href="UserProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				<li class="item" id="logout"><a href="UserLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
  
@@ -88,59 +102,101 @@
 		 </h1>
 		 <br>
 		 <div class="cardGrid">
-			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+			 <div class="card" >
 				 <a href="#modal">
-					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
-					 <center><h4>Rare Hotel</h4></center>
-					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
-					 <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
-					 <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
+					<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+					<center><h4>Rare Hotel</h4></center>
+					<p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bien Unido, Bohol</p>
+					<p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
+					<p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
 				 </a>
 			 </div>
  
-			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+			 <div class="card" >
 				 <a href="#modal">
-					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
-					 <center><h4>Rare Hotel</h4></center>
-					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
-					 <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
-					 <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
+					<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+					<center><h4>Rare Hotel</h4></center>
+					<p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bien Unido, Bohol</p>
+					<p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
+					<p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
 				 </a>
 			 </div>
  
-			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+			 <div class="card" >
 				 <a href="#modal">
-					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
-					 <center><h4>Rare Hotel</h4></center>
-					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
-					 <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
-					 <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
+					<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+					<center><h4>Rare Hotel</h4></center>
+					<p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bien Unido, Bohol</p>
+					<p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
+					<p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
 				 </a>
 			 </div>
-			 <div class="card" onclick="document.getElementById('modal').style.display='block'">
+			 <div class="card">
 				 <a href="#modal">
-					 <img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
-					 <center><h4>Rare Hotel</h4></center>
-					 <p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bohol</p>
-					 <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
-					 <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
+					<img src="img/hotel.jpg" alt="Avatar" style="width:100%;"	class="imgHotel">
+					<center><h4>Rare Hotel</h4></center>
+					<p><i class="fa fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Location: Bien Unido, Bohol</p>
+					<p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;Starting from: ₱ 2000</p>
+					<p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Ratings: 8/10</p>
 				 </a>
 			 </div>
 		 </div>
-		 <div>
-			 <center>
-				 <a href="#" class="previous">&laquo; Previous</a>
-				 <a href="#" class="next">Next &raquo;</a>
-			 </center>
-		 </div>
-		</div>
-		<div class="main-container">
-			<div id="modal" class="modal-container">
+		 <div id="modal">
+			<div class="modal-content">
 				<div class="modal-header">
-					<i class="close fa fa-circle-xmark" onclick="document.getElementById('modal').style.display='none'"></i>
-					<h2>Room Reservation</h2><br>
+					<h3>Room Reservation</h3>
 				</div>
+			<div class="modal-body">
+
+			<div class="column" style="background-color:#004F5D;">
+				<h3>Column 1</h3>
+				<p>Some text..</p>
 			</div>
+			<div class="column" style="background-color:#004F5D;">
+				
+					<div class="row">
+						<h2	>ROOM RESERVATION</h2>
+						<div class="col-25">
+							<label for="fname">Check-in Date</label>
+						</div>
+						<div class="col-75">
+							<input type="date" id="fname" name="firstname" placeholder="Your first name..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">Check-out Date</label>
+						</div>
+						<div class="col-75">
+							<input type="date" id="lname" name="lastname" placeholder="Your last name..">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="column">
+							<div class="col-25">
+								<label for="lname">Adult</label>
+							</div>
+							<div class="col-75">
+								<input type="number" min="0">
+							</div>
+						</div>
+						<div class="column">
+							<div class="col-25">
+								<label for="lname">Children (age 0-17)</label>
+							</div>
+							<div class="col-75">
+								<input type="number" min="0">
+							</div>
+						</div>
+					</div>
+
+			</div>
+
+				<a href="#" >Close</a> 
+			</div>
+		</div>
+		<div class="overlay"></div>
 		</div>
 	</div>
  </body>
