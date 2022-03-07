@@ -42,7 +42,6 @@
 			</div>
 		</div>
 		<div class="main-container">WELCOME TO DASHBOARD</div>
-		
 	</div>
  </body>
 </html>

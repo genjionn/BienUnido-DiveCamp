@@ -17,7 +17,6 @@
 				<li><a href="#">Foods</a></li>
 			</ul>
 		</div>
-
 		<div class="content">
 			<h1><b>Welcome</b> in our <b class="website-txt">website</b> </h1><br>
 			<h2>New here?</h2>
@@ -27,9 +26,6 @@
 				<a href="<?php echo URLROOT; ?>/users/register"><button type="button">Signup</button></a>
 			</div>
 		</div>
-		
 	</div>
-
 </body>
-
 </html>
