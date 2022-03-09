@@ -115,6 +115,8 @@ class Users extends Controller{ //Takes care of the flow of the Users
             //Validate email
             if(empty($data['email'])){
                 $data['emailError'] = 'Please Enter your email';
+            }else if(findUserbyEmail){
+
             }
             //Validate password
             if(empty($data['password'])){
@@ -152,7 +154,56 @@ class Users extends Controller{ //Takes care of the flow of the Users
     }
 
     public function admin(){ //Wla pai admin login
-        $this->view('users/register', $data);
+        $data = [
+            'title' => 'Admin Login page',
+            'email' => '',
+            'password' => '',
+            'emailError' => '',
+            'passwordError' => ''
+        ];
+        //Check for post
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'email' => trim($_POST['email']),
+                'password' => trim($_POST['password']),
+                'emailError' => '',
+                'passwordError' => ''
+            ];
+            //Validate email
+            if(empty($data['email'])){
+                $data['emailError'] = 'Please Enter your email';
+            }
+            //Validate password
+            if(empty($data['password'])){
+                $data['passwordError'] = 'Please Enter your password';
+            }
+
+            //check if all errors are empty
+            if(empty($data['emailError']) && empty($data['passwordError'])){
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);   
+                if($loggedInUser){
+                    $this->createAdminSession($loggedInUser);
+                } else{
+                    $data['passwordError'] = 'Credentials are incorrect';
+                    $this->view('users/login', $data);
+                }
+            }
+        } else{
+            $data = [
+                'email' => '', 
+                'password' => '',
+                'emailError' => '',
+                'passwordError' => ''
+            ];//empty ni if dli mo sulod.
+        }
+        $this->view('users/admin', $data); //search for the file
+    }
+    public function createAdminSession($user){ //basta mo login ang User kuhaon ni siya ang ID og Email
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['email'] = $user->email;
+        header('location:' . URLROOT . '/pages/adminhomepage');
     }
 }
 

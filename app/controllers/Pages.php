@@ -24,6 +24,9 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function profile(){
         $this->view('pages/userprofile');
     }
+    public function adminhome(){
+        $this->view('pages/adminhomepage');
+    }
 
 
 
