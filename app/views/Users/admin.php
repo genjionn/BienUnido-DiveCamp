@@ -22,7 +22,7 @@
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                            <input type="email" name="email" id="email" placeholder="Email Address" value="<?php echo $email;?>" required>
                         </div>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
@@ -32,7 +32,7 @@
                         <div class="button input-box">
                             <input name="submit" type="submit" value="Login">
                         </div>
-                        <div class="text login-text">Don't have an account? <a href="register"><label>Signup now</label></a></div>
+                        <div class="text login-text">Don't have an account? <a href="AdminRegister.php"><label>Signup now</label></a></div>
                     </div>
                 </div>
                 <div class="picture-form">        
