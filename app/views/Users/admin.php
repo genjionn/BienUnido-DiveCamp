@@ -13,6 +13,7 @@
         .container .cover img{ position: absolute; height: 100%; width: 100%; object-fit: cover; z-index: 12;}
         .container .form-content{ display: flex; align-items: center; justify-content: space-between;}
         .form-content .login-form,
+        .form-content .adminlogin-form,
         .form-content .signup-form{ width: calc(100% / 2 - 25px);}
         form .form-content .title{ position: relative; font-size: 26px; font-weight: 600; color: #333;}
         form .form-content .title::before{ content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 25px; background:#E3BF48;}
@@ -31,7 +32,7 @@
         form .form-content .login-text{ text-align: center; justify-content: center; margin-top: 25px;}
         form .text a{ color: #D4A91C;}
         .container #flip{ display: none;}
-        @media (max-width: 730px){ .container .cover{display:none;}.form-content .login-form,.form-content .picture-form{width: 100%;}.form-content .picture-form{display: none;}}
+        @media (max-width: 730px){ .container .cover{display:none;}.form-content .adminlogin-form,.form-content .picture-form{width: 100%;}.form-content .picture-form{display: none;}}
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,24 +49,30 @@
   <body>
     <h1 class="u-name">DIVE<b> CAMP</b></h1> 
     <div class="container">
-        <form action="" method="POST">
+        <form action="<?php echo URLROOT; ?>/users/admin" method="POST">
             <div class="form-content">
-                <div class="login-form">
-                    <div class="title">Login as Admin</div>
+                <div class="adminlogin-form">
+                    <div class="title">Login As Admin</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                            <input type="email" name="email" id="email" placeholder="Email *">
                         </div>
+                            <span class="invalidFeedback">
+                                <?php echo $data['emailError'];?>
+                            </span>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
-                            <input type="password" name="password" id="pass" placeholder="Password" required>
+                            <input type="password" name="password" id="pass" placeholder="Password *"> 
                         </div>
+                            <span class="invalidFeedback">
+                                <?php echo $data['passwordError'];?>
+                            </span>
                         <div class="text"><a href="#">Forgot password?</a></div>
                         <div class="button input-box">
                             <input name="submit" type="submit" value="Login">
                         </div>
-                        <div class="text login-text">Don't have an account? <a href="register"><label>Signup now</label></a></div>
+                        <div class="text login-text">Don't have an account? <a href="<?php echo URLROOT; ?>/users/register"><label>Signup now</label></a></div>
                     </div>
                 </div>
                 <div class="picture-form">        

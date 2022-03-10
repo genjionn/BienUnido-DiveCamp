@@ -23,17 +23,22 @@
         }
 
         public function login($email, $password){
-            $this->db->query('SELECT * FROM users WHERE email = :email');
-            //bind value
-            $this->db->bind(':email', $email);
-            $row = $this->db->single();
-            //$hashedPassword = !empty($row) ? $row->password'';
-            $hashedPassword = $row->password;
-            if (password_verify($password, $hashedPassword)) {
-                return $row;
-            } else {
-                return false;
+            try{
+                $this->db->query('SELECT * FROM users WHERE email = :email');
+                //bind value
+                $this->db->bind(':email', $email);
+                $row = $this->db->single();
+                //$hashedPassword = !empty($row) ? $row->password'';
+                $hashedPassword = $row->password;
+                if (password_verify($password, $hashedPassword)) {
+                    return $row;
+                } else {
+                    return false;
+                }
+            }catch(Exception $e){
+                print "Error";
             }
+            
         }
 
         //find email. email passed in by the controller

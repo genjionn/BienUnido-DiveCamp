@@ -115,9 +115,8 @@ class Users extends Controller{ //Takes care of the flow of the Users
             //Validate email
             if(empty($data['email'])){
                 $data['emailError'] = 'Please Enter your email';
-            }else if(findUserbyEmail){
-
             }
+            
             //Validate password
             if(empty($data['password'])){
                 $data['passwordError'] = 'Please Enter your password';
@@ -173,13 +172,22 @@ class Users extends Controller{ //Takes care of the flow of the Users
             ];
             //Validate email
             if(empty($data['email'])){
-                $data['emailError'] = 'Please Enter your email';
+                $data['emailError'] = 'Please enter your email';
             }
-            //Validate password
-            if(empty($data['password'])){
-                $data['passwordError'] = 'Please Enter your password';
+            
+            if(($this->userModel->findUserByEmail($data['email']))===true){
+                $data['emailError'] = 'Email does not exist';
             }
 
+            if(empty($data['password'])){
+                $data['passwordError'] = 'Please enter your password';
+            }
+            
+
+            else{
+                $data['emailError'] = '';
+            }
+            
             //check if all errors are empty
             if(empty($data['emailError']) && empty($data['passwordError'])){
                 $loggedInUser = $this->userModel->login($data['email'], $data['password']);   
@@ -187,7 +195,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
                     $this->createAdminSession($loggedInUser);
                 } else{
                     $data['passwordError'] = 'Credentials are incorrect';
-                    $this->view('users/login', $data);
+                    $this->view('users/admin', $data);
                 }
             }
         } else{
