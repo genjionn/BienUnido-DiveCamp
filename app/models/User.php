@@ -28,10 +28,14 @@
             $this->db->bind(':email', $email);
             $row = $this->db->single();
             //$hashedPassword = !empty($row) ? $row->password'';
-            $hashedPassword = $row->password;
-            if (password_verify($password, $hashedPassword)) {
-                return $row;
-            } else {
+            if($this->db->rowCount() > 0){
+                $hashedPassword = $row->password;
+                if (password_verify($password, $hashedPassword)) {
+                    return $row;
+                } else{
+                    return false;
+                }
+            } else{
                 return false;
             }
         }
