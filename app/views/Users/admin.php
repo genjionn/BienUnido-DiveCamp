@@ -72,7 +72,6 @@
                         <div class="button input-box">
                             <input name="submit" type="submit" value="Login">
                         </div>
-                        <div class="text login-text">Don't have an account? <a href="<?php echo URLROOT; ?>/users/register"><label>Signup now</label></a></div>
                     </div>
                 </div>
                 <div class="picture-form">        
