@@ -1,0 +1,6 @@
+
+app/controllers/Pages.php
+app/controllers/Users.php
+app/models/User.php
+app/views/pages/adminhomepage.php
+app/views/Users/admin.php

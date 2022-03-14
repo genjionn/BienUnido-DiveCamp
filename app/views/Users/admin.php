@@ -6,6 +6,7 @@
         body{ min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,79,93,1.00)),url("../img/bg.jpg"); background-size: cover; background-position: center;}
         .u-name { position: relative; right: 75px; bottom: 300px; width: 135px; cursor: pointer; font-size: 26px; color: #fff;}
         .u-name b { position: relative; bottom: 10px; color: #D4A91C;}
+        .invalidFeedback { color: #E41C1C; text-size: 12px; text-align: center; justify-content: center;}
         .container{ position: relative; max-width: 850px; width: 100%; padding: 10px 50px; background-color: whitesmoke; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); perspective: 2700px;}
         .container .cover{ position:absolute; top: 0; left: 60%; height: 100%; width: 40%; z-index: 98; background: #004F5D; transition: all 1s ease; transform-style: preserve-3d; transform-origin: left;}
         .container .cover h1{ position: relative; top: 180px;color: #D4A91C;}
@@ -59,7 +60,7 @@
                             <input type="email" name="email" id="email" placeholder="Email *">
                         </div>
                             <span class="invalidFeedback">
-                                <?php echo $data['emailError'];?>
+                                    <?php echo $data['emailError'];?>
                             </span>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
@@ -68,7 +69,7 @@
                             <span class="invalidFeedback">
                                 <?php echo $data['passwordError'];?>
                             </span>
-                        <div class="text"><a href="#">Forgot password?</a></div>
+                        <div class="text" style="margin-top: 10px"><a href="#">Forgot password?</a></div>
                         <div class="button input-box">
                             <input name="submit" type="submit" value="Login">
                         </div>

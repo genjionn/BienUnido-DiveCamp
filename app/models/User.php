@@ -53,5 +53,18 @@
                 return false;
             }
         }
+
+        public function checkPrivilege($email){
+            //prepared statement
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // email param will be binded w/ the email variable
+            $this->db->bind(':email', $email);
+            //check if email exist
+            if($this->db->rowCount() > 0){
+                return true;
+            } else{
+                return false;
+            }
+        }
     }
 ?>
