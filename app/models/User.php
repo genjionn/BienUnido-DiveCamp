@@ -28,16 +28,33 @@
             $this->db->bind(':email', $email);
             $row = $this->db->single();
             //$hashedPassword = !empty($row) ? $row->password'';
-            $hashedPassword = $row->password;
-            if (password_verify($password, $hashedPassword)) {
-                return $row;
-            } else {
+            if($this->db->rowCount() > 0){
+                $hashedPassword = $row->password;
+                if (password_verify($password, $hashedPassword)) {
+                    return $row;
+                } else{
+                    return false;
+                }
+            } else{
                 return false;
             }
         }
 
         //find email. email passed in by the controller
         public function findUserByEmail($email){
+            //prepared statement
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // email param will be binded w/ the email variable
+            $this->db->bind(':email', $email);
+            //check if email exist
+            if($this->db->rowCount() > 0){
+                return true;
+            } else{
+                return false;
+            }
+        }
+
+        public function checkPrivilege($email){
             //prepared statement
             $this->db->query('SELECT * FROM users WHERE email = :email');
             // email param will be binded w/ the email variable
