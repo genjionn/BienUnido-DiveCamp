@@ -30,7 +30,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmpassword' => trim($_POST['confirmpassword']),
-                'priviledge' => 'Regular'
+                'priviledge' => 'Admin'
             ];//Gamit sa trim kai tangtangon ang spaces.
             $nameValidation = "/^[a-zA-Z]*$/";
             $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
@@ -140,7 +140,9 @@ class Users extends Controller{ //Takes care of the flow of the Users
     public function createUserSession($user){ //basta mo login ang User kuhaon ni siya ang ID og Email
         $_SESSION['user_id'] = $user->id;
         $_SESSION['email'] = $user->email;
-        header('location:' . URLROOT . '/pages/dashboard');
+        $_SESSION['firstname'] = $user->firstname;
+        $_SESSION['lastname'] = $user->lastname;
+        header('location:' . URLROOT . '/pages/home');
     }
     public function logout(){
         unset($_SESSION['user_id']); //unset tong na set na session kai naa mn to naka stack na info silbi delete to.
@@ -201,6 +203,8 @@ class Users extends Controller{ //Takes care of the flow of the Users
     public function createAdminSession($user){ //basta mo login ang User kuhaon ni siya ang ID og Email
         $_SESSION['user_id'] = $user->id;
         $_SESSION['email'] = $user->email;
+        $_SESSION['firstname'] = $user->firstname;
+        $_SESSION['lastname'] = $user->lastname;
         header('location:' . URLROOT . '/pages/adminhomepage');
     }
 }

@@ -1,73 +1,169 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DiveCamp-Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Poppins'sans-serif;
+  font-size: 15px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 
-    <style>
-		*{margin:0;padding:0;list-style:none;text-decoration:none;box-sizing:border-box;font-family:"Poppins",sans-serif;}
-		body{background:#fff;}
-		.wrapper .header{z-index:1;background:#E1A84B;position:fixed;width:calc(100% - 0%);height:70px;display:flex;top:0;}
-		.wrapper .header .header-menu{width:calc(100% - 0%);height:100%;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
-		.wrapper .header .header-menu .title{color:white;font-size:25px;text-transform:uppercase;font-weight:800;}
-		.wrapper .header .header-menu .title span{color:#004F5D;}
-		.wrapper .header .header-menu .sidebar-btn{color:white;position:absolute;margin-left:210px;font-weight:800;cursor:pointer;transition:0.3s;transition-property:color;}
-		.wrapper .header .header-menu .sidebar-btn:hover{color:#004F5D;}
-		.wrapper .header .header-menu ul{display:flex;}
-		.wrapper .header .header-menu ul li a{background:#fff;color:#000;display:block;margin:0 10px;font-size:18px;width:34px;height:34px;line-height:35px;text-align:center;border-radius:50%;transition:0.3s;transition-property:background, color;}
-		.wrapper .header .header-menu ul li a:hover{background:#004F5D;color:#fff;}
-		.wrapper .sidebar{z-index:1;background:#E1A84B;position:fixed;top:70px;width:250px;height:calc(100% - 9%);transition:0.3s;transition-property:width;overflow-y:auto;}
-		.wrapper .sidebar .sidebar-menu{overflow:hidden;}
-		.wrapper .sidebar .sidebar-menu .profile img{margin:20px 0;width:100px;height:100px;border-radius:50%;}
-		.wrapper .sidebar .sidebar-menu .profile p{color:#000;font-weight:600;margin-bottom:10px;}
-		.wrapper .sidebar .sidebar-menu .item{width:250px;overflow:hidden;}
-		.wrapper .sidebar .sidebar-menu .item .menu-btn{display:block;color:#000;position:relative;padding:10px 20px;transition:0.3s;transition-property:color;}
-		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{color:#fff;background:#004F5D;}
-		.wrapper .sidebar .sidebar-menu .item .menu-btn i{margin:20px;}
-		.wrapper .main-container{width:(100% - 250px);margin-top:70px;margin-left:250px;padding:15px;background-size:cover;height:100vh;transition:0.3s;}
-	</style><link rel="stylesheet" type="text/css" href="css/User_HomePage.css?v=<?php echo time(); ?>" />
+.head {
+  display: inline-block;
+  margin-left: 25px;
+  font-size: 18px;
+  text-align: left;
+  padding: 40px 20px;
+}
+.head .logo{
+  color: #9dc88d;
+}
+.head .logo b{
+  color: #f1b24a;
+}
+/* sidebar */
+.sidebar {
 
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+  margin: 0; 
+  padding: 0px 0px;
+  width: 230px;
+  background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.sidebar .profile img{
+  margin: 20px;
+  height: 100px;
+  width: 100px;
+  border: 4px solid #164a41;
+  border-radius: 50px;
+}
+.sidebar b{
+  color: #fff;
+  float: center;
+}
+.sidebar .side-nav{
+  display: inline-block;
+  margin: 50px 0;
+}
+.sidebar .side-nav i{
+  border-radius: 50px;
+  border: 2px solid #f1b24a;
+  padding: 5px 5px;
+  background-color: #f1b24a;
+  color: #164a41;
+}
+.sidebar .side-nav a{
+  width: 230px;
+  display: block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .side-nav a:hover{
+  background:#fff;
+  padding: 10px 30px;
+  color: #164a41; 
+}
+.sidebar .side-nav i:hover{
+  background: #164a41;;
+  border: 2px solid #164a41;
+  color: #f1b24a; 
+}
+/* container */
+.container{
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+}
+.container .content{
+  line-height: 30px;
+  display: block;
+  height: auto;
+  width: auto;
+  margin-left: 240px;
+  padding: 5px 10px;
+}
+.container .content h1{
+  color: #164a41;
+  text-align: center;
+  width: auto;
+  background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 50px 0px;
+}
+/* media */
 
-	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
-	
+@media screen and (max-width: 600px) {
+  html{
+    overflow-x: hidden;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    font-size: 12px;
+  }
+  .sidebar .head{
+    margin-left: 50px;
+    font-size: 14px;
+  }
+  .sidebar .profile img{
+    height: 80px;
+    width: 80px;
+  }
+  .sidebar .side-nav a{
+    font-size: 12px;
+    width: 510px;
+  }
+  .container .content{
+      width: 95%;
+      margin: 2%;
+  }
+}
+</style>
 </head>
 <body>
-	<div class="wrapper">
-		<div class="header">
-			<div class="header-menu">
-				<div class="title">Dive <span>Camp</span></div>
-				<div class="sidebar-btn">
-				 <input type="checkbox" name="hide-sidebar" id="hide-sidebar" value="true" />
-					 <label for="hide-sidebar">
-						 <i id="navbtn" class="fa-solid fa-bars" aria-hidden="true"></i>
-					 </label>
-				</div>
-				 <ul>
-					 <li><a href="#"><i class="fas fa-desktop"></i></a></li>
-					 <li><a href="#"><i class="fas fa-book"></i></a></li>
-					 <li><a href="#"><i class="fas fa-power-off"></i></a></li>
-				 </ul>
-			</div>
-		</div>
- 
-		<div class="sidebar">
-			<div class="sidebar-menu">
-				 <center class="profile">
-					<img src="img/dc.jpg" alt="">
-					<p>Profile</p>
-				 </center>
-				 <li class="item"><a href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="reservation"><a href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fas fa-book"></i><span>Reservation</span></a></li>
-				 <li class="item" id="contact-us"><a href="<?php echo URLROOT; ?>/pages/contact" class="menu-btn"><i class="fas fa-message"></i><span>Contact us</span></a></li>
-				 <li class="item" id="about"><a href="<?php echo URLROOT; ?>/pages/about" class="menu-btn"><i class="fas fa-circle-info"></i><span>About us</span></a></li>
-				 <li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
-			</div>
-		</div>
- 
-		<div class="main-container">WELCOME TO DASHBOARD</div>
-		
-	</div>
- </body>
+  
+  <div class="sidebar">
+    <div class="head">
+      <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
+    </div>
+      <center class="profile"><br>
+        <img src="profile.jpg" alt=""><br>
+        <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
+      </center>
+      <div class="side-nav nav">
+        <a class="nav1"  href="<?php echo URLROOT; ?>/pages/home" class="menu-btn"><i class="fas fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
+        <a class="nav2" href="<?php echo URLROOT; ?>/pages/reservation" class="menu-btn"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Reservation</a><br>
+        <a class="nav3" href="<?php echo URLROOT; ?>/pages/profile" class="menu-btn"><i class="fa fa-user-circle"></i><span>&nbsp;&nbsp;</span> Profile</a><br>
+        <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
+      </div>  
+  </div>
+  <div class="container">
+    <div class="content">
+      <h1> Dashboard </h1><br>
+    </div>
+  </div>
+</body>
 </html>
+	

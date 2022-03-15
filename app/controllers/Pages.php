@@ -12,9 +12,6 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function home(){
         $this->view('pages/userhomepage');
     }
-    public function dashboard(){
-        $this->view('pages/dashboard');
-    }
     public function reservation(){
         $this->view('pages/userreservation');
     }
@@ -30,9 +27,8 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function adminprofile(){
         $this->view('pages/adminprofile');
     }
-
-
-
-
+    public function admincreateroom(){
+        $this->view('pages/admincreateroom');
+    }
 }
 ?>

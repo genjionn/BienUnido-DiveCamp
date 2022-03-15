@@ -153,16 +153,17 @@ html {
         <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
       </center>
       <div class="side-nav nav">
-        <a class="nav1" href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fa fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
-        <a class="nav2" href="<?php echo URLROOT; ?>/pages/admincreateroom"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Create Room</a><br>
+        <a class="nav1"  href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fas fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
+        <a class="nav2" href="<?php echo URLROOT; ?>/pages/admincreateroom" class="menu-btn"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Create Room</a><br>
         <a class="nav3" href="<?php echo URLROOT; ?>/pages/adminprofile" class="menu-btn"><i class="fa fa-user-circle"></i><span>&nbsp;&nbsp;</span> Profile</a><br>
         <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
       </div>  
   </div>
   <div class="container">
     <div class="content">
-      <h1> Dashboard </h1><br>
+      <h1> Create Room</h1><br>
     </div>
   </div>
 </body>
 </html>
+	
