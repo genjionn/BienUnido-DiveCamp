@@ -3,6 +3,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
     public function __construct(){
         $this->userModel = $this->model('User');
     }
+
     public function register(){
         $data = [
             'firstnameError' => '',
@@ -16,6 +17,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
             'password' => '',
             'confirmpassword' => ''
         ];
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters
@@ -32,6 +34,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
                 'confirmpassword' => trim($_POST['confirmpassword']),
                 'priviledge' => 'Admin'
             ];//Gamit sa trim kai tangtangon ang spaces.
+
             $nameValidation = "/^[a-zA-Z]*$/";
             $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
             //Validate firtname on letters
@@ -90,6 +93,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
         }
         $this->view('users/register', $data);
     }
+
     public function login(){
         $data = [
             'title' => 'Login page',
@@ -111,8 +115,9 @@ class Users extends Controller{ //Takes care of the flow of the Users
             //Validate email
             if(empty($data['email'])){
                 $data['emailError'] = 'Please Enter your email';
+            }else if(findUserbyEmail){
+
             }
-            
             //Validate password
             if(empty($data['password'])){
                 $data['passwordError'] = 'Please Enter your password';
@@ -149,6 +154,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
         unset($_SESSION['email']);
         header('location:' . URLROOT); // Back sa Landing page
     }
+
     public function admin(){ //Wla pai admin login
         $data = [
             'title' => 'Admin Login page',
@@ -169,17 +175,13 @@ class Users extends Controller{ //Takes care of the flow of the Users
             ];
             //Validate email
             if(empty($data['email'])){
-                $data['emailError'] = 'Please enter your email';
-            }    
-            if(($this->userModel->findUserByEmail($data['email']))===true){
-                $data['emailError'] = 'Email does not exist';
+                $data['emailError'] = 'Please Enter your email';
             }
+            //Validate password
             if(empty($data['password'])){
-                $data['passwordError'] = 'Please enter your password';
-            }          
-            else{
-                $data['emailError'] = '';
-            }     
+                $data['passwordError'] = 'Please Enter your password';
+            }
+
             //check if all errors are empty
             if(empty($data['emailError']) && empty($data['passwordError'])){
                 $loggedInUser = $this->userModel->login($data['email'], $data['password']);   
@@ -187,7 +189,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
                     $this->createAdminSession($loggedInUser);
                 } else{
                     $data['passwordError'] = 'Credentials are incorrect';
-                    $this->view('users/admin', $data);
+                    $this->view('users/login', $data);
                 }
             }
         } else{
@@ -208,4 +210,5 @@ class Users extends Controller{ //Takes care of the flow of the Users
         header('location:' . URLROOT . '/pages/adminhomepage');
     }
 }
+
 ?>

@@ -306,7 +306,6 @@ html {
 </style>
 </head>
 <body>
-  
   <div class="sidebar">
     <div class="head">
       <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
