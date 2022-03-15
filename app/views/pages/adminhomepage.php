@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>DiveCamp-Dashboard</title>
-
     <style>
 		*{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
 		body{ background: #fff; }
@@ -25,12 +24,9 @@
 		.wrapper .sidebar .sidebar-menu .item .menu-btn i{ margin: 20px;} 
 		.wrapper .main-container{ width: (100% - 250px); margin-top: 70px; margin-left: 250px; padding: 15px; background-size: cover; height: 100vh; transition: 0.3s;}
 	</style>
-
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
-
 	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
-	
 </head>
 <body>
 	<div class="wrapper">
@@ -46,17 +42,17 @@
 				 <ul>
 					 <li><a href="#"><i class="fas fa-desktop"></i></a></li>
 					 <li><a href="#"><i class="fas fa-book"></i></a></li>
-					 <li><a href="#"><i class="fas fa-power-off"></i></a></li>
+					 <li><a href="<?php echo URLROOT; ?>/users/logout"><i class="fas fa-power-off"></i></a></li>
 				 </ul>
 			</div>
-		</div>
- 
+		</div> 
 		<div class="sidebar">
 			<div class="sidebar-menu">
 				 <center class="profile">
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
+
 				 <li class="item"><a href="AdminHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
 				 <li class="item" id="profile"><a href="AdminProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
 				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/admin" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
