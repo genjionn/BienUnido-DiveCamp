@@ -1,113 +1,374 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DiveCamp-Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Poppins'sans-serif;
+  font-size: 15px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 
-    <style>
-		*{ margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: "Poppins",sans-serif;}
-		body{ background: #fff; }
-		.wrapper .header{ z-index: 1; background: #004F5D; position: fixed; width: calc(100% - 0%); height: 70px; display: flex; top: 0;}
-		.wrapper .header .header-menu{ width: calc(100% - 0%); height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;}
-		.wrapper .header .header-menu .title{ color: white; font-size: 25px; text-transform: uppercase; font-weight: 800;}
-		.wrapper .header .header-menu .title span{ color: #D4A91C;}
-		.wrapper .header .header-menu .sidebar-btn{ color: white; position: absolute; margin-left: 210px; font-weight: 800; cursor: pointer; transition: 0.3s; transition-property: color;}
-		.wrapper .header .header-menu .sidebar-btn:hover{ color: #D4A91C;}
-		.wrapper .header .header-menu ul{ display: flex;}
-		.wrapper .header .header-menu ul li a{ background: #fff; color: #000; display: block; margin: 0 10px; font-size: 18px; width: 34px; height: 34px; line-height: 35px; text-align: center; border-radius: 50%; transition: 0.3s; transition-property: background, color;}
-		.wrapper .header .header-menu ul li a:hover{ background: #D4A91C; color: #fff;}
-		.wrapper .sidebar{ z-index: 1; background: #004F5D; position: fixed; top: 70px; width: 250px; height: calc(100% - 9%); transition: 0.3s; transition-property: width; overflow-y: auto;}
-		.wrapper .sidebar .sidebar-menu{ overflow: hidden;}
-		.wrapper .sidebar .sidebar-menu .profile img{ margin: 20px 0; width: 100px; height: 100px; border-radius: 50%;}
-		.wrapper .sidebar .sidebar-menu .profile p{ color: #fff; font-weight: 600; margin-bottom: 10px;}
-		.wrapper .sidebar .sidebar-menu .item{ width: 250px; overflow: hidden;}
-		.wrapper .sidebar .sidebar-menu .item .menu-btn{ display: block; color: #fff; position: relative; padding: 10px 20px; transition: 0.3s; transition-property: color;}
-		.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{ color: #000; background: #D4A91C; }
-		.wrapper .sidebar .sidebar-menu .item .menu-btn i{ margin: 20px;} 
-		.wrapper .main-container{ width: (100% - 250px); margin-top: 70px; margin-left: 250px; padding: 15px; background-size: cover; height: 100vh; transition: 0.3s;}
-		.grid { display: grid; width: 100%; border-radius: 10px; box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); -webkit-box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); -moz-box-shadow: 3px 3px 33px -2px rgba(0,0,0,0.41); grid-template-rows:  1fr 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; padding: 35px 15px; gap: 0px; height: 595px;}  
-		#acc-info{ position: relative; left: 20px; grid-row-start: 2; grid-column-start: 1; grid-row-end: 3; grid-column-end: 4; width: 450px;}
-		input{ width: 270px; border: 1px solid; margin: 5px; border-radius: 10px; padding: 10px 10px;}
-		#item-1 { grid-row-start: 1; grid-column-start: 4; grid-row-end: 2; grid-column-end: 5;}
-		#item-1 img{ display: flex; border: 5px solid #004F5D; border-radius: 50px; width: 150px; height: 150px;}
-		#item-1 h3{ text-align: center;}
-		#pass-info { position: relative; right: 60px; grid-row-start: 2; grid-column-start: 5; grid-row-end: 3; grid-column-end: 8; width: 480px;}
-		#btn { position: relative; left: 365px; grid-row-start: 3; grid-column-start: 1; grid-row-end: 4; grid-column-end: 4; width: 350px;}
-		.cancel{ font-size: 16px; color: white; background-color: red; border: 1px solid darkred; border-radius: 10px; width: 150px; padding: 10px 15px;}
-		.save{ font-size: 16px; color: white; background-color: blue; border: 1px solid darkblue; border-radius: 10px; width: 150px; padding: 10px 15px;}
-		button{ margin: 10px;}
-		.cancel:hover{ background-color: darkred;}
-		.save:hover{ background-color: darkblue;}
-	</style>
+.head {
+  display: inline-block;
+  margin-left: 25px;
+  font-size: 18px;
+  text-align: left;
+  padding: 40px 20px;
+}
+.head .logo{
+  color: #9dc88d;
+}
+.head .logo b{
+  color: #f1b24a;
+}
+/* sidebar */
+.sidebar {
 
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+  margin: 0; 
+  padding: 0px 0px;
+  width: 230px;
+  background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.sidebar .profile img{
+  margin: 20px;
+  height: 100px;
+  width: 100px;
+  border: 4px solid #164a41;
+  border-radius: 50px;
+}
+.sidebar b{
+  color: #fff;
+  float: center;
+}
+.sidebar .side-nav{
+  display: inline-block;
+  margin: 50px 0;
+}
+.sidebar .side-nav i{
+  border-radius: 50px;
+  border: 2px solid #f1b24a;
+  padding: 5px 5px;
+  background-color: #f1b24a;
+  color: #164a41;
+}
+.sidebar .side-nav a{
+  width: 230px;
+  display: block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .side-nav a:hover{
+  background:#fff;
+  padding: 10px 30px;
+  color: #164a41; 
+}
+.sidebar .side-nav i:hover{
+  background: #164a41;;
+  border: 2px solid #164a41;
+  color: #f1b24a; 
+}
+/* container */
+.container{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 15px 0;
+}
+.container .profile-head{
+  display: flex;
+  justify-content: left;
+  width: 80%;
+  background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-left: 250px;
+  padding: 30px 50px;
+}
+.container .profile-head img{
+  border: 1px solid #164a41;
+  height: 100px;
+  width: 100px;
+  padding: 1px 1px;
+  border-radius: 50px;
+}
+.container .profile-head .edit-profile{
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 25px;
+  line-height: 25px;
+}
+.container .profile-head .edit-profile h2{
+  letter-spacing: 1px;
+  color: #164a41;
+  font-size: 24px;
+  padding: 10px 0px;
+  text-align: left;
+} 
+.container .profile-head .edit-profile input{
+  display: none;
+}
+.container .profile-head .edit-profile label{
+  letter-spacing: 2px;
+  border: 1px solid #164a41;
+  padding: 5px 15px;
+  text-align: left;
+  border-radius: 50px;
+}
+.container .profile-head .edit-profile label:hover{
+  background-color: #f1b24a;
+}
+.container .profile-head .edit-profile i{
+  color: #f1b24a;
+  text-align: right;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+/* profile information */
+.container .profile-info{
+  display: flex;
+  width: 80%;
+  margin-left: 250px;
+  padding: 50px 10px;
+}
+.container .profile-info .profile-content{
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+}
+.container .profile-info .profile-content .profile-input{
+  display: inline-block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #email{
+  display: block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #email input{
+  width: 900px ;
+}
+.container .profile-info .profile-content .profile-input input{
+  padding: 15px 25px;
+  font-size: 14px;
+  border-radius: 15px;
+  width: 400px;
+  border: 2px solid #164a41;
+}
+.container .profile-info .profile-content .profile-input i{
+  border: 2px solid #164a41;
+  color: #164a41;
+  background-color: #f1b24a;
+  padding: 15px 15px;
+  font-size: 14px;
+  border-radius: 15px;
+}
+.container .profile-info .profile-content #password{
+  display: block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #password input{
+  width: 900px ;
+}
+.container .profile-info .profile-content button{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 10px;
+  text-align: center;
+  width: 100px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+.container .profile-info .profile-content .btn-cancel{
+  background-color: red;
+}
+.container .profile-info .profile-content .btn-save{
+  background-color: blue;
+}
+.container .profile-info .profile-content .btn-cancel:hover{
+  background-color: darkred;
+}
+.container .profile-info .profile-content .btn-save:hover{
+  background-color: darkblue;
+}
+/* media */
 
-	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
-	
+@media screen and (max-width: 600px) {
+  html{
+    overflow-x: hidden;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    font-size: 12px;
+  }
+  .sidebar .head{
+    margin-left: 50px;
+    font-size: 14px;
+  }
+  .sidebar .profile img{
+    height: 80px;
+    width: 80px;
+  }
+  .sidebar .side-nav a{
+    font-size: 12px;
+    width: 510px;
+  }
+  .container .profile-head{
+    margin: 0%;
+    width: 100%;
+  }
+  .container .profile-head img{
+    width: 80px;
+    height: 80px;
+  }
+  .container .profile-head .edit-profile h2{
+    font-size: 16px;
+  }
+  .container .profile-head .edit-profile{
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  .container .profile-head .edit-profile label{
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  .container .profile-head .edit-profile i{
+    font-size: 10px;
+  }
+  .container .profile-info{
+    width: 100%;
+    margin: 0%;
+  }
+  .container .profile-info .profile-content h3{
+    font-size: 14px;
+  }
+  .container .profile-info .profile-content .profile-input i{
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+  .container .profile-info .profile-content .profile-input input{
+    font-size: 12px;
+    padding: 10px 10px;
+    width: 330px;
+  }
+  .container .profile-info .profile-content #email input{
+    width: 330px;
+  }
+  .container .profile-info .profile-content #password input{
+    width: 330px;
+  }
+  .container .profile-info .profile-content .btn-cancel{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .container .profile-info .profile-content .btn-save{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+
+</style>
 </head>
 <body>
-	<div class="wrapper">
-		<div class="header">
-			<div class="header-menu">
-				<div class="title">Dive <span>Camp</span></div>
-				<div class="sidebar-btn">
-				 <input type="checkbox" name="hide-sidebar" id="hide-sidebar" value="true" />
-					 <label for="hide-sidebar">
-						 <i id="navbtn" class="fa-solid fa-bars" aria-hidden="true"></i>
-					 </label>
-				</div>
-				 <ul>
-					 <li><a href="#"><i class="fas fa-desktop"></i></a></li>
-					 <li><a href="#"><i class="fas fa-book"></i></a></li>
-					 <li><a href="#"><i class="fas fa-power-off"></i></a></li>
-				 </ul>
-			</div>
-		</div>
- 
-		<div class="sidebar">
-			<div class="sidebar-menu">
-				 <center class="profile">
-					<img src="img/dc.jpg" alt="">
-					<p>Profile</p>
-				 </center>
-				 <li class="item"><a href="AdminHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="profile"><a href="AdminProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="AdminLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
-			</div>
-		</div>
-		<div class="main-container">
-            <div class="grid">
-				<div id="item-1">
-					<img src="img/dc.jpg" alt="profile"><br>
-					<h3>Kyle Autida</h3>
-					<input type="file" id="file" accept="images/*" style="display: none;">
-					<center><label for="file">Edit Profile</label></center><br>
-				</div>
-				<div id="acc-info">
-					<h3>Account Information</h3>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>First name</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="First name"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Last name</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Last name"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Email Address</label>
-					<input type="email" placeholder="Email Address"><br>
-				</div>
-
-				<div id="pass-info">
-					<h3>Change Password</h3>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Current Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Current Password"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>New Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="New Password"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<label>Confirm Password</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Confirm Password"><br>
-				</div>
-				<div id="btn"><br>
-					<button class="cancel">Cancel</button>
-					<button class="save" type="submit">Save</button>
-				</div>
-			</div>
+  <div class="sidebar">
+    <div class="head">
+      <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
+    </div>
+      <center class="profile"><br>
+        <img src="profile.jpg" alt=""><br>
+        <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
+      </center>
+      <div class="side-nav nav">
+        <a class="nav1" href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fa fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
+        <a class="nav2" href="<?php echo URLROOT; ?>/pages/admincreateroom"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Create Room</a><br>
+        <a class="nav3" href="<?php echo URLROOT; ?>/pages/adminprofile" class="menu-btn"><i class="fa fa-user-circle"></i><span>&nbsp;&nbsp;</span> Profile</a><br>
+        <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
+      </div>  
+  </div>
+  <div class="container">
+    <div class="profile-head">
+      <img src="profile.jpg" alt="">
+      <div class="edit-profile">
+        <h2><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h2>
+        <input type="file" id="file">
+			  <label for="file">Edit Profile</label><br>
+        <i>Acceptable formats: .jpg and .png only</i>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-content">
+        <h3>Account Information</h3><br>
+        <div class="profile-input">
+          <i class="fa fa-user"></i>
+          <input type="text" placeholder="<?php echo $_SESSION['firstname'];?>">
         </div>
-	</div>
- </body>
+        <div class="profile-input">
+          <i class="fa fa-user"></i>
+          <input type="text" placeholder="<?php echo $_SESSION['lastname'];?>">
+        </div>
+        <div class="profile-input" id="email">
+          <i class="fa fa-envelope"></i>
+          <input type="email" placeholder="<?php echo $_SESSION['email'];?>">
+        </div>
+        <br><br>
+        <h3>Password Information</h3><br>
+        <div class="profile-input">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="Your current password..">
+        </div>
+        <div class="profile-input">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="Your new password..">
+        </div>
+        <div class="profile-input" id="password">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="Confirm your password..">
+        </div>
+        <br>
+        <center>
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-save">Save</button>
+        </center>
+      </div>
+      
+    </div>
+  </div>
+   
+</body>
 </html>

@@ -1,112 +1,221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
-        *, *:before, *:after{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
-        body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px;width:100%;height:100%;background-image:linear-gradient(rgba(0,0,0,0.40),rgba(83.1, 66.3, 11)),url("../img/bg.jpg");background-size:cover;background-position:center;}
-        .u-name{position:relative;right:75px;bottom:300px;width:135px;cursor:pointer;font-size:26px;color:#fff;}
-        .u-name b{position:relative;bottom:10px;color:#D4A91C;}
-        .container .cover h1{position:relative;top:250px;color:white;}
-        .container{position:relative;max-width:850px;width:100%;padding:40px 50px;background-color:whitesmoke;box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);perspective:2700px;}
-        .container .cover{position:absolute;top:0;left:60%;height:100%;width:40%;z-index:98;background:#D4A91C;transition:all 1s ease;transform-style:preserve-3d;transform-origin:left;}
-        .container form{height:100%;width:100%;background:whitesmoke;}
-        .container .cover img{position:absolute;height:100%;width:100%;object-fit:cover;z-index:12;}
-        .container .form-content{display:flex;align-items:center;justify-content:space-between;}
-        .form-content .register-form,.form-content .signup-form{width:calc(100% / 2 - 25px);}
-        form .form-content .title{position:relative;font-size:26px;font-weight:600;color:#333;}
-        form .form-content .title::before{content:'';position:absolute;left:0;bottom:0;height:3px;width:25px;background:#D4A91C;}
-        form .signup-form .form-content .title::before{width:20px;}
-        form .form-content .input-boxes{margin-top:30px;}
-        form .form-content .input-box{display:flex;align-items:center;margin:15px 20px;height:50px;width:100%;}
-        .form-content .input-box input{height:100%;width:100%;outline:none;border-radius:15px;border:1px solid #D4A91C;border-top:2px solid rgba(0, 0, 0, 0.2);border-bottom:2px solid rgba(0, 0, 0, 0.2);border-left:2px solid rgba(0, 0, 0, 0.2);border-right:2px solid rgba(0, 0, 0, 0.2);padding:0 30px;font-size:17px;font-weight:500;transition:all 0.3s ease;}
-        .form-content .input-box input:focus,.form-content .input-box input:valid{border-color:#D4A91C;}
-        .form-content .input-box i{position:absolute;color:#D4A91C;font-size:17px;}
-        form .form-content .button{color:#fff;margin-top:40px;}
-        form .form-content .button input{color:#000;font-size:20px;background:#E3BF48;border-radius:15px;padding:0;cursor:pointer;transition:all 0.4s ease;}
-        form .form-content .button input:hover{color:#fff;font-size:20px;background:#D4A91C;}
-        form .form-content label{color:#D4A91C;cursor:pointer;}
-        form .form-content label:hover{text-decoration:underline;}
-        form .form-content .reg-text{text-align:center;margin-top:25px;}
-        .container #flip{display:none;}
-        @media (max-width:730px){.container .cover{display:none;}
-        .form-content .register-form, .form-content .picture-form{width:100%;}
-        .form-content .picture-form{display:none;}
-        .invalidFeedback {color: #ff0000;}
-    }
-    </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    <!--Google fonts-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
-   
-    <title>Register - DiveCamp Website</title>
+	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-  </head>
-  
-  <body> 
-    <h1 class="u-name">DIVE<b> CAMP</b></h1>    
+    <style>
+       * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-family: 'Poppins'sans-serif;
+            font-size: 15px;
+            scroll-behavior: smooth;
+            background-image: linear-gradient(to right, #164a41, #1e5345, #275b48, #31644a, #3c6c4c, #487652, #548157, #608b5d, #6f9a69, #7ea975, #8db881, #9dc88d);
+        }
+        .head {
+            position: sticky;
+            top: 0;
+            background-image: linear-gradient(to right, #164a41, #1e5345, #275b48, #31644a, #3c6c4c, #487652, #548157, #608b5d, #6f9a69, #7ea975, #8db881, #9dc88d);
+        }
+        .head {
+            max-width: 100%;
+            font-size: 24px;
+            text-align: left;
+            padding: 20px 200px;
+        }
+        .head .logo{
+            color: #9dc88d;
+        }
+        .head .logo b{
+            color: #f1b24a;
+        }
+        /* form */
+        .container{
+            display: flex;
+            justify-content: center;
+            padding: 30px 10px;
+            width: 100%;
+            height: 100%;
+        }
+        .container h2{
+            color: #fff;
+        }
+        .container hr{
+            color: #f1b24a;
+            background-color: #f1b24a;
+            max-width: 20px;
+            height: 5px;
+            border: 1px solid #f1b24a;
+        }
+        .container form{
+            display: block;
+            background-color: #164a41;
+            border: 2px solid #4d774e;
+            width: 750px;
+            height: auto;
+            padding: 20px 35px;
+            border-radius: 15px;
+        }
+        .container form .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 55%;
+            top: 96px;
+            width: 350px;
+            margin: 0%;
+            padding: 0%;
+            height: 490px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border: 2px solid #4d774e;
+            background-color: #f1b24a;
+        }
+        .input-boxes{
+            display: inline-block;
+            height: auto;
+            width: auto;
+            padding: 10px 10px;
+        }
+        .input-boxes .input-box{
+            padding: 10px 10px;
+        }
+        .input-boxes .input-box i{
+            position: relative;
+            left: 42px;
+            border: none;
+            padding: 10px 10px;
+            border-radius: 25px;
+            color: #164a41;
+        }
+        .input-boxes .input-box input{
+            width: 300px;
+            padding: 10px 50px;
+            border-radius: 25px;
+            color: #164a41;
+            border: 1px solid #f1b24a;
+            background-color: whitesmoke;
+        }
+        .input-boxes .button input{
+            margin-left: 85px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 15px;
+            max-width: 200px;
+            color: #164a41;
+        }
+        .input-boxes .button input:hover{
+            background-color: #f1b24a;
+            animation: pulse 1s;
+        }
+        .input-boxes .text{
+            color: #fff;
+        }
+        .input-boxes .text a{
+            color: #9dc88d;
+            text-decoration: none;
+        }
+        .input-boxes .text a:hover{
+            color: #f1b24a;
+            text-decoration: underline;
+        }
+        /* media */
+        @media only screen and (max-width: 600px) {
+            .head{
+                padding: 20px 100px;
+            }
+            .head .logo{
+                font-size: 18px;
+            }
+            .container{
+                font-size: 12px;
+            }
+            .container form{
+                width: 600px;
+                float: left;
+            }
+            .container form .logo{
+                max-width: 1000px;
+                display: none;
+            }
+            .input-boxes .input-box i{
+                font-size: 10px;
+            }
+            .input-boxes .input-box input{
+                font-size: 10px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <label class="logo"><i class="fa fa-mask"></i>&nbsp;Dive&nbsp;<b>Camp</b></label>
+    </div>
     <div class="container">
         <form action="" method="POST">
-            <div class="form-content">
-                <div class="register-form">
-                    <div class="title">Register</div>
-                    <div class="input-boxes">
-                        <div class="input-box">
-                            <i class="fa-solid fa-envelope"></i>
-                            <!--FIRSTNAME-->
-                            <input type="text" name="firstname" id="firstname" placeholder="Firstname *">                         
-                        </div>
-                            <span class="invalidFeedback">
-                                <?php echo $data['firstnameError'];?>
-                            </span>
-                        <div class="input-box">
-                            <i class="fa-solid fa-envelope"></i>
-                            <!--LASTNAME-->
-                            <input type="text" name="lastname" id="lastname" placeholder="Lastname *">
-                        </div>
-                            <span class="invalidFeedback">
-                                <?php echo $data['lastnameError'];?>
-                            </span>
-                        <div class="input-box">
-                            <i class="fa-solid fa-envelope"></i>
-                            <!--EMAIL-->
-                            <input type="email" name="email" id="email" placeholder="Email *">
-                        </div>
-                            <span class="invalidFeedback">
-                                <?php echo $data['emailError'];?>
-                            </span>
-                        <div class="input-box">
-                            <i class="fa fa-lock"></i>
-                            <!--PASSWORD-->
-                            <input type="password" name="password" id="pass" placeholder="Password *">
-                        </div>
-                            <span class="invalidFeedback">
-                                <?php echo $data['passwordError'];?>
-                            </span>
-                        <div class="input-box">
-                            <i class="fa fa-lock"></i>
-                            <!--RE_PASSWORD-->
-                            <input type="password" name="confirmpassword" id="confirmPass" placeholder="Confirm Password *">
-                        </div>
-                            <span class="invalidFeedback">
-                                <?php echo $data['confirmpasswordError'];?>
-                            </span>
-                        <div class="button input-box">
-                            <input name="submit" type="submit" value="Register">
-                        </div>
-                        <div class="text reg-text">Already have an account? <a href="<?php echo URLROOT; ?>/users/login"><label>Login now</label></a></div>
-                    </div>
+            <h2>Register</h2>
+            <hr>
+            <div class="input-boxes">
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="firstname" id="firstname" placeholder="Firstname *">  
                 </div>
-                <div class="picture-form">        
-                    <div class="cover">
-                        <center><h1>LOGO</h1></center>
-                        <!-- <img src="dc.jpg" alt="logo"> -->
-                    </div>
-              </div>   
+                <span class="invalidFeedback">
+                    <?php echo $data['firstnameError'];?>
+                </span>
+
+                <div class="input-box">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="lastname" id="lastname" placeholder="Lastname *">
+                </div>
+                <span class="invalidFeedback">
+                    <?php echo $data['lastnameError'];?>
+                </span>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="email" id="email" placeholder="Email *">
+                </div>
+                <span class="invalidFeedback">
+                    <?php echo $data['emailError'];?>
+                </span>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" id="pass" placeholder="Password *">
+                </div>
+                <span class="invalidFeedback">
+                    <?php echo $data['passwordError'];?>
+                </span>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="confirmpassword" id="confirmPass" placeholder="Confirm Password *">
+                </div>
+                <span class="invalidFeedback">
+                    <?php echo $data['confirmpasswordError'];?>
+                </span>
+                <br>
+                <div class="button input-box">
+                    <input name="submit" type="submit" value="Sign in">
+                </div>
+                <br>
+                <div class="text login-text">Already have an account? <a href="<?php echo URLROOT; ?>/users/login"><label>Login now</label></a></div>
+            </div>
+
         </form>
-    </div>
-  </body>
+    </div>       
+</body>
 </html>
