@@ -28,14 +28,10 @@
             $this->db->bind(':email', $email);
             $row = $this->db->single();
             //$hashedPassword = !empty($row) ? $row->password'';
-            if($this->db->rowCount() > 0){
-                $hashedPassword = $row->password;
-                if (password_verify($password, $hashedPassword)) {
-                    return $row;
-                } else{
-                    return false;
-                }
-            } else{
+            $hashedPassword = $row->password;
+            if (password_verify($password, $hashedPassword)) {
+                return $row;
+            } else {
                 return false;
             }
         }
@@ -49,24 +45,6 @@
             //check if email exist
             if($this->db->rowCount() > 0){
                 return true;
-            } else{
-                return false;
-            }
-        }
-
-        public function checkAdmin($email){
-            $this->db->query('SELECT * FROM users WHERE email = :email');
-            //bind value
-            $this->db->bind(':email', $email);
-            $row = $this->db->single();
-            //$hashedPassword = !empty($row) ? $row->password'';
-            if($this->db->rowCount() > 0){
-                $priviledge = $row->priviledge;
-                if ($priviledge=='Admin') {
-                    return $row;
-                } else{
-                    return false;
-                }
             } else{
                 return false;
             }
