@@ -54,14 +54,19 @@
             }
         }
 
-        public function checkPrivilege($email){
-            //prepared statement
+        public function checkAdmin($email){
             $this->db->query('SELECT * FROM users WHERE email = :email');
-            // email param will be binded w/ the email variable
+            //bind value
             $this->db->bind(':email', $email);
-            //check if email exist
+            $row = $this->db->single();
+            //$hashedPassword = !empty($row) ? $row->password'';
             if($this->db->rowCount() > 0){
-                return true;
+                $priviledge = $row->priviledge;
+                if ($priviledge=='Admin') {
+                    return $row;
+                } else{
+                    return false;
+                }
             } else{
                 return false;
             }
