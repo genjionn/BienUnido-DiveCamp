@@ -59,7 +59,7 @@
 				 <ul>
 					 <li><a href="#"><i class="fas fa-desktop"></i></a></li>
 					 <li><a href="#"><i class="fas fa-book"></i></a></li>
-					 <li><a href="<?php echo URLROOT; ?>/users/logout"><i class="fas fa-power-off"></i></a></li>
+					 <li><a href="#"><i class="fas fa-power-off"></i></a></li>
 				 </ul>
 			</div>
 		</div>
@@ -70,9 +70,9 @@
 					<img src="img/dc.jpg" alt="">
 					<p>Profile</p>
 				 </center>
-				 <li class="item"><a href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
-				 <li class="item" id="profile"><a href="<?php echo URLROOT; ?>/pages/adminprofile" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
-				 <li class="item" id="logout"><a href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+				 <li class="item"><a href="AdminHomePage.php" class="menu-btn"><i class="fas fa-desktop"></i><span>Dashboard</span></a></li>
+				 <li class="item" id="profile"><a href="AdminProfile.php" class="menu-btn"><i class="fas fa-circle-user"></i><span>Profile</span></a></li>
+				 <li class="item" id="logout"><a href="AdminLogin.php" class="menu-btn"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
 			</div>
 		</div>
 		<div class="main-container">
