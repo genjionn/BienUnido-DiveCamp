@@ -6,6 +6,7 @@
         body{ min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,0,0,0.40),rgba(0,79,93,1.00)),url("../img/bg.jpg"); background-size: cover; background-position: center;}
         .u-name { position: relative; right: 75px; bottom: 300px; width: 135px; cursor: pointer; font-size: 26px; color: #fff;}
         .u-name b { position: relative; bottom: 10px; color: #D4A91C;}
+        .invalidFeedback { color: #E41C1C; text-size: 12px; text-align: center; justify-content: center;}
         .container{ position: relative; max-width: 850px; width: 100%; padding: 10px 50px; background-color: whitesmoke; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); perspective: 2700px;}
         .container .cover{ position:absolute; top: 0; left: 60%; height: 100%; width: 40%; z-index: 98; background: #004F5D; transition: all 1s ease; transform-style: preserve-3d; transform-origin: left;}
         .container .cover h1{ position: relative; top: 180px;color: #D4A91C;}
@@ -13,6 +14,7 @@
         .container .cover img{ position: absolute; height: 100%; width: 100%; object-fit: cover; z-index: 12;}
         .container .form-content{ display: flex; align-items: center; justify-content: space-between;}
         .form-content .login-form,
+        .form-content .adminlogin-form,
         .form-content .signup-form{ width: calc(100% / 2 - 25px);}
         form .form-content .title{ position: relative; font-size: 26px; font-weight: 600; color: #333;}
         form .form-content .title::before{ content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 25px; background:#E3BF48;}
@@ -31,7 +33,7 @@
         form .form-content .login-text{ text-align: center; justify-content: center; margin-top: 25px;}
         form .text a{ color: #D4A91C;}
         .container #flip{ display: none;}
-        @media (max-width: 730px){ .container .cover{display:none;}.form-content .login-form,.form-content .picture-form{width: 100%;}.form-content .picture-form{display: none;}}
+        @media (max-width: 730px){ .container .cover{display:none;}.form-content .adminlogin-form,.form-content .picture-form{width: 100%;}.form-content .picture-form{display: none;}}
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,24 +50,30 @@
   <body>
     <h1 class="u-name">DIVE<b> CAMP</b></h1> 
     <div class="container">
-        <form action="" method="POST">
+        <form action="<?php echo URLROOT; ?>/users/admin" method="POST">
             <div class="form-content">
-                <div class="login-form">
-                    <div class="title">Login as Admin</div>
+                <div class="adminlogin-form">
+                    <div class="title">Login As Admin</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                            <input type="email" name="email" id="email" placeholder="Email *">
                         </div>
+                            <span class="invalidFeedback">
+                                    <?php echo $data['emailError'];?>
+                            </span>
                         <div class="input-box">
                             <i class="fa fa-lock"></i>
-                            <input type="password" name="password" id="pass" placeholder="Password" required>
+                            <input type="password" name="password" id="pass" placeholder="Password *"> 
                         </div>
-                        <div class="text"><a href="#">Forgot password?</a></div>
+                            <span class="invalidFeedback">
+                                <?php echo $data['passwordError'];?>
+                            </span>
+                        <div class="text" style="margin-top: 10px"><a href="#">Forgot password?</a></div>
                         <div class="button input-box">
                             <input name="submit" type="submit" value="Login">
                         </div>
-                        <div class="text login-text">Don't have an account? <a href="register"><label>Signup now</label></a></div>
+                        <div class="text login-text">Don't have an account? <a href="<?php echo URLROOT; ?>/users/register"><label>Signup now</label></a></div>
                     </div>
                 </div>
                 <div class="picture-form">        
