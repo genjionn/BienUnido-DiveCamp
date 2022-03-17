@@ -73,8 +73,52 @@
         #dining {
             background-color: #A83E11;
         }
+        /* about */
         #about{
             background-color: goldenrod;
+        }
+        #about .about-section{
+            border: 2px solid #000;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 100px 0;
+        }
+        #about .inner-container{
+            background: white;
+            background-size: 55%;
+            background-color: #fdfdfd;
+            overflow: hidden;
+            padding: 100px 0;
+            width: 55%;
+            float: right;
+            background-color: #fdfdfd;
+            padding: 150px;
+        }
+        #about .inner-container h1{
+            margin-bottom: 30px;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        #about .text{
+            font-size: 13px;
+            color: #545454;
+            line-height: 30px;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+        #about .skills{
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        #about .image img{
+            background: no-repeat left;
+            height: 760px;
+            width: inherit;
         }
         /* contact */
         #contact{
@@ -242,12 +286,36 @@
                 padding: 5px 5px;
                 font-size: 12px;
             }
+            @media screen and (max-width:1200px){
+                #about .inner-container{
+                    padding: 80px;
+                }
+            }
+
+            @media screen and (max-width:1000px){
+                #about .about-section{
+                    background-size: 100%;
+                    padding: 100px 40px;
+                }
+                #about .inner-container{
+                    width: 100%;
+                }
+            }
+
+            @media screen and (max-width:600px){
+                #about .about-section{
+                    padding: 0;
+                }
+                #about .inner-container{
+                    padding: 60px;
+                }
+            }
             /* Room */
 
             /* Dining */
 
             /* About us */
-
+      
             /* Contact us */
             #contact .contact-container .image img{
                 display: none;
@@ -297,8 +365,23 @@
     </section>
 
     <section id="about">
-        <h1>About us</h1>
-
+    <div class="about-section">
+    <div class="image">
+        <img src="img/pic.jpg" alt="">
+    </div>
+        <div class="inner-container">
+            <h1>About Us</h1>
+            <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribuasiuasjdhajksdhjkasdhkjqwehqwjkehasldkashdqwehaisdjklqwjealkdjalskds velit ducimus, easdkjahdjkashdajksdhasjkdshajkdahsdjkashdasjkdhakjsdnim inventore earum, eligendi nostrum pariaturnecessitatibus eiuasdasdasdassdasdasdasdasdasdasdadasdsasdadassdasdasdasdadadasdasdads dicta a voluptates sit deleniti autem error eos totam nisi neque voluptates sit deleniti autem error eos totam nisi neque.
+            </p>
+            
+            <div class="skills">
+                <span>Web Design</span>
+                <span>Photoshop & Illustrator</span>
+                <span>Coding</span>
+            </div>
+        </div>
+    </div>
     </section>
 
     <section id="contact">
