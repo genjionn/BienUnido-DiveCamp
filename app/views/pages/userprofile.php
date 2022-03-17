@@ -164,7 +164,7 @@ html {
   margin-left: 20px;
 }
 .container .profile-info .profile-content #email{
-  display: block;
+  display: flex;
   padding: 10px 10px;
   width: auto;
   margin-left: 20px;
@@ -188,7 +188,7 @@ html {
   border-radius: 15px;
 }
 .container .profile-info .profile-content #password{
-  display: block;
+  display: flex;
   padding: 10px 10px;
   width: auto;
   margin-left: 20px;
@@ -287,9 +287,91 @@ html {
   }
   .container .profile-info .profile-content #email input{
     width: 330px;
+    max-width: 330px;
   }
   .container .profile-info .profile-content #password input{
     width: 330px;
+  }
+  .container .profile-info .profile-content .btn-cancel{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .container .profile-info .profile-content .btn-save{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+/* media 992px */
+
+@media screen and (max-width: 992px) {
+  html{
+    overflow-x: hidden;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    font-size: 12px;
+  }
+  .sidebar .head{
+    margin-left: 50px;
+    font-size: 14px;
+  }
+  .sidebar .profile img{
+    height: 80px;
+    width: 80px;
+  }
+  .sidebar .side-nav a{
+    font-size: 12px;
+    width: 510px;
+  }
+  .container .profile-head{
+    margin: 0%;
+    width: 100%;
+  }
+  .container .profile-head img{
+    width: 80px;
+    height: 80px;
+  }
+  .container .profile-head .edit-profile h2{
+    font-size: 16px;
+  }
+  .container .profile-head .edit-profile{
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  .container .profile-head .edit-profile label{
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  .container .profile-head .edit-profile i{
+    font-size: 10px;
+  }
+  .container .profile-info{
+    width: 100%;
+    margin: 0%;
+  }
+  .container .profile-info .profile-content h3{
+    font-size: 14px;
+  }
+  .container .profile-info .profile-content .profile-input i{
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+  .container .profile-info .profile-content .profile-input input{
+    font-size: 12px;
+    padding: 10px 10px;
+    width: 330px;
+  }
+  .container .profile-info .profile-content #email input{
+    width: 750px;
+    max-width: 750px;
+  }
+  .container .profile-info .profile-content #password input{
+    width: 750px;
+    max-width: 750px;
   }
   .container .profile-info .profile-content .btn-cancel{
     letter-spacing: 2px;
