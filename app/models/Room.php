@@ -19,7 +19,16 @@ class Room{
             return false;
         }
     }
-    public function findRoombyRoomName($roomname){
+    public function displayrooms(){
+        $this->db->query('SELECT * FROM rooms');
+        $records = $this->db->resultSet();
+        if($records > 0){
+            return $records;
+        } else{
+            return false;
+        }
+    }
+    public function findRoombyRoomName($roomname){ //For now wla pani ni gana
         //prepared statement
         $this->db->query('SELECT * FROM rooms WHERE roomname = :roomname');
         // email param will be binded w/ the email variable
