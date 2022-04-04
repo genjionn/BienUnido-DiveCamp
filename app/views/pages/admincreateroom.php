@@ -159,11 +159,30 @@ html {
         <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
       </div>  
   </div>
+<!-------------------NEED Front END Design -->
   <div class="container">
     <div class="content">
       <h1> Create Room</h1><br>
+      <form action="" method="POST">
+        <input type="text" placeholder="Enter name room" name="roomname">
+        <span class="invalidFeedback">
+          <?php echo $data['roomnameError'];?>
+        </span>
+        <input type="text" placeholder="Enter room description" name="roomdesc">
+        <span class="invalidFeedback">
+          <?php echo $data['roomdescError'];?>
+        </span>
+        <input type="text" placeholder="Enter room location" name="roomlocation">
+        <span class="invalidFeedback">
+          <?php echo $data['roomlocationError'];?>
+        </span> 
+        <div class="button input-box">
+          <input name="submit" type="submit" value="Add Room">
+        </div>
+      </form> 
     </div>
   </div>
+
 </body>
 </html>
 	
