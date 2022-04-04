@@ -22,12 +22,9 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/userprofile');
     }
     public function adminhomepage(){
-        $data = [
-            'roomnames' => 'RoomNames',
-            'roomdescs' => 'RoomDescription',
-            'roomlocations' => 'RoomLocation'
-        ];
-        $this->view('pages/adminhomepage', $data);
+        $total = $this->roomModel->displayrooms();
+        $_SESSION['getrooms'] = $total;
+        $this->view('pages/adminhomepage');
     }
     public function adminprofile(){
         $this->view('pages/adminprofile');
@@ -58,7 +55,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 $data['roomnameError'] = 'Please enter Room name';
             } else{
                 //check if room name exist
-                if(($this->roomModel->findRoombyRoomName($data['roomname']))===false){
+                if($this->roomModel->findRoombyRoomName($data['roomname'])){
                     $data['roomnameError'] = 'Room Name Already taken';
                 }
             }
