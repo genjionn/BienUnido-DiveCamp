@@ -162,6 +162,15 @@ html {
   <div class="container">
     <div class="content">
       <h1> Dashboard </h1><br>
+      <span class="">
+          <?php echo $data['roomnames'];?>
+      </span> 
+      <span class="">
+          <?php echo $data['roomdescs'];?>
+      </span> 
+      <span class="">
+          <?php echo $data['roomlocations'];?>
+      </span> 
     </div>
   </div>
 </body>
