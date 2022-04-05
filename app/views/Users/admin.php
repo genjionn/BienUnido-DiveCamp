@@ -4,134 +4,129 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DiveCamp - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/fdad5daede.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-       * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+        *{
+            padding: 0%;
+            margin: 0%;
+            font-family: 'Poppins', sans-serif;
         }
-        html {
-            font-family: 'Poppins'sans-serif;
-            font-size: 15px;
-            scroll-behavior: smooth;
-            background-image: linear-gradient(to right, #164a41, #1e5345, #275b48, #31644a, #3c6c4c, #487652, #548157, #608b5d, #6f9a69, #7ea975, #8db881, #9dc88d);
+        body{
+            background-image: url("../img/watermark.png");
+            background-repeat: no-repeat;
+            background-position: center;
         }
-        .head {
-            position: sticky;
-            top: 0;
-            background-image: linear-gradient(to right, #164a41, #1e5345, #275b48, #31644a, #3c6c4c, #487652, #548157, #608b5d, #6f9a69, #7ea975, #8db881, #9dc88d);
-        }
-        .head {
-            max-width: 100%;
-            font-size: 24px;
-            text-align: left;
-            padding: 20px 200px;
-        }
-        .head .logo{
-            color: #9dc88d;
-        }
-        .head .logo b{
-            color: #f1b24a;
-        }
-        /* form */
         .container{
             display: flex;
             justify-content: center;
-            padding: 60px 10px;
+            align-items: center;
             width: 100%;
-            height: 100%;
-        }
-        .container h2{
-            color: #164a41;
-        }
-        .container hr{
-            color: #fff;
-            background-color: #fff;
-            max-width: 20px;
-            height: 5px;
-            border: 1px solid #f1b24a;
+            height: 100vh;
         }
         .container form{
-            display: block;
-            background-color: #f1b24a;
-            border: 2px solid #164a41;
-            width: 750px;
-            height: 400px;
-            padding: 20px 35px;
-            border-radius: 15px;
+            margin: 0%;
+            width: 480px;
+            height: auto;
+            border: 1px solid #52575D;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: #F6F4E6;
+            box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
+            -webkit-box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
+            -moz-box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
         }
-        .container form .logo{
+        .container form .head{
+            text-align: center;
+            border-bottom: 1px solid #52575D;
+            background-color: #FDDB3A;
+            padding: 10px 10px;
+            color: #52575D;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .container form .content{
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .container form .content input{
+            margin: 10px;
+            width: 350px;
+            padding: 10px 10px;
+            border-radius:10px ;
+            border: 1px solid #52575D;
+        }
+        .container form .content #forget-pass{
+            padding-left: 30px;
+            color: #52575D;
+        }
+        .container form .content #forget-pass:hover{
+            color: #FDDB3A;
+        }
+        .container form .content a{
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .container form .content span{
+            
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
-            left: 55%;
-            top: 126px;
-            width: 350px;
-            margin: 0%;
-            padding: 0%;
-            height: 400px;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-            border: 2px solid #164a41;
-            background-color: #164a41;
         }
-        .input-boxes{
-            display: inline-block;
-            height: auto;
-            width: auto;
-            padding: 40px 10px;
-        }
-        .input-boxes .input-box{
+        .container form .content i{
+            border: 1px solid #52575D;
             padding: 10px 10px;
-        }
-        .input-boxes .input-box i{
-            position: relative;
-            left: 42px;
-            border: none;
-            padding: 10px 10px;
-            border-radius: 25px;
-            color: #164a41;
-        }
-        .input-boxes .input-box input{
-            width: 300px;
-            padding: 10px 50px;
-            border-radius: 25px;
-            color: #164a41;
-            border: 1px solid #164a41;
-            background-color: whitesmoke;
-        }
-        .input-boxes .button input{
-            margin-left: 85px;
+            background-color: #FDDB3A;
+            border-radius: 10px;
+            color: #52575D;
             font-size: 18px;
-            font-weight: 600;
-            border-radius: 15px;
-            max-width: 200px;
-            color: #fff;
-            background-color: #487652;
         }
-        .input-boxes .button .btn-login{
-            color: #fff;
+        .container form .btn{
+            margin-bottom: 25px;
         }
-        .input-boxes .button input:hover{
-            color: white;
-            background-color: #275b48;
-            animation: pulse 1s;
+        .container form .btn button{
+            width: 200px;
+            padding: 5px 10px;
+            border-radius: 25px;
+            background-color: #fff;
+            border: 1px solid #52575D;
+            margin-bottom: 10px;
         }
-        .input-boxes .text a{
-            color: #164a41;
+        .container form .btn button:hover{
+            background-color: #FDDB3A;
+            border: 1px solid #FDDB3A;
+        }
+        .container form .btn button a{
+            color: #52575D;
+            font-size: 16px;
+            font-weight: 700;
             text-decoration: none;
         }
-        .input-boxes .text a:hover{
-            color: #3c6c4c;
-            text-decoration: underline;
+        .container form .btn label{
+            padding-left: 30px;
+            font-weight: 700;
+            font-size: 14px;
         }
+        .container form .btn a{
+            text-decoration: none;
+            color: #52575D;
+        }
+        .container form .btn a:hover{
+            color: #FDDB3A;
+        }
+
+        .text{
+            padding: 0px 0px 00px 30px;
+            
+            
+        }
+
         /* Modal for Forget Password */
         #forgot-modal {
             left: 59%;
@@ -148,6 +143,8 @@
             box-sizing: border-box;transition: all .4s ease-in-out;
             -moz-transition: all .4s ease-in-out;
             -webkit-transition: all .4s ease-in-out;
+            
+
         }
         #forgot-modal:target {
             opacity: 1;
@@ -162,6 +159,7 @@
         #forgot-modal .modal-header h3{
             letter-spacing: 2px;
             text-align: center;
+            padding: 30px;
         }
         #forgot-modal .modal-body p{
             letter-spacing: 1px;
@@ -243,8 +241,9 @@
             width: 100%;
             z-index: 10;
         }
-         /* Modal for Reset Password */
-         #reset-modal {
+
+        /* Modal for Reset Password */
+        #reset-modal {
             left: 59%;
             margin: -250px 0 0 -32%;
             opacity: 0;
@@ -361,6 +360,7 @@
             width: 100%;
             z-index: 10;
         }
+
         /* media */
         @media only screen and (max-width: 600px) {
             .head{
@@ -559,43 +559,37 @@
     </style>
 </head>
 <body>
-    <div class="head">
-        <label class="logo"><i class="fa fa-mask"></i>&nbsp;Dive&nbsp;<b>Camp</b></label>
-    </div>
     <div class="container">
         <form action="<?php echo URLROOT; ?>/users/admin" method="POST">
-            <h2>Login as Admin</h2>
-            <hr>
-            <div class="input-boxes">
-                <div class="input-box">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" id="email" placeholder="Email *">
-                </div>
-                <span class="invalidFeedback">
-                    <?php echo $data['emailError'];?>
-            </span>
-
-                <div class="input-box">
-                    <i class="fa fa-lock"></i>
-                    <input type="password" name="password" id="pass" placeholder="Password *">
-                </div>
-                <span class="invalidFeedback">
-                    <?php echo $data['passwordError'];?>
-                </span>
-
-                <div class="text"><a href="#forgot-modal">Forgot password?</a></div><br><br>
-                <div class="button input-box">
-                    <input class="btn-login" name="submit" type="submit" value="Login">
-                </div>
+            <div class="head">
+                <h3> Login as Administrator</h3>
             </div>
+            <div class="content">
+                <center>
+                    <span><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Email *"></span>
+                    <span class="invalidFeedback">
+                        <?php echo $data['emailError'];?>
+                    </span>
 
-            <div class="logo">
-                <h2>Logo</h2>
-               <!-- <img src="dc.jpg" alt=""> -->
+                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i><input type="password" name="password" id="pass" placeholder="Password *"> </span>
+                    <span class="invalidFeedback">
+                        <?php echo $data['passwordError'];?>
+                    </span>
+                    
+                </center>
+                <div class="text"><a href="#forgot-modal">Forgot password?</a></div>
             </div>
+            <div class="btn">
+                <center>
+                    <button name="submit" type="submit" value="Login">Login</button>
+                </center>
+                
+            </div>
+           
         </form>
-         <!-- forgot password modal -->
-         <div id="forgot-modal">
+
+        <!-- forgot password modal -->
+        <div id="forgot-modal">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h3>Forgot Password?</h3>
@@ -630,7 +624,7 @@
 			    </div>
 		    </div>
 		    <div class="overlay"></div>
-		</div>
-    </div>       
+		</div>    
+    </div>
 </body>
 </html>
