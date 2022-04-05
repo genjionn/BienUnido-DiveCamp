@@ -181,48 +181,6 @@ table td{
   <div class="container">
     <div class="content">
       <h1> Dashboard </h1><br>
-      <table>
-        <tr>
-          <th>Room name</th>
-          <th>Room description</th>
-          <th>Room location</th>
-          <th>Room Rating</th>
-        </tr>
-        <?php $RoomRecords = $_SESSION['getrooms'];?>
-        <tr>
-          <td style="width:20%; padding-left:20px;">
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomname, '<br>';
-              }
-            ?>
-          </td>
-          <td style="width:35%;  padding-left:20px;">
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomdesc, '<br>';
-              }
-            ?>
-          </td>
-          <td style="width:35%; padding-left:20px;">
-              <?php 
-                foreach($RoomRecords as $row){
-                  echo $row->roomlocation, '<br>';
-                }
-              ?>
-          </td>
-          <td style="width:10%;">
-             <center>
-              <?php 
-                  foreach($RoomRecords as $row){
-                    echo $row->rating, '<br>';
-                  }
-                ?>
-             </center>
-          </td>
-        </tr>
-      </table>
-      
     </div>
   </div>
 </body>

@@ -22,8 +22,6 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/userprofile');
     }
     public function adminhomepage(){
-        $total = $this->roomModel->displayrooms();
-        $_SESSION['getrooms'] = $total;
         $this->view('pages/adminhomepage');
     }
     public function adminprofile(){
@@ -34,11 +32,38 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             'roomnameError' => '',
             'roomdescError' => '',
             'roomlocationError' => '',
+            'roomid' => '',
             'roomname' => '',
             'roomdesc' => '',
             'roomlocation' => ''
         ];
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $total = $this->roomModel->displayrooms(); //Display Rooms
+        $_SESSION['getrooms'] = $total; //Session add for displaying rooms
+        if (isset($_POST['UpdateRoom'])){ //UPDATE ROOM
+            $data = [
+                'roomupdateError' => '',
+                'roomid' => trim($_POST['roomid']),
+                'roomname' => trim($_POST['roomname']),
+                'roomdesc' => trim($_POST['roomdesc']),
+                'roomlocation' => trim($_POST['roomlocation'])
+            ];
+            if($this->roomModel->updateroom($data)){
+                header('location:' . URLROOT . '/pages/adminhomepage');
+            } else{
+                die('Something Went wrong');
+            }
+        }
+        elseif (isset($_POST['DeleteRoom'])){//DELETE ROOM
+            $data = [
+                'roomid' => trim($_POST['roomid'])
+            ];
+            if($this->roomModel->deleteroom($data['roomid'])){
+                header('location:' . URLROOT . '/pages/adminhomepage');
+            } else{
+                die('Something Went wrong');
+            }
+        }
+        elseif(isset($_POST['AddRoom'])) { //ADD ROOM
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters
             $data = [
