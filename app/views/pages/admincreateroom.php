@@ -111,6 +111,17 @@ html {
   border-top-right-radius: 10px;
   padding: 50px 0px;
 }
+.container .content form{
+  padding: 10px 10px;
+  margin-top: 20px;
+}
+.container .content form input{
+  width: 32%;
+  padding:10px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border:2px solid gray;
+}
 /* media */
 
 @media screen and (max-width: 600px) {
@@ -165,19 +176,23 @@ html {
       <h1> Create Room</h1><br>
       <form action="" method="POST">
         <input type="text" placeholder="Enter name room" name="roomname">
-        <span class="invalidFeedback">
+        <span class="invalidFeedback" style="color:red;">
           <?php echo $data['roomnameError'];?>
         </span>
         <input type="text" placeholder="Enter room description" name="roomdesc">
-        <span class="invalidFeedback">
+        <span class="invalidFeedback" style="color:red;">
           <?php echo $data['roomdescError'];?>
         </span>
         <input type="text" placeholder="Enter room location" name="roomlocation">
-        <span class="invalidFeedback">
+        <span class="invalidFeedback" style="color:red;">
           <?php echo $data['roomlocationError'];?>
         </span> 
+        
         <div class="button input-box">
-          <input name="submit" type="submit" value="Add Room">
+        <br>
+         <center>
+          <input style="width: 150px ; background-color: green; color:white; font-weight:700; border:none;" name="submit" type="submit" value="Add Room">
+         </center>
         </div>
       </form> 
     </div>

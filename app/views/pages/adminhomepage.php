@@ -111,6 +111,21 @@ html {
   border-top-right-radius: 10px;
   padding: 50px 0px;
 }
+table{
+  border: 2px solid gray;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th{
+  border: 2px solid gray;
+  background: yellow;
+}
+table td{
+  border: 2px solid gray;
+  text-align: justify;
+
+}
 /* media */
 
 @media screen and (max-width: 600px) {
@@ -166,7 +181,7 @@ html {
   <div class="container">
     <div class="content">
       <h1> Dashboard </h1><br>
-      <table border="1">
+      <table>
         <tr>
           <th>Room name</th>
           <th>Room description</th>
@@ -175,33 +190,35 @@ html {
         </tr>
         <?php $RoomRecords = $_SESSION['getrooms'];?>
         <tr>
-          <td>
+          <td style="width:20%; padding-left:20px;">
             <?php 
               foreach($RoomRecords as $row){
                 echo $row->roomname, '<br>';
               }
             ?>
           </td>
-          <td>
+          <td style="width:35%;  padding-left:20px;">
             <?php 
               foreach($RoomRecords as $row){
                 echo $row->roomdesc, '<br>';
               }
             ?>
           </td>
-          <td>
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomlocation, '<br>';
-              }
-            ?>
+          <td style="width:35%; padding-left:20px;">
+              <?php 
+                foreach($RoomRecords as $row){
+                  echo $row->roomlocation, '<br>';
+                }
+              ?>
           </td>
-          <td>
-          <?php 
-              foreach($RoomRecords as $row){
-                echo $row->rating, '<br>';
-              }
-            ?>
+          <td style="width:10%;">
+             <center>
+              <?php 
+                  foreach($RoomRecords as $row){
+                    echo $row->rating, '<br>';
+                  }
+                ?>
+             </center>
           </td>
         </tr>
       </table>
