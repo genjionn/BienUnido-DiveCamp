@@ -51,6 +51,7 @@ html {
   width: 100px;
   border: 4px solid #164a41;
   border-radius: 50px;
+  object-fit: cover;
 }
 .sidebar b{
   color: #fff;
@@ -111,6 +112,7 @@ html {
   width: 100px;
   padding: 1px 1px;
   border-radius: 50px;
+  object-fit: cover;
 }
 .container .profile-head .edit-profile{
   display: inline-block;
@@ -126,7 +128,7 @@ html {
   text-align: left;
 } 
 .container .profile-head .edit-profile input{
-  display: none;
+  display: flex;
 }
 .container .profile-head .edit-profile label{
   letter-spacing: 2px;
@@ -394,7 +396,7 @@ html {
       <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
     </div>
       <center class="profile"><br>
-        <img src="profile.jpg" alt=""><br>
+        <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt=""><br>
         <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
       </center>
       <div class="side-nav nav">
@@ -406,49 +408,54 @@ html {
   </div>
   <div class="container">
     <div class="profile-head">
-      <img src="profile.jpg" alt="">
+      <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt="">
       <div class="edit-profile">
         <h2><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h2>
-        <input type="file" id="file">
-			  <label for="file">Edit Profile</label><br>
-        <i>Acceptable formats: .jpg and .png only</i>
+        <form action="<?php echo URLROOT; ?>/pages/profile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <i>Acceptable formats: .jpg and .png only</i><br><br>
+			  <button type="submit" name="submit">Change Profile Picture</button><br>
+        </form>
       </div>
     </div>
+
+    <form method="POST" action="<?php echo URLROOT; ?>/pages/profile">
     <div class="profile-info">
       <div class="profile-content">
         <h3>Account Information</h3><br>
         <div class="profile-input">
           <i class="fa fa-user"></i>
-          <input type="text" placeholder="<?php echo $_SESSION['firstname'];?>">
+          <input type="text" name ="firstname" value="<?php echo $_SESSION['firstname'];?>">
         </div>
         <div class="profile-input">
           <i class="fa fa-user"></i>
-          <input type="text" placeholder="<?php echo $_SESSION['lastname'];?>">
+          <input type="text" name="lastname" value="<?php echo $_SESSION['lastname'];?>">
         </div>
-        <div class="profile-input" id="email">
+        <div class="profile-input">
           <i class="fa fa-envelope"></i>
-          <input type="email" placeholder="<?php echo $_SESSION['email'];?>">
+          <input type="email" name="email" value="<?php echo $_SESSION['email'];?>">
         </div>
         <br><br>
         <h3>Password Information</h3><br>
         <div class="profile-input">
           <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Your current password..">
+          <input type="password" placeholder="Current password">
         </div>
         <div class="profile-input">
           <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Your new password..">
+          <input type="password" placeholder="New password">
         </div>
-        <div class="profile-input" id="password">
+        <div class="profile-input">
           <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Confirm your password..">
+          <input type="password" placeholder="Confirm new password">
         </div>
-        <br>
+        <br><br>
         <center>
           <button class="btn-cancel">Cancel</button>
-          <button class="btn-save">Save</button>
+          <button class="btn-save" type="submit" name="submitUpdate">Update</button>
         </center>
       </div>
+    </form>
       
     </div>
   </div>

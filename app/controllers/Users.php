@@ -15,7 +15,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
             'lastname' => '',
             'email' => '',
             'password' => '',
-            'confirmpassword' => ''
+            'confirmpassword' => '',
         ];
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -32,7 +32,8 @@ class Users extends Controller{ //Takes care of the flow of the Users
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmpassword' => trim($_POST['confirmpassword']),
-                'priviledge' => 'Admin'
+                'priviledge' => 'Regular',
+                'picname' => 'defaultprofilepic.jpg'
             ];//Gamit sa trim kai tangtangon ang spaces.
 
             $nameValidation = "/^[a-zA-Z]*$/";
@@ -148,12 +149,13 @@ class Users extends Controller{ //Takes care of the flow of the Users
         $_SESSION['email'] = $user->email;
         $_SESSION['firstname'] = $user->firstname;
         $_SESSION['lastname'] = $user->lastname;
+        $_SESSION['picname'] = $user->picname;
         header('location:' . URLROOT . '/pages/home');
     }
     public function logout(){
         unset($_SESSION['user_id']); //unset tong na set na session kai naa mn to naka stack na info silbi delete to.
         unset($_SESSION['email']);
-        header('location:' . URLROOT); // Back sa Landing page
+        header('location:' . URLROOT . '/pages/index'); // Back sa Landing page
     }
 
     public function admin(){ 

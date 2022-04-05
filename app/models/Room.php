@@ -1,10 +1,12 @@
 <?php 
 class Room{
+
     private $db;
 
     public function __construct(){
         $this->db = new Database; //Instantiate Database
     }
+
     public function createroom($data){
         $this->db->query('INSERT INTO rooms (roomname, adminid, roomlocation, roomdesc) VALUES (:roomname, :adminid, :roomlocation, :roomdesc)');
         //Bind Values

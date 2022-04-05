@@ -51,6 +51,7 @@ html {
   width: 100px;
   border: 4px solid #164a41;
   border-radius: 50px;
+  object-fit: cover;
 }
 .sidebar b{
   color: #fff;
@@ -160,7 +161,7 @@ html {
       <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
     </div>
       <center class="profile"><br>
-        <img src="profile.jpg" alt=""><br>
+        <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt=""><br>
         <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
       </center>
       <div class="side-nav nav">

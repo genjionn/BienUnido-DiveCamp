@@ -7,13 +7,14 @@
         }
 
         public function register($data){
-            $this->db->query('INSERT INTO users (firstname, lastname, email, password, priviledge) VALUES (:firstname, :lastname, :email, :password, :priviledge)');
+            $this->db->query('INSERT INTO users (firstname, lastname, email, password, priviledge, picname) VALUES (:firstname, :lastname, :email, :password, :priviledge, :picname)');
             //Bind Values
             $this->db->bind(':firstname', $data['firstname']);
             $this->db->bind(':lastname', $data['lastname']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':priviledge', $data['priviledge']);
+            $this->db->bind(':picname', $data['picname']);
             //when it word execute this function
             if($this->db->execute()){
                 return true;

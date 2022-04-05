@@ -1,4 +1,5 @@
 <?php
+
 class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function __construct(){
         $this->roomModel = $this->model('Room');
@@ -19,12 +20,84 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/usercontactus');
     }
     public function profile(){
+        if(isset($_POST['submit'])){
+            $file = $_FILES['file'];
+
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file['size'];
+            $fileError = $file['error'];
+            $fileType = $file['type'];
+
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg','jpeg','png');
+            $currentid = $_SESSION['user_id'];
+
+            if(in_array($fileActualExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 5000000){
+                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
+                        $fileDestination = '../public/img/uploads/'.$fileNameNew;
+                        $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
+                        $conn = mysqli_connect("localhost", "root", "", "divecamp");
+                        $result = mysqli_query($conn, $query);
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $_SESSION['picname'] = $fileNameNew;
+                        header("Location: ". URLROOT ."/pages/profile");
+                    }else{
+                    echo '<script>alert("Your image file size is too big.")</script>';
+                    }
+                }else{
+                    echo '<script>alert("There was an error uploading your image.")</script>';
+                }
+            }else{
+                echo '<script>alert("You can only upload .png or .jpg images.")</script>';
+            }
+        }
         $this->view('pages/userprofile');
     }
     public function adminhomepage(){
         $this->view('pages/adminhomepage');
     }
     public function adminprofile(){
+        if(isset($_POST['submit'])){
+            $file = $_FILES['file'];
+
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file['size'];
+            $fileError = $file['error'];
+            $fileType = $file['type'];
+
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg','jpeg','png');
+            $currentid = $_SESSION['user_id'];
+
+            if(in_array($fileActualExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 5000000){
+                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
+                        $fileDestination = '../public/img/uploads/'.$fileNameNew;
+                        $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
+                        $conn = mysqli_connect("localhost", "root", "", "divecamp");
+                        $result = mysqli_query($conn, $query);
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $_SESSION['picname'] = $fileNameNew;
+                        header("Location: ". URLROOT ."/pages/profile");
+                    }else{
+                    echo '<script>alert("Your image file size is too big.")</script>';
+                    }
+                }else{
+                    echo '<script>alert("There was an error uploading your image.")</script>';
+                }
+            }else{
+                echo '<script>alert("You can only upload .png or .jpg images.")</script>';
+            }
+        }
         $this->view('pages/adminprofile');
     }
     public function admincreateroom(){
