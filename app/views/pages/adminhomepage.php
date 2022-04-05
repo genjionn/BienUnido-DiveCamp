@@ -111,6 +111,21 @@ html {
   border-top-right-radius: 10px;
   padding: 50px 0px;
 }
+table{
+  border: 2px solid gray;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th{
+  border: 2px solid gray;
+  background: yellow;
+}
+table td{
+  border: 2px solid gray;
+  text-align: justify;
+
+}
 /* media */
 
 @media screen and (max-width: 600px) {
