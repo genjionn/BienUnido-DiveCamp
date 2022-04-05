@@ -166,46 +166,6 @@ html {
   <div class="container">
     <div class="content">
       <h1> Dashboard </h1><br>
-      <table border="1">
-        <tr>
-          <th>Room name</th>
-          <th>Room description</th>
-          <th>Room location</th>
-          <th>Room Rating</th>
-        </tr>
-        <?php $RoomRecords = $_SESSION['getrooms'];?>
-        <tr>
-          <td>
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomname, '<br>';
-              }
-            ?>
-          </td>
-          <td>
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomdesc, '<br>';
-              }
-            ?>
-          </td>
-          <td>
-            <?php 
-              foreach($RoomRecords as $row){
-                echo $row->roomlocation, '<br>';
-              }
-            ?>
-          </td>
-          <td>
-          <?php 
-              foreach($RoomRecords as $row){
-                echo $row->rating, '<br>';
-              }
-            ?>
-          </td>
-        </tr>
-      </table>
-      
     </div>
   </div>
 </body>

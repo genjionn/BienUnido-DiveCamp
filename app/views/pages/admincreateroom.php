@@ -163,7 +163,7 @@ html {
   <div class="container">
     <div class="content">
       <h1> Create Room</h1><br>
-      <form action="" method="POST">
+      <form action="" method="POST" id="roomform">
         <input type="text" placeholder="Enter name room" name="roomname">
         <span class="invalidFeedback">
           <?php echo $data['roomnameError'];?>
@@ -177,12 +177,44 @@ html {
           <?php echo $data['roomlocationError'];?>
         </span> 
         <div class="button input-box">
-          <input name="submit" type="submit" value="Add Room">
+          <input name="AddRoom" type="submit" value="Add Room" id="roominsert">
         </div>
-      </form> 
-    </div>
-  </div>
+      </form>
 
+      <table border="1" id="result">
+        <tr>
+          <th>Room Picture</th>
+          <th>Room name</th>
+          <th>Room description</th>
+          <th>Room location</th>
+          <th>Room Rating</th>
+          <th>No. of Reserve</th>
+          <th>Action</th>
+        </tr>
+        <?php $RoomRecords = $_SESSION['getrooms'];
+        foreach($RoomRecords as $row){
+        ?>
+        <form method="POST" action=''>
+        <tr>
+          <td></td>
+          <td><input style="border:none" type="text" name="roomname"  value="<?php echo $row->roomname ?>"></td>
+          <td><input style="border:none" type="text" name="roomdesc"  value="<?php echo $row->roomdesc ?>"></td>
+          <td><input style="border:none" type="text" name="roomlocation"  value="<?php echo $row->roomlocation ?>"></td>
+          <td><?php echo $row->rating ?> </td>
+          <td>
+            <button>🔍</button>
+          </td>
+          <td>        
+            <input type="hidden" name="roomid"  value="<?php echo $row->roomid ?>">
+            <input type="submit" name="UpdateRoom"  value="Edit">
+            <input type="submit" name="DeleteRoom"  value="Delete">
+          </td>
+        </tr>
+        </form>
+        <?php } ?>
+      </table>
+    </div>  
+  </div>
 </body>
 </html>
   
