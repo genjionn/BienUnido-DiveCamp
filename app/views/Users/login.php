@@ -16,7 +16,7 @@
             font-family: 'Poppins', sans-serif;
         }
         body{
-            background-image: url("../img/watermark.png");
+            background-image: url("../img/watermark_bg.png");
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -31,9 +31,9 @@
             margin: 0%;
             width: 480px;
             height: auto;
-            border: 1px solid #52575D;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border: 2px solid #f1b24a;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
             background-color: #F6F4E6;
             box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
             -webkit-box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
@@ -41,10 +41,10 @@
         }
         .container form .head{
             text-align: center;
-            border-bottom: 1px solid #52575D;
-            background-color: #FDDB3A;
+            border-bottom: 2px solid #f1b24a;
+            background-color: #f1b24a;
             padding: 10px 10px;
-            color: #52575D;
+            color: #fff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             margin-bottom: 25px;
@@ -59,14 +59,14 @@
             width: 350px;
             padding: 10px 10px;
             border-radius:10px ;
-            border: 1px solid #52575D;
+            border: 2px solid gray;
         }
         .container form .content #forget-pass{
-            padding-left: 30px;
             color: #52575D;
         }
         .container form .content #forget-pass:hover{
-            color: #FDDB3A;
+            color: #f1b24a;
+            text-decoration: underline;
         }
         .container form .content a{
             text-decoration: none;
@@ -80,11 +80,11 @@
             align-items: center;
         }
         .container form .content i{
-            border: 1px solid #52575D;
+            border: 2px solid gray;
             padding: 10px 10px;
-            background-color: #FDDB3A;
+            background-color: #f1b24a;
             border-radius: 10px;
-            color: #52575D;
+            color: #fff;
             font-size: 18px;
         }
         .container form .btn{
@@ -95,12 +95,15 @@
             padding: 5px 10px;
             border-radius: 25px;
             background-color: #fff;
-            border: 1px solid #52575D;
+            border: 2px solid gray;
             margin-bottom: 10px;
+            font-size:16px;
+            font-weight:700;
         }
         .container form .btn button:hover{
-            background-color: #FDDB3A;
-            border: 1px solid #FDDB3A;
+            background-color: #f1b24a;
+            border: 2px solid gray;
+            color:#fff;
         }
         .container form .btn button a{
             color: #52575D;
@@ -115,10 +118,11 @@
         }
         .container form .btn a{
             text-decoration: none;
-            color: #52575D;
+            color: gray;
         }
         .container form .btn a:hover{
-            color: #FDDB3A;
+            color: #f1b24a;
+            text-decoration: underline;
         }
 
         .text{
@@ -136,7 +140,7 @@
             top: -50%;
             visibility: hidden;
             width: 50%;
-            border: 4px solid #f1b24a;
+            border: 0px solid transparent;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             box-shadow: 0 3px 7px rgba(0,0,0,.25);
@@ -152,14 +156,13 @@
             visibility: visible;
         }
 		#forgot-modal .modal-header {
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
-            border-bottom: 1px solid #164a41;
+            background: #f1b24a;
+            border-bottom: 2px solid gray;
             border-radius: 5px 5px 0 0;
         }
         #forgot-modal .modal-header h3{
             letter-spacing: 2px;
             text-align: center;
-            padding: 30px;
         }
         #forgot-modal .modal-body p{
             letter-spacing: 1px;
@@ -170,14 +173,14 @@
             font-size: 24px;
             top: 5px;
             left: 45px;
-            color: #164a41;
+            color: #f1b24a;
             padding: 10px 10px;
             border-radius: 15px;
         }
         #forgot-modal .modal-body #email{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid #f1b24a;
+            border: 2px solid gray;
             border-radius: 15px;
         }
 		#forgot-modal h2 {
@@ -191,21 +194,22 @@
 		#forgot-modal .modal-body, #forgot-modal .modal-header {
             padding: 20px;
             text-align: right;
-            color: #fff;
+            color: #000;
         }
 		.modal-content {
             position: relative;
             z-index: 20;
             border-radius: 5px;
-            color: #fff
+            color: gray
         }
 		#forgot-modal .modal-body { 
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+            background-image:url("../img/bckg.png");
+            background-size:cover;
          }
         #forgot-modal .modal-body button{
             width: 100px;
             margin: 5px;
-            padding: 10px 20px;
+            padding: 5px 20px;
             border-radius: 5px;
             text-align: center;
          }
@@ -217,7 +221,7 @@
              background-color: red;
              font-size: 16px;
              font-weight: 700;
-             border: 1px solid darkred;
+            border:none;
          }
          #forgot-modal .modal-body .close:hover{
              background-color: darkred;
@@ -226,7 +230,7 @@
              background-color: blue;
              font-size: 16px;
              font-weight: 700;
-             border: 1px solid darkblue;
+            border:none;
          }
          #forgot-modal .modal-body .next:hover{
             background-color: darkblue;
@@ -251,7 +255,6 @@
             top: -50%;
             visibility: hidden;
             width: 50%;
-            border: 4px solid #f1b24a;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             box-shadow: 0 3px 7px rgba(0,0,0,.25);
@@ -265,8 +268,8 @@
             visibility: visible;
         }
 		#reset-modal .modal-header {
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
-            border-bottom: 1px solid #164a41;
+            background:#f1b24a;
+            border-bottom: 2px solid gray;
             border-radius: 5px 5px 0 0;
         }
         #reset-modal .modal-header h3{
@@ -283,20 +286,20 @@
             top: 0;
             margin: 10px;
             left: 50px;
-            color: #164a41;
+            color: #f1b24a;
             padding: 10px 10px;
             border-radius: 15px;
         }
         #reset-modal .modal-body #new-pass{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid #f1b24a;
+            border: 2px solid gray;
             border-radius: 15px;
         }
         #reset-modal .modal-body #confirm-pass{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid #f1b24a;
+            border: 2px solid gray;
             border-radius: 15px;
         }
 		#reset-modal h2 {
@@ -310,21 +313,22 @@
 		#reset-modal .modal-body, #reset-modal .modal-header {
             padding: 20px;
             text-align: right;
-            color: #fff;
+            color: #000;
         }
 		.modal-content {
             position: relative;
             z-index: 20;
             border-radius: 5px;
-            color: #fff
+            color: #000;
         }
 		#reset-modal .modal-body { 
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+            background-image:url("../img/bckg.png");
+            background-size:cover;
          }
         #reset-modal .modal-body button{
             width: 100px;
             margin: 5px;
-            padding: 10px 20px;
+            padding: 5px 20px;
             border-radius: 5px;
             text-align: center;
          }
@@ -333,10 +337,12 @@
              text-decoration: none;
          }
          #reset-modal .modal-body .close{
+             display:flex;
+             float: left;
              background-color: red;
              font-size: 16px;
              font-weight: 700;
-             border: 1px solid darkred;
+             border:none;
          }
          #reset-modal .modal-body .close:hover{
              background-color: darkred;
@@ -345,7 +351,16 @@
              background-color: #f1b24a;
              font-size: 16px;
              font-weight: 700;
-             border: 1px solid goldenrod;
+             border:none;
+         }
+         #reset-modal .modal-body .save{
+             background-color: green;
+             font-size: 16px;
+             font-weight: 700;
+             border:none;
+         }
+         #reset-modal .modal-body .save:hover{
+            background-color: darkgreen;
          }
          #reset-modal .modal-body .back:hover{
             background-color: goldenrod;
@@ -577,7 +592,7 @@
                     </span>
                     
                 </center>
-                <div class="text"><a href="#forgot-modal">Forgot password?</a></div>
+                <div class="text"><a  id="forget-pass" href="#forgot-modal">Forgot password?</a></div>
             </div>
             <div class="btn">
                 <center>
@@ -620,7 +635,8 @@
                 </center>
                 <br>
                 <button class="back"><a href="#forgot-modal">Back</a></button>
-				<button class="close"><a href="#" >Close</a> </button>
+                <button class="save"><a href="#">Save</a></button>
+				<button class="close"><a href="#" > &nbsp;Close</a> </button>
 			    </div>
 		    </div>
 		    <div class="overlay"></div>

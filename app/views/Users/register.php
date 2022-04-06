@@ -16,7 +16,7 @@
             font-family: 'Poppins', sans-serif;
         }
         body{
-            background-image: url("../img/watermark.png");
+            background-image: url("../img/watermark_bg.png");
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -31,9 +31,9 @@
             margin: 0%;
             width: 480px;
             height: auto;
-            border: 1px solid #52575D;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border: 2px solid #f1b24a;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
             background-color: #F6F4E6;
             box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
             -webkit-box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
@@ -41,10 +41,10 @@
         }
         .container form .head{
             text-align: center;
-            border-bottom: 1px solid #52575D;
-            background-color: #FDDB3A;
+            border-bottom: 2px solid #f1b24a;
+            background-color: #f1b24a;
             padding: 10px 10px;
-            color: #52575D;
+            color: #fff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             margin-bottom: 25px;
@@ -59,7 +59,7 @@
             width: 350px;
             padding: 10px 10px;
             border-radius:10px ;
-            border: 1px solid #52575D;
+            border: 2px solid gray;
         }
 
         .container form .content a{
@@ -74,11 +74,11 @@
             align-items: center;
         }
         .container form .content i{
-            border: 1px solid #52575D;
+            border: 2px solid gray;
             padding: 10px 10px;
-            background-color: #FDDB3A;
+            background-color: #f1b24a;
             border-radius: 10px;
-            color: #52575D;
+            color: #fff;
         }
         .container form .btn{
             margin-bottom: 25px;
@@ -88,12 +88,15 @@
             padding: 5px 10px;
             border-radius: 25px;
             background-color: #fff;
-            border: 1px solid #52575D;
+            border: 2px solid gray;
             margin-bottom: 10px;
+            font-size:16px;
+            font-weight:700;
         }
         .container form .btn button:hover{
-            background-color: #FDDB3A;
-            border: 1px solid #FDDB3A;
+            background-color: #f1b24a;
+            border: 2px solid gray;
+            color: #fff;
         }
         .container form .btn button a{
             color: #52575D;
@@ -111,7 +114,7 @@
             color: #52575D;
         }
         .container form .btn a:hover{
-            color: #FDDB3A;
+            color: #f1b24a;
         }
     </style>
 </head>
@@ -153,7 +156,7 @@
             </div>
             <div class="btn">
                 <center>
-                    <button name="submit" type="submit" value="Sign in">Login</button>
+                    <button name="submit" type="submit" value="Sign in">Sign Up</button>
                 </center>
                 <label>Already't have an account?<a href="<?php echo URLROOT; ?>/users/login"> Login now</a></label>
             </div>
