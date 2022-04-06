@@ -102,13 +102,15 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     }
     public function admincreateroom(){
         $data = [
+            'roomimgError' => '',
             'roomnameError' => '',
             'roomdescError' => '',
             'roomlocationError' => '',
             'roomid' => '',
             'roomname' => '',
             'roomdesc' => '',
-            'roomlocation' => ''
+            'roomlocation' => '',
+            'roomimg' => ''
         ];
         $total = $this->roomModel->displayrooms(); //Display Rooms
         $_SESSION['getrooms'] = $total; //Session add for displaying rooms
@@ -140,22 +142,46 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters
             $data = [
+                'roomimgError' => '',
                 'roomnameError' => '',
                 'roomdescError' => '',
                 'roomlocationError' => '',
                 'roomname' => trim($_POST['roomname']),
                 'roomdesc' => trim($_POST['roomdesc']),
                 'roomlocation' => trim($_POST['roomlocation']),
-                'adminid' => $_SESSION['user_id']
+                'adminid' => $_SESSION['user_id'],
+                'roomimage' => $_FILES['roomimage'],
+                'roomNewFileName' => ''
             ];
+            //Image File Breakdown
+            $rimageName = $data['roomimage']['name'];
+            $rimageTmpName = $data['roomimage']['tmp_name'];
+            $rimageSize = $data['roomimage']['size'];
+            $rimageError = $data['roomimage']['error'];
+            $rimageType = $data['roomimage']['type'];
+            $rimageExt = explode('.', $rimageName);
+            $rimageActualExt = strtolower(end($rimageExt));
+            $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+            //Validate Room image
+            if(empty($data['roomimage']['name'])){
+                $data['roomimgError'] = 'Please Upload room image';
+            } elseif(in_array($rimageActualExt, $allowed)){
+                if($rimageError === 0){
+                    if($rimageSize > 500000){
+                        $data['roomimgError'] = 'File to Large';
+                    }
+                } else{
+                    $data['roomimgError'] = 'Error Uploading the File';
+                }
+            } else{
+                $data['roomimgError'] = 'File type Invalid';
+            }
             //Validate Room name 
             if(empty($data['roomname'])){
                 $data['roomnameError'] = 'Please enter Room name';
-            } else{
+            } elseif($this->roomModel->findRoombyRoomName($data['roomname'])){
                 //check if room name exist
-                if($this->roomModel->findRoombyRoomName($data['roomname'])){
-                    $data['roomnameError'] = 'Room Name Already taken';
-                }
+                $data['roomnameError'] = 'Room Name Already taken';
             }
             //Validate Room description
             if(empty($data['roomdesc'])){
@@ -166,10 +192,15 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 $data['roomlocationError'] = 'Please enter Room Location';
             }
             //Make sure errors are empty
-            if(empty($data['roomnameError']) && empty($data['roomlocationError']) && empty($data['roomdescError'])){
-                //Register user from model function kung wlai errors
+            if(empty($data['roomimgError']) && empty($data['roomnameError']) && empty($data['roomlocationError']) && empty($data['roomdescError'])){
+                $rimageNameNew = uniqid('',true).".".$rimageActualExt;
+                $rimageDestination = '../public/img/roomimg/'.$rimageNameNew;
+                $data['roomNewFileName'] = $rimageNameNew;
+                //Register room from model function kung wlai errors
                 if($this->roomModel->createroom($data)){
-                    header('location:' . URLROOT . '/pages/adminhomepage');
+                    //Image Create to the destination folder
+                    move_uploaded_file($rimageTmpName, $rimageDestination);
+                    header('location:' . URLROOT . '/pages/adminhomepage');   
                 } else{
                     die('Something Went wrong');
                 }

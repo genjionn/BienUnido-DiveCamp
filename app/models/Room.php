@@ -8,12 +8,13 @@ class Room{
     }
 
     public function createroom($data){
-        $this->db->query('INSERT INTO rooms (roomname, adminid, roomlocation, roomdesc) VALUES (:roomname, :adminid, :roomlocation, :roomdesc)');
+        $this->db->query('INSERT INTO rooms (roomname, adminid, roomlocation, roomdesc, roomimage) VALUES (:roomname, :adminid, :roomlocation, :roomdesc, :roomimage)');
         //Bind Values
         $this->db->bind(':adminid', $data['adminid']);
         $this->db->bind(':roomname', $data['roomname']);
         $this->db->bind(':roomdesc', $data['roomdesc']);
         $this->db->bind(':roomlocation', $data['roomlocation']);
+        $this->db->bind(':roomimage', $data['roomNewFileName']);
         //when it word execute this function
         if($this->db->execute()){
             return true;
