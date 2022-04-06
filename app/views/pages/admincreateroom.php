@@ -92,24 +92,145 @@ html {
 .container{
   width: 100%;
   height: auto;
-  padding: 10px 0;
-}
-.container .content{
-  line-height: 30px;
-  display: block;
-  height: auto;
-  width: auto;
-  margin-left: 240px;
-  padding: 5px 10px;
+  background-color: #fff;
+  padding: 15px 0;
 }
 .container .content h1{
   color: #164a41;
   text-align: center;
   width: auto;
+  /* background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff); */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* padding: 50px 0px; */
+}
+.container .profile-head{
+  display: flex;
+  justify-content: center;
+  width: 80%;
   background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 50px 0px;
+  margin-left: 250px;
+  padding: 30px 50px;
+}
+.container .profile-head img{
+  border: 1px solid #164a41;
+  height: 100px;
+  width: 100px;
+  padding: 1px 1px;
+  border-radius: 50px;
+}
+.container .profile-head .edit-profile{
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 25px;
+  line-height: 25px;
+}
+.container .profile-head .edit-profile h2{
+  letter-spacing: 1px;
+  color: #164a41;
+  font-size: 24px;
+  padding: 10px 0px;
+  text-align: left;
+} 
+.container .profile-head .edit-profile input{
+  display: none;
+}
+.container .profile-head .edit-profile label{
+  letter-spacing: 2px;
+  border: 1px solid #164a41;
+  padding: 5px 15px;
+  text-align: left;
+  border-radius: 50px;
+}
+.container .profile-head .edit-profile label:hover{
+  background-color: #f1b24a;
+}
+.container .profile-head .edit-profile i{
+  color: #f1b24a;
+  text-align: right;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+/* profile information */
+.container .profile-info{
+  display: flex;
+  width: 80%;
+  margin-left: 250px;
+  padding: 50px 10px;
+}
+.container .profile-info .profile-content{
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+}
+.container .profile-info .profile-content .profile-input{
+  display: inline-block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #email{
+  display: block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #email input{
+  width: 900px ;
+}
+.container .profile-info .profile-content .profile-input input{
+  padding: 15px 25px;
+  font-size: 14px;
+  border-radius: 15px;
+  width: 400px;
+  border: 2px solid #164a41;
+}
+.container .profile-info .profile-content .profile-input i{
+  border: 2px solid #164a41;
+  color: #164a41;
+  background-color: #f1b24a;
+  padding: 15px 15px;
+  font-size: 14px;
+  border-radius: 15px;
+}
+.container .profile-info .profile-content #password{
+  display: block;
+  padding: 10px 10px;
+  width: auto;
+  margin-left: 20px;
+}
+.container .profile-info .profile-content #password input{
+  width: 900px ;
+}
+.container .profile-info .profile-content button{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 10px;
+  text-align: center;
+  width: 100px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+.container .profile-info .profile-content .btn-cancel{
+  background-color: red;
+}
+.container .profile-info .profile-content .btn-save{
+  background-color: blue;
+}
+.container .profile-info .profile-content .btn-cancel:hover{
+  background-color: darkred;
+}
+.container .profile-info .profile-content .btn-save:hover{
+  background-color: darkblue;
 }
 /* media */
 
@@ -135,15 +256,65 @@ html {
     font-size: 12px;
     width: 510px;
   }
-  .container .content{
-      width: 95%;
-      margin: 2%;
+  .container .profile-head{
+    margin: 0%;
+    width: 100%;
+  }
+  .container .profile-head img{
+    width: 80px;
+    height: 80px;
+  }
+  .container .profile-head .edit-profile h2{
+    font-size: 16px;
+  }
+  .container .profile-head .edit-profile{
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  .container .profile-head .edit-profile label{
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  .container .profile-head .edit-profile i{
+    font-size: 10px;
+  }
+  .container .profile-info{
+    width: 100%;
+    margin: 0%;
+  }
+  .container .profile-info .profile-content h3{
+    font-size: 14px;
+  }
+  .container .profile-info .profile-content .profile-input i{
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+  .container .profile-info .profile-content .profile-input input{
+    font-size: 12px;
+    padding: 10px 10px;
+    width: 330px;
+  }
+  .container .profile-info .profile-content #email input{
+    width: 330px;
+  }
+  .container .profile-info .profile-content #password input{
+    width: 330px;
+  }
+  .container .profile-info .profile-content .btn-cancel{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .container .profile-info .profile-content .btn-save{
+    letter-spacing: 2px;
+    padding: 10px 8px;
+    font-size: 12px;
   }
 }
+
 </style>
 </head>
 <body>
-  
   <div class="sidebar">
     <div class="head">
       <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
@@ -153,17 +324,47 @@ html {
         <b><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></b>
       </center>
       <div class="side-nav nav">
-        <a class="nav1"  href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fas fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
-        <a class="nav2" href="<?php echo URLROOT; ?>/pages/admincreateroom" class="menu-btn"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Create Room</a><br>
+        <a class="nav1" href="<?php echo URLROOT; ?>/pages/adminhomepage" class="menu-btn"><i class="fa fa-desktop"></i><span>&nbsp;&nbsp;</span> Dashboard</a><br>
+        <a class="nav2" href="<?php echo URLROOT; ?>/pages/admincreateroom"><i class="fa fa-book"></i><span>&nbsp;&nbsp;</span> Create Room</a><br>
         <a class="nav3" href="<?php echo URLROOT; ?>/pages/adminprofile" class="menu-btn"><i class="fa fa-user-circle"></i><span>&nbsp;&nbsp;</span> Profile</a><br>
         <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
       </div>  
   </div>
   <div class="container">
-    <div class="content">
-      <h1> Create Room</h1><br>
+    <div class="profile-head">
+      <div class="content">
+        <h1> Create Room</h1><br>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-content">
+        <h3>Account Information</h3><br>
+        <form action="" method="POST">
+          <div class="profile-input">
+            <i class="fa fa-book"></i>
+            <input type="text" name="name" id="name" placeholder="Room Name">
+          </div>
+          <div class="container">
+            <div class="profile-input">
+              <i class="fa fa-pencil"></i>
+              <input type="text" name="description" id="description" placeholder="Room Description">
+            </div>
+          </div>
+          <div class="button input-box">
+                    <input name="submit" type="submit" value="Temporary submit">
+                </div>
+          
+          <center>
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save">Save</button>
+          </center>
+        </form>
+      </div>
     </div>
   </div>
+   
 </body>
 </html>
+
 	
+

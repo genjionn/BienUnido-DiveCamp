@@ -71,5 +71,18 @@
                 return false;
             }
         }
+
+        public function admincreateroom($data){
+            $this->db->query('INSERT INTO users (name, description) VALUES (:name, :description)');
+            //Bind Values
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':description', $data['description']);
+            //when it word execute this function
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

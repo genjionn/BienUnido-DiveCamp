@@ -224,6 +224,32 @@ class Users extends Controller{ //Takes care of the flow of the Users
         $_SESSION['lastname'] = $user->lastname;
         header('location:' . URLROOT . '/pages/adminhomepage');
     }
+    public function admincreateroom(){
+        $data = [
+            'name' => '',
+            'description' => '',
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters
+            $data = [
+                'name' => trim($_POST['name']),
+                'description' => trim($_POST['description']),
+            ];//Gamit sa trim kai tangtangon ang spaces.
+
+            if(empty($data['name']) && empty($data['description'])){
+                //Register user from model function kung wlai errors
+                if($this->userModel->register($data)){
+                    header('location:' . URLROOT . '/pages/admincreateroom');
+                } else{
+                    die('Something Went wrong');
+                }
+            }
+        }
+        $this->view('pages/admincreateroom', $data);
+
+    }
 }
 
 ?>
