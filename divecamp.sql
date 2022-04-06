@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 02:03 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Apr 06, 2022 at 08:59 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,22 +33,17 @@ CREATE TABLE `rooms` (
   `roomname` varchar(255) NOT NULL,
   `roomdesc` varchar(255) NOT NULL,
   `roomlocation` varchar(255) NOT NULL,
-  `rating` int(255) NOT NULL
+  `rating` int(255) NOT NULL,
+  `roomimage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`) VALUES
-(1, 3, 'sampleroom', '', 'pardo', 0),
-(2, 3, '2nd sample room', '', 'San fernando', 0),
-(3, 3, 'sampleroom', '', 'pardo', 0),
-(4, 3, 'sampleroom', '', 'pardo', 0),
-(5, 3, 'sampleroom', '', 'pardo', 0),
-(6, 3, 'Testroom', 'testdescription', 'testlocation', 0),
-(7, 3, 'sampleroom', 'testdescription', 'pardo', 0),
-(8, 3, 'Perfect Room for 21', 'Perfect room for 2 is a 2 size bed...', 'BienUnido', 0);
+INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`, `roomimage`) VALUES
+(21, 3, 'Small Room', 'A Small room with Large Bed', 'BienUnido', 0, '624d384dc127c4.88056707.jpg'),
+(22, 3, 'Medium Room', 'Good For 2 People Room and Bed', 'BienUnido', 0, '624d38a651ffe2.51894242.jpg');
 
 -- --------------------------------------------------------
 
@@ -101,7 +96,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`

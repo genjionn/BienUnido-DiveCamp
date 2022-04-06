@@ -175,7 +175,11 @@ html {
   <div class="container">
     <div class="content">
       <h1> Create Room</h1><br>
-      <form action="" method="POST" id="roomform">
+      <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
+        <input type="file" name="roomimage">
+        <span class="invalidFeedback" style="color:red;">
+          <?php echo $data['roomimgError'];?>
+        </span>
         <input type="text" placeholder="Enter name room" name="roomname">
         <span class="invalidFeedback" style="color:red;">
           <?php echo $data['roomnameError'];?>
@@ -209,7 +213,7 @@ html {
         ?>
         <form method="POST" action=''>
         <tr>
-          <td></td>
+          <td><img src="../public/img/roomimg/<?php echo $row->roomimage ?>"></td>
           <td><input style="border:none" type="text" name="roomname"  value="<?php echo $row->roomname ?>"></td>
           <td><input style="border:none" type="text" name="roomdesc"  value="<?php echo $row->roomdesc ?>"></td>
           <td><input style="border:none" type="text" name="roomlocation"  value="<?php echo $row->roomlocation ?>"></td>
