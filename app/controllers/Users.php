@@ -155,6 +155,9 @@ class Users extends Controller{ //Takes care of the flow of the Users
     public function logout(){
         unset($_SESSION['user_id']); //unset tong na set na session kai naa mn to naka stack na info silbi delete to.
         unset($_SESSION['email']);
+        unset($_SESSION['picname']);
+        unset($_SESSION['firstname']);
+        unset($_SESSION['lastname']);
         header('location:' . URLROOT . '/pages/index'); // Back sa Landing page
     }
 
@@ -224,6 +227,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
         $_SESSION['email'] = $user->email;
         $_SESSION['firstname'] = $user->firstname;
         $_SESSION['lastname'] = $user->lastname;
+        $_SESSION['picname'] = $user->picname;
         header('location:' . URLROOT . '/pages/adminhomepage');
     }
 }

@@ -38,7 +38,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(in_array($fileActualExt, $allowed)){
                 if($fileError === 0){
                     if($fileSize < 5000000){
-                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
+                        $fileNameNew = "user".$currentid.".".$fileActualExt;
                         $fileDestination = '../public/img/uploads/'.$fileNameNew;
                         $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
                         $conn = mysqli_connect("localhost", "root", "", "divecamp");
@@ -80,7 +80,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(in_array($fileActualExt, $allowed)){
                 if($fileError === 0){
                     if($fileSize < 5000000){
-                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
+                        $fileNameNew = "user".$currentid.".".$fileActualExt;
                         $fileDestination = '../public/img/uploads/'.$fileNameNew;
                         $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
                         $conn = mysqli_connect("localhost", "root", "", "divecamp");
