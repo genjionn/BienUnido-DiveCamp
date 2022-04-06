@@ -20,6 +20,7 @@
             font-family: 'Poppins'sans-serif;
             font-size: 15px;
             scroll-behavior: smooth;
+            overflow-x:hidden;
         }
         section {
             height: 100vh;
@@ -34,12 +35,13 @@
             margin-left: auto;
             margin-right: auto;
             padding: 200px 0px ;
-            color: white;
+            color: #000;
             margin-top: auto;
             margin-bottom: auto;
             height:800px;
             width: 100%;
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+            background-image: url("img/bckg.png");
+            background-size:cover;
         }
         #home h1{
             font-size: 40px;
@@ -49,7 +51,7 @@
             line-height: 30px;
         }
         #home a{
-            color: #fff;
+            color: #000;
             text-decoration: none;
         }
         #home button{
@@ -61,68 +63,72 @@
             border: 2px solid #f1b24a;
             border-radius: 100px;
             background-color: transparent;
-            color: white;
+            color: #000;
         }
         #home button:hover{
             background-color: #f1b24a;
             animation: pulse 1s;
         }
         #room {
-            background-color: #6081C3;
+            background-color: #fff;
         }
         #dining {
-            background-color: #A83E11;
+            background-color: #fff;
         }
         /* about */
         #about{
-            background-color: goldenrod;
+            margin:10px;
         }
-        #about .about-section{
-            border: 2px solid #000;
+        #about table{
             width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: left;
+            height: 100vh;
+        }
+        #about table td{
+            width: 50%;
+        }
+        #about table td .image{
+            display:flex;
+            justify-content: center;
             align-items: center;
-            padding: 100px 0;
+            padding:10px 10px;
+            margin-top: 70px;
         }
-        #about .inner-container{
-            background: white;
-            background-size: 55%;
-            background-color: #fdfdfd;
-            overflow: hidden;
-            padding: 100px 0;
-            width: 55%;
-            float: right;
-            background-color: #fdfdfd;
-            padding: 150px;
+        #about table td img{
+            width: 80%;
+            height: 80vh;
         }
-        #about .inner-container h1{
-            margin-bottom: 30px;
-            font-size: 30px;
-            font-weight: 900;
+        #about table td .content{
+            width: 100%;
+            height: 100vh;
+            padding: 20px 10px;
         }
-        #about .text{
-            font-size: 13px;
-            color: #545454;
-            line-height: 30px;
-            text-align: justify;
-            margin-bottom: 40px;
+        #about table td .head{
+            font-size: 18px;
+            margin-top: 100px;
+            margin-bottom:10px;
         }
-        #about .skills{
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-            font-size: 13px;
+        #about table td .text{
+            padding:10px 10px;
+            margin-bottom: 5px;
         }
-        #about .image img{
-            background: no-repeat left;
-            height: 760px;
-            width: inherit;
+        #about table td .text p{
+            font-size: 12px;
+            line-height: 20px;
+        }
+        #about .sec-table{
+            width:100%;
+            height:auto;
+        }
+        #about .sec-table #team{
+            padding:10px 10px;
+            font-size:12px;
+            text-align: center;
         }
         /* contact */
         #contact{
-            padding: 10px 10px;
+            background-image: url("img/bckg.png");
+            background-size:cover;
+           
         }
         #contact .contact-container{
             display: flex;
@@ -134,11 +140,11 @@
         #contact .contact-container .image{   
             width: auto;
             height: auto;
-            margin: 10px;
         }
         #contact .contact-container img{
-            height: 450px;
-            width: 450px;
+            height: 350px;
+            width: 350px;
+            margin-right: 20px;
         }
         #contact .contact-container .contact-content{
             width: 70%;
@@ -149,23 +155,23 @@
         #contact .contact-container .contact-content h1{
             text-align: center;
             font-size: 32px;
-            color: #164a41;
+            color: #720000;
         }
         #contact .contact-container .contact-content h3{
             padding: 10px 0px;
             text-align: center;
-            color: #164a41;
+            color: #720000;
         }
         #contact .contact-container .contact-content h4{
             padding-top: 30px;
             padding-left: 10px;
-            color: #164a41;
+            color: #720000;
         }
         #contact .contact-container .contact-content .contact-input input{
             padding: 10px 10px;
             margin: 10px;
             width: 95%;
-            border: 2px solid #164a41;
+            border: 2px solid #720000;
             border-radius: 10px;
         }
         #contact .contact-container .contact-content .contact-input textarea{
@@ -175,7 +181,7 @@
             max-width: 95%;
             height: 80px;
             max-height: 80px;
-            border: 2px solid #164a41;
+            border: 2px solid #720000;
             border-radius: 10px;
         }
         #contact .contact-container .contact-content button{
@@ -183,11 +189,11 @@
             margin: 5px;
             width: 350px;
             border: none;
-            background-color: #3c6c49;
+            background-color: #7c0505;
             border-radius: 10px;
         }
         #contact .contact-container .contact-content button:hover{
-            background-color: #2d6148;
+            background-color: #720000;
         }
         #contact .contact-container .contact-content a{
             color: #fff;
@@ -200,7 +206,7 @@
         nav {
             position: sticky;
             top: 0;
-            background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+            background: #f1b24a;
         }
         nav {
             max-width: 100%;
@@ -215,18 +221,18 @@
             margin-left: 100px;
             float: left;
             font-size: 24px;
-            color: #9dc88d;
+            color: #720000;
         }
         nav ul .left .logo:hover{ 
             cursor: pointer;
         }
         nav ul .left b{
-            color: #f1b24a;
+            color: #000072;
         }
         nav ul .right{
             margin-left: auto;
             text-align: right;
-            padding: 0px 50px;
+            padding: 0px 10px;
             width: 50%;
         }
         nav ul .right li {
@@ -236,25 +242,25 @@
         nav ul li a {
             display: inline-block;
             text-decoration: none;
-            padding: 10px 20px;
-            color: white;
+            padding: 10px 30px;
+            color: #000;
             font-size: 14px;
         }
         nav ul li a:hover {
-            background-color: #f1b24a;
+            background-color: #720000;
             border-radius:30px;
-            color: #164a41;
+            color: #fff;
             animation: pulse 1s;
         }
         nav ul li.active {
-            background-color: #f1b24a;
+            background-color: #720000;
             border-radius:30px;
             transition: 0.3s;
-            color: #164a41;
+            color: #fff;
             animation: pulse 1s;
         }
         nav ul li.active a {
-            color: #164a41;
+            color: #fff;
         }
 
         /* media */
@@ -365,29 +371,73 @@
     </section>
 
     <section id="about">
-    <div class="about-section">
-    <div class="image">
-        <img src="img/pic.jpg" alt="">
-    </div>
-        <div class="inner-container">
-            <h1>About Us</h1>
-            <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribuasiuasjdhajksdhjkasdhkjqwehqwjkehasldkashdqwehaisdjklqwjealkdjalskds velit ducimus, easdkjahdjkashdajksdhasjkdshajkdahsdjkashdasjkdhakjsdnim inventore earum, eligendi nostrum pariaturnecessitatibus eiuasdasdasdassdasdasdasdasdasdasdadasdsasdadassdasdasdasdadadasdasdads dicta a voluptates sit deleniti autem error eos totam nisi neque voluptates sit deleniti autem error eos totam nisi neque.
-            </p>
-            
-            <div class="skills">
-                <span>Web Design</span>
-                <span>Photoshop & Illustrator</span>
-                <span>Coding</span>
-            </div>
-        </div>
-    </div>
+        <table>
+            <tr>
+                <td>
+                    <div class="image">
+                        <img src="img/pic.jpg" alt="">
+                    </div>
+                </td>
+                <td>
+                    <div class="content">
+                        <div class="head">
+                           <h1>About Us</h1>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </p>
+                        </div>
+                    
+                    <table class="sec-table">
+                        <tr>
+                            <th colspan="2" style="padding:10px 10px;">Team Developers</th>
+                        </tr>
+                        <tr>
+                            <td id="team">Autida, Christian Kyle</td>
+                            <td id="team">Frontend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Co, Cris</td>
+                            <td id="team">Backend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Genobaten, Jon Anthony</td>
+                            <td id="team">Backend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Lumayag, Kyle Jhunelle</td>
+                            <td id="team">Backend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Moneza, Michael</td>
+                            <td id="team">Backend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Repunte, Christiane</td>
+                            <td id="team">Frontend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Samson, John Philip</td>
+                            <td id="team">Frontend Developer</td>
+                        </tr>
+                        <tr>
+                            <td id="team">Tercero, Gede Edriane</td>
+                            <td id="team">Backend Developer</td>
+                        </tr>
+                    </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <section id="contact">
        <div class="contact-container">
         <div class="image">
-            <img src="img/message.jpg" alt="">
+            <img src="img/message.png" alt="">
         </div>
         <div class="contact-content">
             <h1>Contact Us</h1>
