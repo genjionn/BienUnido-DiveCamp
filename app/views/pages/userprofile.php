@@ -414,7 +414,7 @@ html {
         <form action="<?php echo URLROOT; ?>/pages/profile" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file">
         <i>Acceptable formats: .jpg and .png only</i><br><br>
-			  <button type="submit" name="submit">Change Profile Picture</button><br>
+			  <button type="submit" name="updatepic">Change Profile Picture</button><br>
         </form>
       </div>
     </div>
@@ -423,6 +423,7 @@ html {
     <div class="profile-info">
       <div class="profile-content">
         <h3>Account Information</h3><br>
+        <input type="hidden" name="id" value="<?php echo $_SESSION['user_id'];?>">
         <div class="profile-input">
           <i class="fa fa-user"></i>
           <input type="text" name ="firstname" value="<?php echo $_SESSION['firstname'];?>">
@@ -452,7 +453,7 @@ html {
         <br><br>
         <center>
           <button class="btn-cancel">Cancel</button>
-          <button class="btn-save" type="submit" name="submitUpdate">Update</button>
+          <button class="btn-save" type="submit" name="updateuser">Update</button>
         </center>
       </div>
     </form>

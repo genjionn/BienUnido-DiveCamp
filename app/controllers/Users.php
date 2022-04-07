@@ -158,7 +158,7 @@ class Users extends Controller{ //Takes care of the flow of the Users
         unset($_SESSION['picname']);
         unset($_SESSION['firstname']);
         unset($_SESSION['lastname']);
-        header('location:' . URLROOT . '/pages/index'); // Back sa Landing page
+        header('location:' . URLROOT . '/'); // Back sa Landing page
     }
 
     public function admin(){ 
