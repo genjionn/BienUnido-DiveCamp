@@ -328,27 +328,29 @@ html {
     <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt="">
       <div class="edit-profile">
         <h2><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h2>
-        <form action="<?php echo URLROOT; ?>/pages/profile" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT; ?>/pages/adminprofile" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file">
         <i>Acceptable formats: .jpg and .png only</i><br><br>
-			  <button type="submit" name="submit">Change Profile Picture</button><br>
+			  <button type="submit" name="updatepic">Change Profile Picture</button><br>
         </form>
       </div>
     </div>
     <div class="profile-info">
       <div class="profile-content">
+      <form action="<?php echo URLROOT; ?>/pages/adminprofile" method="POST" enctype="multipart/form-data">
         <h3>Account Information</h3><br>
+        <input type="hidden" name="id" value="<?php echo $_SESSION['user_id'];?>">
         <div class="profile-input">
           <i class="fa fa-user"></i>
-          <input type="text" placeholder="<?php echo $_SESSION['firstname'];?>">
+          <input type="text" name="firstname" value="<?php echo $_SESSION['firstname'];?>">
         </div>
         <div class="profile-input">
           <i class="fa fa-user"></i>
-          <input type="text" placeholder="<?php echo $_SESSION['lastname'];?>">
+          <input type="text" name="lastname" value="<?php echo $_SESSION['lastname'];?>">
         </div>
         <div class="profile-input">
           <i class="fa fa-envelope"></i>
-          <input type="email" placeholder="<?php echo $_SESSION['email'];?>">
+          <input type="email" name="email" value="<?php echo $_SESSION['email'];?>">
         </div>
         <br><br>
         <h3>Password Information</h3><br>
@@ -362,15 +364,15 @@ html {
         </div>
         <div class="profile-input">
           <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Confirm New password">
+          <input type="password" placeholder="Confirm new password">
         </div>
-        <br>
+        <br><br>
         <center>
           <button class="btn-cancel">Cancel</button>
-          <button class="btn-save">Save</button>
+          <button class="btn-save" type="submit" name="updateuser">Save</button>
         </center>
       </div>
-      
+</form>
     </div>
   </div>
    

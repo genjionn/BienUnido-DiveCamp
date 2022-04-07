@@ -3,6 +3,7 @@
 class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function __construct(){
         $this->roomModel = $this->model('Room');
+        $this->pageModel = $this->model('Page');
     }
     public function index(){
         $this->view('pages/index');
@@ -20,7 +21,15 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/usercontactus');
     }
     public function profile(){
-        if(isset($_POST['submit'])){
+
+        $data = [
+            'id' => '',
+            'firstname' => '',
+            'lastname' => '',
+            'email' => ''
+        ];
+
+        if(isset($_POST['updatepic'])){
             $file = $_FILES['file'];
 
             $fileName = $file['name'];
@@ -38,7 +47,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(in_array($fileActualExt, $allowed)){
                 if($fileError === 0){
                     if($fileSize < 5000000){
-                        $fileNameNew = "user".$currentid.".".$fileActualExt;
+                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
                         $fileDestination = '../public/img/uploads/'.$fileNameNew;
                         $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
                         $conn = mysqli_connect("localhost", "root", "", "divecamp");
@@ -56,13 +65,49 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 echo '<script>alert("You can only upload .png or .jpg images.")</script>';
             }
         }
+
+        elseif(isset($_POST['updateuser'])){
+
+            $data = [
+                'id' => trim($_POST['id']),
+                'firstname' => trim($_POST['firstname']),
+                'lastname' => trim($_POST['lastname']),
+                'email' => trim($_POST['email'])
+            ];
+
+            $id = $_POST['id'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $email = $_POST['email'];
+
+            if($this->pageModel->updateinfo($data)){
+                $_SESSION['id'] = $id;
+                $_SESSION['firstname'] = $firstname;
+                $_SESSION['lastname'] = $lastname;
+                $_SESSION['email'] = $email;
+                header('location:' . URLROOT . '/pages/profile');    
+            }else{
+                echo '<script>alert("Somethig went wrong")</script>';
+                die('Something Went wrong');
+            }
+
+        }
+
         $this->view('pages/userprofile');
     }
     public function adminhomepage(){
         $this->view('pages/adminhomepage');
     }
     public function adminprofile(){
-        if(isset($_POST['submit'])){
+
+        $data = [
+            'id' => '',
+            'firstname' => '',
+            'lastname' => '',
+            'email' => ''
+        ];
+
+        if(isset($_POST['updatepic'])){
             $file = $_FILES['file'];
 
             $fileName = $file['name'];
@@ -80,14 +125,14 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(in_array($fileActualExt, $allowed)){
                 if($fileError === 0){
                     if($fileSize < 5000000){
-                        $fileNameNew = "user".$currentid.".".$fileActualExt;
+                        $fileNameNew = "user".$currentid."_".uniqid().".".$fileActualExt;
                         $fileDestination = '../public/img/uploads/'.$fileNameNew;
                         $query = "UPDATE users SET picname = '$fileNameNew' WHERE id = '$currentid';";
                         $conn = mysqli_connect("localhost", "root", "", "divecamp");
                         $result = mysqli_query($conn, $query);
                         move_uploaded_file($fileTmpName, $fileDestination);
                         $_SESSION['picname'] = $fileNameNew;
-                        header("Location: ". URLROOT ."/pages/profile");
+                        header("Location: ". URLROOT ."/pages/adminprofile");
                     }else{
                     echo '<script>alert("Your image file size is too big.")</script>';
                     }
@@ -98,10 +143,40 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 echo '<script>alert("You can only upload .png or .jpg images.")</script>';
             }
         }
+
+        elseif(isset($_POST['updateuser'])){
+
+            $data = [
+                'id' => trim($_POST['id']),
+                'firstname' => trim($_POST['firstname']),
+                'lastname' => trim($_POST['lastname']),
+                'email' => trim($_POST['email'])
+            ];
+
+            $id = $_POST['id'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $email = $_POST['email'];
+
+            if($this->pageModel->updateinfo($data)){
+                $_SESSION['id'] = $id;
+                $_SESSION['firstname'] = $firstname;
+                $_SESSION['lastname'] = $lastname;
+                $_SESSION['email'] = $email;
+                header('location:' . URLROOT . '/pages/adminprofile');    
+            }else{
+                echo '<script>alert("Somethig went wrong")</script>';
+                die('Something Went wrong');
+            }
+
+        }
+
         $this->view('pages/adminprofile');
     }
+
     public function admincreateroom(){
         $data = [
+
             'roomavailError' => '',
             'roompriceError' => '',
             'roomupdateError' => '',
@@ -236,9 +311,11 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             //Validate Room name 
             if(empty($data['roomname'])){
                 $data['roomnameError'] = 'Please enter Room name';
-            } elseif($this->roomModel->findRoombyRoomName($data['roomname'])){
+            } else{
                 //check if room name exist
-                $data['roomnameError'] = 'Room Name Already taken';
+                if($this->roomModel->findRoombyRoomName($data['roomname'])){
+                    $data['roomnameError'] = 'Room Name Already taken';
+                }
             }
             //Validate Room description
             if(empty($data['roomdesc'])){
@@ -263,9 +340,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 $data['roomNewFileName'] = $rimageNameNew;
                 //Register room from model function kung wlai errors
                 if($this->roomModel->createroom($data)){
-                    //Image Create to the destination folder
-                    move_uploaded_file($rimageTmpName, $rimageDestination);
-                    header('location:' . URLROOT . '/pages/adminhomepage');   
+                    header('location:' . URLROOT . '/pages/adminhomepage');
                 } else{
                     die('Something Went wrong');
                 }
