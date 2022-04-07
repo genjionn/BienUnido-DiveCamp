@@ -8,12 +8,14 @@ class Room{
     }
 
     public function createroom($data){
-        $this->db->query('INSERT INTO rooms (roomname, adminid, roomlocation, roomdesc, roomimage) VALUES (:roomname, :adminid, :roomlocation, :roomdesc, :roomimage)');
+        $this->db->query('INSERT INTO rooms (roomname, adminid, roomlocation, roomdesc, roomprice, roomsavailable, roomimage) VALUES (:roomname, :adminid, :roomlocation, :roomdesc, :roomprice, :roomsavailable, :roomimage)');
         //Bind Values
         $this->db->bind(':adminid', $data['adminid']);
         $this->db->bind(':roomname', $data['roomname']);
         $this->db->bind(':roomdesc', $data['roomdesc']);
         $this->db->bind(':roomlocation', $data['roomlocation']);
+        $this->db->bind(':roomprice', $data['roomprice']);
+        $this->db->bind(':roomsavailable', $data['roomavail']);
         $this->db->bind(':roomimage', $data['roomNewFileName']);
         //when it word execute this function
         if($this->db->execute()){
@@ -41,11 +43,14 @@ class Room{
         }
     }
     public function updateroom($data){
-        $this->db->query('UPDATE rooms SET roomname=:roomname, roomdesc=:roomdesc, roomlocation=:roomlocation WHERE roomid = :roomid');
+        $this->db->query('UPDATE rooms SET roomname=:roomname, roomdesc=:roomdesc, roomlocation=:roomlocation, roomprice=:roomprice, roomsavailable=:roomsavailable, roomimage=:roomimage WHERE roomid = :roomid');
         $this->db->bind(':roomid', $data['roomid']);
         $this->db->bind(':roomname', $data['roomname']);
         $this->db->bind(':roomdesc', $data['roomdesc']);
         $this->db->bind(':roomlocation', $data['roomlocation']);
+        $this->db->bind(':roomprice', $data['roomprice']);
+        $this->db->bind(':roomsavailable', $data['roomavail']);
+        $this->db->bind(':roomimage', $data['UpdateroomNewFileName']);
         if($this->db->execute()){
             return true;
         }else{

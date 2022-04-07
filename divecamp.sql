@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2022 at 08:59 AM
+-- Generation Time: Apr 07, 2022 at 08:02 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -34,6 +34,8 @@ CREATE TABLE `rooms` (
   `roomdesc` varchar(255) NOT NULL,
   `roomlocation` varchar(255) NOT NULL,
   `rating` int(255) NOT NULL,
+  `roomsavailable` int(255) NOT NULL,
+  `roomprice` varchar(255) NOT NULL,
   `roomimage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,9 +43,10 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`, `roomimage`) VALUES
-(21, 3, 'Small Room', 'A Small room with Large Bed', 'BienUnido', 0, '624d384dc127c4.88056707.jpg'),
-(22, 3, 'Medium Room', 'Good For 2 People Room and Bed', 'BienUnido', 0, '624d38a651ffe2.51894242.jpg');
+INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`, `roomsavailable`, `roomprice`, `roomimage`) VALUES
+(22, 3, 'Medium Room 1', 'Good For 2 People Room', 'BienUnido', 0, 3, '2000', '624e7cdf218763.43944350.jpg'),
+(24, 3, 'Small Room 1', 'Good for single', 'BienUnido', 0, 4, '500', '624e62d05c31c0.57640541.jpg'),
+(25, 3, 'Large Room', 'Good for a Family', 'BienUnido', 0, 5, '3000', '624e72ce426c26.81365150.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +99,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
