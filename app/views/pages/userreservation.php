@@ -205,34 +205,19 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
     <div class="content">
       <h1> RESERVATION </h1><br>
       <center>
+        <?php foreach($data['rooms'] as $room): ?>
         <div class="card">
           <a href="#modal">
-            <img src="../img/hotel.jpg" alt="">
-            <h4>Rare Hotel</h4>
-            <p><i class="fa fa-location-dot" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Location: Bien Unido, Bohol</p>
-            <p><i class="fa fa-peso-sign" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Starting from: ₱ 2000</p>
-            <p><i class="fa fa-star" aria-hidden="true"></i><span>&nbsp;</span>Ratings: 8/10</p>
+            <img src="../public/img/roomimg/<?php echo $room->roomimage ?>" alt="img">
+            <h2><?php echo $room->roomname; ?></h2>
+            <p><?php echo $room->roomsavailable?><span> room/s left</span></p>
+            <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo number_format($room->roomprice, 2); ?><span></span></p>
+            <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $room->rating ?>/10 <span>rating</span></p>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $room->roomlocation ?></p>
           </a>
       </div>
-      <div class="card">
-        <a href="#modal">
-          <img src="../img/hotel.jpg" alt="">
-          <h4>Rare Hotel</h4>
-          <p><i class="fa fa-location-dot" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Location: Bien Unido, Bohol</p>
-          <p><i class="fa fa-peso-sign" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Starting from: ₱ 2000</p>
-          <p><i class="fa fa-star" aria-hidden="true"></i><span>&nbsp;</span>Ratings: 8/10</p>
-        </a>
-    </div>
-    <div class="card">
-      <a href="#modal">
-        <img src="../img/hotel.jpg" alt="">
-        <h4>Rare Hotel</h4>
-        <p><i class="fa fa-location-dot" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Location: Bien Unido, Bohol</p>
-        <p><i class="fa fa-peso-sign" aria-hidden="true"></i><span>&nbsp;&nbsp;</span>Starting from: ₱ 2000</p>
-        <p><i class="fa fa-star" aria-hidden="true"></i><span>&nbsp;</span>Ratings: 8/10</p>
-      </a>
-    </div>
-      </center>
+      <?php endforeach; ?>
+    </center>
     </div>
     <div id="modal">
 			<div class="modal-content">
@@ -240,13 +225,11 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
 					<h3>Room Reservation</h3>
 				</div>
 			<div class="modal-body">
-
 			<div class="column">
-				<h3>Column 1</h3>
-				<p>Some text..</p>
+				<h3><?php echo $room->roomname; ?></h3>
+				<p><?php echo $room->roomdesc; ?></p>
 			</div>
 			<div class="column">
-				
 					<div class="row">
 						<h2	>ROOM RESERVATION</h2>
 						<div class="col-25">
@@ -276,14 +259,13 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
 						</div>
 						<div class="column">
 							<div class="col-25">
-								<label for="lname">Children (age 0-17)</label>
+								<label for="lname">Children (age 12 and below)</label>
 							</div>
 							<div class="col-75">
 								<input type="number" min="0">
 							</div>
 						</div>
 					</div>
-
 			</div>
 				<a href="#" >Close</a> 
 			</div>
@@ -291,5 +273,10 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
 		  <div class="overlay"></div>
 		</div>
   </div>
+  <script type="text/javascript">
+    $(document).ready(function()){
+      $('')
+    }
+  </script>
   </body>
 </html>
