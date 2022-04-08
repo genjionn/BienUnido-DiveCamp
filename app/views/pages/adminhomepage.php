@@ -127,6 +127,20 @@ table td{
   text-align: justify;
 
 }
+/* card */
+.container .content .card img{
+  border: 2px solid #f1b24a;
+  width: 250px;
+  height: 250px;
+}
+.container .content .card h4{
+  text-align: center;
+}
+.container .content .card a{
+  color: #164a41;
+  text-decoration: none;
+  text-align: left;
+}
 /* media */
 
 @media screen and (max-width: 600px) {
@@ -182,6 +196,22 @@ table td{
   <div class="container">
     <div class="content">
       <h1> Dashboard </h1><br>
+      <center>
+      <?php $RoomRecords = $_SESSION['getrooms'];
+      foreach($RoomRecords as $row)
+      {?>
+        <div class="card">
+          <img src="../public/img/roomimg/<?php echo $row->roomimage ?>">
+          <h2 class ="card-title"><?php echo $row->roomname ?></h2>
+          <p class="card-text">
+            <?php echo $row->roomdesc ?><br>
+            Location: <?php echo $row->roomlocation ?><br>
+            Room Available: <?php echo $row->roomsavailable ?><br>
+            Room Price: P<?php echo $row->roomprice ?><br>
+          </p>
+        </div>
+      <?php }?>
+      </center>
     </div>
   </div>
 </body>
