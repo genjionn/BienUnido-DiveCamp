@@ -207,7 +207,7 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
       <center>
         <?php foreach($data['rooms'] as $room): ?>
         <div class="card">
-          <a href="#modal">
+          <a href="<?php echo URLROOT . "/pages/createreservation/" . $room->roomid ?>">
             <img src="../public/img/roomimg/<?php echo $room->roomimage ?>" alt="img">
             <h2><?php echo $room->roomname; ?></h2>
             <p><?php echo $room->roomsavailable?><span> room/s left</span></p>
@@ -219,15 +219,15 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
       <?php endforeach; ?>
     </center>
     </div>
-    <div id="modal">
+    <!-- <div id="modal">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h3>Room Reservation</h3>
 				</div>
 			<div class="modal-body">
 			<div class="column">
-				<h3><?php echo $room->roomname; ?></h3>
-				<p><?php echo $room->roomdesc; ?></p>
+				<h3></h3>
+				<p></p>
 			</div>
 			<div class="column">
 					<div class="row">
@@ -271,7 +271,7 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
 			</div>
 		</div>
 		  <div class="overlay"></div>
-		</div>
+		</div> -->
   </div>
   <script type="text/javascript">
     $(document).ready(function()){

@@ -69,5 +69,19 @@ class Room{
             return false;
         }
     }
+    public function bookRoom($data){
+        $this->db->query('INSERT INTO reserves (roomid, checkin_date, checkout_date, number_of_adult, number_of_child, mobile_number) VALUES (:roomid, :checkin_date, :checkout_date, :number_of_adult, :number_of_child, :mobile_number)');
+        $this->db->bind(':roomid', $data['roomid']);
+        $this->db->bind(':checkin_date', $data['checkin_date']);
+        $this->db->bind(':checkout_date', $data['checkout_date']);
+        $this->db->bind(':number_of_adult', $data['number_of_adult']);
+        $this->db->bind(':number_of_child', $data['number_of_child']);
+        $this->db->bind(':mobile_number', $data['mobile_number']);
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 ?>
