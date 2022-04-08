@@ -15,7 +15,11 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/userhomepage');
     }
     public function reservation(){
-        $this->view('pages/userreservation');
+        $rooms = $this->roomModel->displayrooms();
+        $data = [
+            'rooms' => $rooms
+        ];
+        $this->view('pages/userreservation', $data);
     }
     public function contact(){
         $this->view('pages/usercontactus');
@@ -347,13 +351,6 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             }
         }
         $this->view('pages/admincreateroom', $data);
-    }
-    public function userreservation(){
-        $rooms = $this->roomModel->displayrooms();
-        $data = [
-            'rooms' => $rooms
-        ];
-        $this->view('pages/userreservation', $data);
     }
 }
 ?>
