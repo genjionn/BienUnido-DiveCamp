@@ -31,7 +31,7 @@
             margin: 0%;
             width: 480px;
             height: auto;
-            border: 2px solid #f1b24a;
+            border: 1px solid #000;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             background-color: #F6F4E6;
@@ -41,12 +41,12 @@
         }
         .container form .head{
             text-align: center;
-            border-bottom: 2px solid #f1b24a;
-            background-color: #f1b24a;
+            border-bottom: 1px solid #000;
+            background-color: #fbc337;
             padding: 10px 10px;
-            color: #fff;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            color: #000;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
             margin-bottom: 25px;
         }
         .container form .content{
@@ -59,7 +59,7 @@
             width: 350px;
             padding: 10px 10px;
             border-radius:10px ;
-            border: 2px solid gray;
+            border: 1px solid #000;
         }
 
         .container form .content a{
@@ -74,11 +74,11 @@
             align-items: center;
         }
         .container form .content i{
-            border: 2px solid gray;
+            border: 1px solid #000;
             padding: 10px 10px;
-            background-color: #f1b24a;
+            background-color: #fbc337;
             border-radius: 10px;
-            color: #fff;
+            color: #000;
         }
         .container form .btn{
             margin-bottom: 25px;
@@ -88,15 +88,15 @@
             padding: 5px 10px;
             border-radius: 25px;
             background-color: #fff;
-            border: 2px solid gray;
+            border: 1px solid #000;
             margin-bottom: 10px;
             font-size:16px;
             font-weight:700;
         }
         .container form .btn button:hover{
-            background-color: #f1b24a;
-            border: 2px solid gray;
-            color: #fff;
+            background-color: #fbc337;
+            border: 1px solid #000;
+            color: #000;
         }
         .container form .btn button a{
             color: #52575D;
@@ -114,7 +114,8 @@
             color: #52575D;
         }
         .container form .btn a:hover{
-            color: #f1b24a;
+            color: #fbc337;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -126,27 +127,27 @@
             </div>
             <div class="content">
                 <center>
-                    <span><i class="fa fa-user" style="padding: 10px 13px;"></i><input type="text" name="firstname" id="firstname" placeholder="Firstname *">  </span>
+                    <span><i class="fa fa-user" style="padding: 10px 13px;"></i><input type="text" name="firstname" id="firstname" placeholder="Firstname *" required>  </span>
                     <span class="invalidFeedback">
                         <?php echo $data['firstnameError'];?>
                     </span>
 
-                    <span><i class="fa fa-user" style="padding: 10px 13px;"></i><input type="text" name="lastname" id="lastname" placeholder="Lastname *"></span>
+                    <span><i class="fa fa-user" style="padding: 10px 13px;"></i><input type="text" name="lastname" id="lastname" placeholder="Lastname *" required></span>
                     <span class="invalidFeedback">
                         <?php echo $data['lastnameError'];?>
                     </span>
 
-                    <span><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Email *"></span>
+                    <span><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Email *" required></span>
                     <span class="invalidFeedback">
                         <?php echo $data['emailError'];?>
                     </span>
 
-                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i><input type="password" name="password" id="pass" placeholder="Password *"></span>
+                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i><input type="password" name="password" id="pass" placeholder="Password *" required></span>
                     <span class="invalidFeedback">
                         <?php echo $data['passwordError'];?>
                     </span>
 
-                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i> <input type="password" name="confirmpassword" id="confirmPass" placeholder="Confirm Password *"></span>
+                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i> <input type="password" name="confirmpassword" id="confirmPass" placeholder="Confirm Password *" required></span>
                     <span class="invalidFeedback">
                         <?php echo $data['confirmpasswordError'];?>
                     </span>

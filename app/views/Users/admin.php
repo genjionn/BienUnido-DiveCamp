@@ -31,9 +31,9 @@
             margin: 0%;
             width: 480px;
             height: auto;
-            border: 2px solid #f1b24a;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            border: 1px solid #000;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             background-color: #F6F4E6;
             box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
             -webkit-box-shadow: 0px 0px 37px -12px rgba(0,0,0,0.55);
@@ -41,10 +41,10 @@
         }
         .container form .head{
             text-align: center;
-            border-bottom: 2px solid #f1b24a;
-            background-color: #f1b24a;
+            border-bottom: 1px solid #000;
+            background-color: #fbc337;
             padding: 10px 10px;
-            color: #fff;
+            color: #000;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             margin-bottom: 25px;
@@ -59,7 +59,7 @@
             width: 350px;
             padding: 10px 10px;
             border-radius:10px ;
-            border: 2px solid gray;
+            border: 1px solid #000;
         }
         .container form .content #forget-pass{
             color: #52575D;
@@ -79,11 +79,11 @@
             align-items: center;
         }
         .container form .content i{
-            border: 2px solid gray;
+            border: 1px solid #000;
             padding: 10px 10px;
-            background-color: #f1b24a;
+            background-color: #fbc337;
             border-radius: 10px;
-            color: #fff;
+            color: #000;
             font-size: 18px;
         }
         .container form .btn{
@@ -94,15 +94,15 @@
             padding: 5px 10px;
             border-radius: 25px;
             background-color: #fff;
-            border: 2px solid gray;
+            border: 1px solid #000;
             margin-bottom: 10px;
             font-size:16px;
             font-weight: 700;
         }
         .container form .btn button:hover{
-            background-color: #f1b24a;
-            border: 2px solid gray;
-            color:#fff;
+            background-color: #fbc337;
+            border: 1px solid #000;
+            color:#000;
         }
         .container form .btn button a{
             color: #52575D;
@@ -120,7 +120,7 @@
             color: #52575D;
         }
         .container form .btn a:hover{
-            color: #FDDB3A;
+            color: #fbc337;
         }
 
         .text{
@@ -151,8 +151,8 @@
             visibility: visible;
         }
 		#forgot-modal .modal-header {
-            background:#f1b24a;
-            border-bottom: 2px solid gray;
+            background:#fbc337;
+            border-bottom: 1px solid #000;
             border-radius: 5px 5px 0 0;
         }
         #forgot-modal .modal-header h3{
@@ -169,14 +169,14 @@
             font-size: 24px;
             top: 5px;
             left: 45px;
-            color: #f1b24a;
+            color: #fbc337;
             padding: 10px 10px;
             border-radius: 15px;
         }
         #forgot-modal .modal-body #email{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid gray;
+            border: 1px solid #000;
             border-radius: 15px;
         }
 		#forgot-modal h2 {
@@ -199,8 +199,7 @@
             color: #fff
         }
 		#forgot-modal .modal-body { 
-            background-image:url("../img/bckg.png");
-            background-size:cover;
+            background: whitesmoke;
          }
         #forgot-modal .modal-body button{
             width: 100px;
@@ -214,7 +213,7 @@
              text-decoration: none;
          }
          #forgot-modal .modal-body .close{
-             background-color: red;
+             background-color: #933b27;
              font-size: 16px;
              font-weight: 700;
              border: none;
@@ -223,7 +222,7 @@
              background-color: darkred;
          }
          #forgot-modal .modal-body .next{
-             background-color: blue;
+             background-color: #16558f;
              font-size: 16px;
              font-weight: 700;
              border: none;
@@ -264,8 +263,8 @@
             visibility: visible;
         }
 		#reset-modal .modal-header {
-            background:#f1b24a;
-            border-bottom: 2px solid gray;
+            background:#fbc337;
+            border-bottom: 1px solid #000;
             border-radius: 5px 5px 0 0;
         }
         #reset-modal .modal-header h3{
@@ -282,26 +281,26 @@
             top: 0;
             margin: 10px;
             left: 50px;
-            color: #f1b24a;
+            color: #fbc337;
             padding: 10px 10px;
             border-radius: 15px;
         }
         #reset-modal .modal-body #new-pass{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid gray;
+            border: 1px solid #000;
             border-radius: 15px;
         }
         #reset-modal .modal-body #confirm-pass{
             padding: 10px 60px;
             width: 400px;
-            border: 2px solid gray;
+            border: 1px solid #000;
             border-radius: 15px;
         }
 		#reset-modal h2 {
             text-align: center;	
             margin: 0;
-            color: #fff;
+            color: #000;
         }
 		#reset-modal .btn { 
             float: right; 
@@ -309,7 +308,7 @@
 		#reset-modal .modal-body, #reset-modal .modal-header {
             padding: 20px;
             text-align: right;
-            color: #fff;
+            color: #000;
         }
 		.modal-content {
             position: relative;
@@ -318,8 +317,7 @@
             color: #fff
         }
 		#reset-modal .modal-body { 
-            background-image:url("../img/bckg.png");
-            background-size:cover;
+            background: whitesmoke;
          }
         #reset-modal .modal-body button{
             width: 100px;
@@ -335,7 +333,7 @@
          #reset-modal .modal-body .close{
              display:flex;
              float:left;
-             background-color: red;
+             background-color: #933b27;
              font-size: 16px;
              font-weight: 700;
              border: none;
@@ -344,7 +342,7 @@
              background-color: darkred;
          }
          #reset-modal .modal-body .back{
-             background-color: #f1b24a;
+             background-color: #fbc337;
              font-size: 16px;
              font-weight: 700;
              border: none;
@@ -353,13 +351,13 @@
             background-color: goldenrod;
          }
          #reset-modal .modal-body .save{
-             background-color: green;
+             background-color: #16558f;
              font-size: 16px;
              font-weight: 700;
              border: none;
          }
          #reset-modal .modal-body .save:hover{
-            background-color: darkgreen;
+            background-color: darkblue;
          }
 		#reset-modal .overlay {
             background-color: #000;
@@ -577,12 +575,12 @@
             </div>
             <div class="content">
                 <center>
-                    <span><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Email *"></span>
+                    <span><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Email *" required></span>
                     <span class="invalidFeedback">
                         <?php echo $data['emailError'];?>
                     </span>
 
-                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i><input type="password" name="password" id="pass" placeholder="Password *"> </span>
+                    <span><i class="fa fa-lock" style="padding: 10px 13px;"></i><input type="password" name="password" id="pass" placeholder="Password *" required> </span>
                     <span class="invalidFeedback">
                         <?php echo $data['passwordError'];?>
                     </span>
@@ -608,7 +606,7 @@
 			<div class="modal-body">
                 <p>Please Enter your email address to reset your password!</p>
                 <br>
-                <center><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Your email address.."></center>
+                <center><i class="fa fa-envelope"></i><input type="email" name="email" id="email" placeholder="Your email address.." required></center>
                 <br>
 				<button class="close"><a href="#" >Close</a> </button>
                 <button class="next"><a href="#reset-modal">Next</a></button>
@@ -626,8 +624,8 @@
                 <p>Please reset your password!</p>
                 <br>
                 <center>
-                    <i class="fa fa-lock"></i><input type="password" name="new-pass" id="new-pass" placeholder="Your new password.."><br>
-                    <i class="fa fa-lock"></i><input type="password" name="confirm-pass" id="confirm-pass" placeholder="Confirm your password..">
+                    <i class="fa fa-lock"></i><input type="password" name="new-pass" id="new-pass" placeholder="Your new password.." required><br>
+                    <i class="fa fa-lock"></i><input type="password" name="confirm-pass" id="confirm-pass" placeholder="Confirm your password.." required>
                 </center>
                 <br>
                 <button class="back"><a href="#forgot-modal">Back</a></button>
