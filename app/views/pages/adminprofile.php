@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 html {
-  font-family: 'Poppins'sans-serif;
+  font-family: 'Poppins',sans-serif;
   font-size: 15px;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -22,24 +22,26 @@ html {
 
 .head {
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 30px;
   font-size: 18px;
   text-align: left;
   padding: 40px 20px;
 }
 .head .logo{
-  color: #9dc88d;
+  color: #933b27;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 2px 2px lightgray;
 }
 .head .logo b{
-  color: #f1b24a;
+  color: #16558f;
 }
 /* sidebar */
 .sidebar {
-
   margin: 0; 
   padding: 0px 0px;
   width: 230px;
-  background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+  background: #fbc337;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -49,12 +51,12 @@ html {
   margin: 20px;
   height: 100px;
   width: 100px;
-  border: 4px solid #164a41;
+  border: 2px solid #ffffff;
   border-radius: 50px;
-  object-fit: cover;
+  object-fit:cover;
 }
 .sidebar b{
-  color: #fff;
+  color: #000;
   float: center;
 }
 .sidebar .side-nav{
@@ -63,51 +65,45 @@ html {
 }
 .sidebar .side-nav i{
   border-radius: 50px;
-  border: 2px solid #f1b24a;
-  padding: 5px 5px;
-  background-color: #f1b24a;
-  color: #164a41;
+  border: 2px solid #fff;
+  padding: 10px 10px;
+  background-color: #933b27;
+  color: #fbc337;
 }
 .sidebar .side-nav a{
   width: 230px;
   display: block;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #fff;
+  color: #000;
   font-size: 14px;
   padding: 10px 30px;
   justify-content: center;
   align-items: center;
 }
 .sidebar .side-nav a:hover{
-  background:#fff;
+  background:#16558f;
   padding: 10px 30px;
-  color: #164a41; 
-}
-.sidebar .side-nav i:hover{
-  background: #164a41;;
-  border: 2px solid #164a41;
-  color: #f1b24a; 
+  color: #fff; 
 }
 /* container */
 .container{
   width: 100%;
   height: auto;
   background-color: #fff;
-  padding: 15px 0;
+  padding: 15px 0px;
 }
 .container .profile-head{
   display: flex;
   justify-content: left;
   width: 80%;
-  background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-left: 250px;
   padding: 30px 50px;
 }
 .container .profile-head img{
-  border: 1px solid #164a41;
+  border: 1px solid #fff;
   height: 100px;
   width: 100px;
   padding: 1px 1px;
@@ -120,19 +116,22 @@ html {
   padding: 5px 25px;
   line-height: 25px;
 }
+
 .container .profile-head .edit-profile h2{
   letter-spacing: 1px;
-  color: #164a41;
+  color: #933b27;
   font-size: 24px;
   padding: 10px 0px;
+  text-shadow:2px 2px lightgray;
   text-align: left;
 } 
 .container .profile-head .edit-profile input{
   display: flex;
+  font-family: "Poppins", sans-serif;
 }
 .container .profile-head .edit-profile label{
   letter-spacing: 2px;
-  border: 1px solid #164a41;
+  border: 1px solid #933b27;
   padding: 5px 15px;
   text-align: left;
   border-radius: 50px;
@@ -141,10 +140,19 @@ html {
   background-color: #f1b24a;
 }
 .container .profile-head .edit-profile i{
-  color: #f1b24a;
+  color: #fbc337;
   text-align: right;
   letter-spacing: 1px;
   font-size: 12px;
+}
+.container .profile-head .edit-profile #change-pp{
+  padding: 10px 10px;
+  width: 200px;
+  border-radius:5px;
+  border:none;
+  background:#16558f;
+  color:#fff;
+  font-family: "Poppins", sans-serif;
 }
 /* profile information */
 .container .profile-info{
@@ -158,6 +166,9 @@ html {
   width: 100%;
   height: auto;
   padding: 10px 10px;
+}
+.container .profile-info .profile-content h3{
+  color: #933b27;
 }
 .container .profile-info .profile-content .profile-input{
   display: inline-block;
@@ -173,18 +184,20 @@ html {
 }
 .container .profile-info .profile-content #email input{
   width: 900px ;
+
 }
 .container .profile-info .profile-content .profile-input input{
+  font-family: "Poppins", sans-serif;
   padding: 15px 25px;
   font-size: 14px;
   border-radius: 15px;
   width: 400px;
-  border: 2px solid #164a41;
+  border: 1px solid #933b27;
 }
 .container .profile-info .profile-content .profile-input i{
-  border: 2px solid #164a41;
-  color: #164a41;
-  background-color: #f1b24a;
+  border: 1px solid #933b27;
+  color: #000;
+  background-color: #fbc337;
   padding: 15px 15px;
   font-size: 14px;
   border-radius: 15px;
@@ -214,10 +227,10 @@ html {
   color: #fff;
 }
 .container .profile-info .profile-content .btn-cancel{
-  background-color: red;
+  background-color: #933b27;
 }
 .container .profile-info .profile-content .btn-save{
-  background-color: blue;
+  background-color: #16558f;
 }
 .container .profile-info .profile-content .btn-cancel:hover{
   background-color: darkred;
@@ -310,7 +323,7 @@ html {
 <body>
   <div class="sidebar">
     <div class="head">
-      <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
+      <label class="logo">Dive<b>&nbsp;Camp</b></label>
     </div>
       <center class="profile"><br>
         <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt=""><br>
@@ -330,8 +343,8 @@ html {
         <h2><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h2>
         <form action="<?php echo URLROOT; ?>/pages/adminprofile" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file">
-        <i>Acceptable formats: .jpg and .png only</i><br><br>
-			  <button type="submit" name="updatepic">Change Profile Picture</button><br>
+        <i>Acceptable formats: .jpg and .png only</i><br>
+			  <button id="change-pp" type="submit" name="updatepic">Change Profile Picture</button><br>
         </form>
       </div>
     </div>
