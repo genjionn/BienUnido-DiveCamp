@@ -86,11 +86,6 @@ html {
   padding: 10px 30px;
   color: #fff; 
 }
-.sidebar .side-nav i:hover{
-  background: #164a41;;
-  border: 2px solid #164a41;
-  color: #f1b24a; 
-}
 /* container */
 .container{
   width: 100%;

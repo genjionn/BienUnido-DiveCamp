@@ -13,33 +13,35 @@
   box-sizing: border-box;
 }
 html {
-  font-family: 'Poppins'sans-serif;
+  font-family: 'Poppins',sans-serif;
   font-size: 15px;
   scroll-behavior: smooth;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-
 .head {
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 30px;
   font-size: 18px;
   text-align: left;
   padding: 40px 20px;
 }
+
 .head .logo{
-  color: #9dc88d;
+  color: #933b27;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 2px 2px lightgray;
 }
 .head .logo b{
-  color: #f1b24a;
+  color: #16558f;
 }
 /* sidebar */
 .sidebar {
-
   margin: 0; 
   padding: 0px 0px;
   width: 230px;
-  background-image: linear-gradient(to right, #164a41, #205545, #2d6148, #3c6c49, #4d774a);
+  background: #fbc337;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -49,12 +51,12 @@ html {
   margin: 20px;
   height: 100px;
   width: 100px;
-  border: 4px solid #164a41;
+  border: 2px solid #ffffff;
   border-radius: 50px;
-  object-fit: cover;
+  object-fit:cover;
 }
 .sidebar b{
-  color: #fff;
+  color: #000;
   float: center;
 }
 .sidebar .side-nav{
@@ -63,31 +65,26 @@ html {
 }
 .sidebar .side-nav i{
   border-radius: 50px;
-  border: 2px solid #f1b24a;
-  padding: 5px 5px;
-  background-color: #f1b24a;
-  color: #164a41;
+  border: 2px solid #fff;
+  padding: 10px 10px;
+  background-color: #933b27;
+  color: #fbc337;
 }
 .sidebar .side-nav a{
   width: 230px;
   display: block;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #fff;
+  color: #000;
   font-size: 14px;
   padding: 10px 30px;
   justify-content: center;
   align-items: center;
 }
 .sidebar .side-nav a:hover{
-  background:#fff;
+  background:#16558f;
   padding: 10px 30px;
-  color: #164a41; 
-}
-.sidebar .side-nav i:hover{
-  background: #164a41;;
-  border: 2px solid #164a41;
-  color: #f1b24a; 
+  color: #fff; 
 }
 /* container */
 .container{
@@ -104,13 +101,53 @@ html {
   padding: 5px 10px;
 }
 .container .content h1{
-  color: #164a41;
+  color: #933b27;
   text-align: center;
   width: auto;
-  background-image: linear-gradient(to bottom, #d5f0d6, #dff4df, #e9f7e7, #f2fbf1, #ffffff);
-  border-top-left-radius: 10px;
+  letter-spacing: 4px;
+  /* background-image: linear-gradient(to bottom, #ffeb6e, #f8f193, #f4f6b5, #f4f9d6, #ffffff); */
   border-top-right-radius: 10px;
-  padding: 50px 0px;
+  padding: 30px 0px;
+  text-shadow: 2px 2px lightgray;
+}
+.form-item{
+  margin: 5px;
+}
+.form-item input{
+  outline:none;
+  border:none;
+  padding: 10px 10px;
+  width: 200px;
+  font-family: "Poppins", sans-serif;
+}
+.container .content .button{
+  padding: 20px 10px;
+}
+.container .content #btn-create{
+  width: 250px;
+  padding: 15px 10px;
+  background:#16558f;
+  border:none;
+  color:#fff;
+  font-weight:600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+table{
+  border:2px solid lightgray;
+  border-collapse: collapse;
+  height:auto;
+}
+table th{
+  background:#fbc337;
+  color:#000;
+  border:2px solid lightgray;
+  padding:10px 10px;
+}
+ table td{
+  border:2px solid lightgray;
+  width: 20%;
+  height: auto;
 }
 /* media */
 
@@ -151,7 +188,7 @@ html {
 <body>
   <div class="sidebar">
     <div class="head">
-      <label class="logo"><i class="fa fa-house"></i><span>&nbsp;&nbsp;</span>Dive<b>Camp</b></label>
+      <label class="logo">Dive<b>&nbsp;Camp</b></label>
     </div>
       <center class="profile"><br>
       <img src="../public/img/uploads/<?php echo $_SESSION['picname'];?>" alt=""><br>
@@ -167,7 +204,65 @@ html {
   <div class="container">
     <div class="content">
       <h1> Reservation </h1><br>
-      <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+      <table>
+        <tr>
+          <th>Check In Date</th>
+          <th>Check Out Date</th>
+          <th>Number of Adults</th>
+          <th>Number of Childrens</th>
+          <th>Mobile Number</th>
+        </tr>
+        <tr> 
+            <td>
+              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+                <div class="form-item">
+                <input type="hidden" name="roomid" value="">
+                <input type="date" name="checkin_date" id="checkin_date">
+                <?php echo $data['checkin_dateError']; ?>
+                </div>
+              </form>
+            </td>
+            <td>
+              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+                <div class="form-item">
+                <input type="date" name="checkout_date" id="checkout_date">
+                <?php echo $data['checkout_dateError']; ?>
+                </div>
+              </form>
+            </td>
+            <td>
+              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+                <div class="form-item">
+                <input type="number" name="number_of_adult" placeholder="Number of Adult">
+                <?php echo $data['number_of_adultError']; ?>
+                </div>
+              </form>
+            </td>
+            <td>
+              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+                <div class="form-item">
+                <input type="number" name="number_of_child" placeholder="Number of Child">
+                <?php echo $data['number_of_childError']; ?>
+                </div>
+              </form>
+            </td>
+            <td>
+              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
+                <div class="form-item">
+                <input type="text" name="mobile_number" placeholder="Mobile Number">
+                <?php echo $data['mobile_numberError']; ?>
+                </div>
+              </form>
+            </td  
+        </tr>
+      </table>
+  
+      <div class="button">
+        <center>
+          <button id="btn-create" name="submit" type="submit">Book Now</button>
+        </center>
+      </div>
+      <!-- <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
         <div class="form-item">
           <input type="hidden" name="roomid" value="">
           <input type="date" name="checkin_date" id="checkin_date">
@@ -190,7 +285,7 @@ html {
           <?php echo $data['mobile_numberError']; ?>
         </div>
         <button class="btn create" name="submit" type="submit">Book</button>
-      </form>
+      </form> -->
     </div>
   </div>
 </body>
