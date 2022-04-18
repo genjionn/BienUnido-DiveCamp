@@ -197,6 +197,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             'roomavail' => '',
             'UpdateRoomImage' => ''
         ];
+        unset($_SESSION['getrooms']);
         $total = $this->roomModel->displayrooms(); //Display Rooms
         $_SESSION['getrooms'] = $total; //Session add for displaying rooms
         if (isset($_POST['UpdateRoom'])){ //UPDATE ROOM
@@ -221,7 +222,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(empty($data['UpdateRoomImage']['name'])){ //if image file empty 
                 $data['UpdateroomNewFileName'] = $data['roomimgname'];
                 if($this->roomModel->updateroom($data)){
-                    header('location:' . URLROOT . '/pages/adminhomepage');
+                    header('location:' . URLROOT . '/pages/admincreateroom');
                 } else{
                     die('Something Went wrong');
                 }
@@ -244,7 +245,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                             if($this->roomModel->updateroom($data)){
                                 //Image Create to the destination folder
                                 move_uploaded_file($updateimageTmpName, $updateimageDestination);
-                                header('location:' . URLROOT . '/pages/adminhomepage');
+                                header('location:' . URLROOT . '/pages/admincreateroom');
                             } else{
                                 $data['roomupdateError'] = 'Something Went Wrong';
                             }
@@ -264,7 +265,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 'roomid' => trim($_POST['roomid'])
             ];
             if($this->roomModel->deleteroom($data['roomid'])){
-                header('location:' . URLROOT . '/pages/adminhomepage');
+                header('location:' . URLROOT . '/pages/admincreateroom');
             } else{
                 die('Something Went wrong');
             }
@@ -344,7 +345,9 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 $data['roomNewFileName'] = $rimageNameNew;
                 //Register room from model function kung wlai errors
                 if($this->roomModel->createroom($data)){
-                    header('location:' . URLROOT . '/pages/adminhomepage');
+                    //Image Create to the destination folder
+                    move_uploaded_file($rimageTmpName, $rimageDestination);
+                    header('location:' . URLROOT . '/pages/admincreateroom');
                 } else{
                     die('Something Went wrong');
                 }
