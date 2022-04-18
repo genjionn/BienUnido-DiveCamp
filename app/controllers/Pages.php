@@ -270,6 +270,17 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 die('Something Went wrong');
             }
         }
+        if (isset($_POST['MultiDelete'])){//MULTIPLE DELETE ROOM
+            $data = [
+                'roomupdateError' => '',
+                'roomids' => implode(',', $_POST['sel_del'])
+            ];
+            if($this->roomModel->multipledeleteroom($data['roomids'])){
+                header('location:' . URLROOT . '/pages/admincreateroom');
+            } else{
+                die('Something Went wrong');
+            }
+        }
         if(isset($_POST['AddRoom'])) { //ADD ROOM
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters

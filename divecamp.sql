@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 06:11 AM
+-- Generation Time: Apr 18, 2022 at 09:44 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -46,8 +46,7 @@ CREATE TABLE `rooms` (
 INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`, `roomsavailable`, `roomprice`, `roomimage`) VALUES
 (22, 3, 'Medium Room', 'Good For 2 People Room.', 'BienUnido', 0, 4, '2500', '624e7cdf218763.43944350.jpg'),
 (24, 3, 'Small Room', 'Good for a single person', 'BienUnido', 0, 5, '1000', '624e62d05c31c0.57640541.jpg'),
-(25, 3, 'Large Room', 'Good for a Family', 'BienUnido', 0, 5, '3000', '624e72ce426c26.81365150.jpg'),
-(30, 3, 'Couple Room', 'Good for Couples', 'BienUnido', 0, 4, '3500', '625cd4dc979e96.74460363.jpg');
+(25, 3, 'Large Room', 'Good for a Family', 'BienUnido', 0, 5, '3000', '624e72ce426c26.81365150.jpg');
 
 -- --------------------------------------------------------
 
@@ -100,7 +99,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`

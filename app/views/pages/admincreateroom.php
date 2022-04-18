@@ -437,10 +437,6 @@ html {
   <div class="container">
     <div class="content">
       <h1> Create Room</h1><br>
-      <div class="addRoom-btn">
-        <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
-        <button id="delete"><a href="">Delete Rooms</a></button><!--Can delete multiple rooms-->
-
         <div id="addroom-modal">
           <div class="modal-content">
             <div class="modal-header">
@@ -455,6 +451,7 @@ html {
                 </tr>
               </table>
             </div>
+          <!--ADD ROOM MODAL -->
           <div class="modal-body">
             <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
                 <div class="row-one">
@@ -493,56 +490,59 @@ html {
                   <div class="button input-box">
                     <input name="AddRoom" type="submit" value="Add Room" id="roominsert"> 
                   </div>
-                </center> 
-                
+                </center>      
             </form>
             </div>
             </div>
             <div class="overlay"></div>
         </div>
-      </div>
+        <!-- TABLE DATA -->
       <div class="table">
-        <table>
-          <tr>
-            <th>Room Picture</th>
-            <th>Room name</th>
-            <th>Room description</th>
-            <th>Room location</th>
-            <th>Room Rating</th>
-            <th>Room Available</th>
-            <th>Room Price</th>
-            <th>Action</th>
-          </tr>
-            <span class="invalidFeedback" style="color:red;">
-              <?php echo $data['roomupdateError'];?>
-            </span>
-            <?php $RoomRecords = $_SESSION['getrooms'];
-            foreach($RoomRecords as $row){
-            ?>
-          <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
+      <div class="addRoom-btn">
+        <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
+        <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
+        <button id="delete" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms-->
+          <table>
             <tr>
-              <td style="width:13%;">
-                <center>
-                  <!--<a href="#viewImage-modal">View Image</a> -->
-                  <img src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
-                  <input type="hidden" name="roomimgname"  value="<?php echo $row->roomimage ?>">
-                </center>
-              </td>
-              <td><input style="border:none" type="text" name="roomname"  value="<?php echo $row->roomname ?>"></td>
-              <td><input style="border:none" type="text" name="roomdesc"  value="<?php echo $row->roomdesc ?>"></td>
-              <td><input style="border:none" type="text" name="roomlocation"  value="<?php echo $row->roomlocation ?>"></td>
-              <td><?php echo $row->rating ?></td>
-              <td><input style="border:none" type="text" name="roomavail"  value="<?php echo $row->roomsavailable ?>"><button>🔍</button></td>
-              <td><input style="border:none" type="text" name="roomprice"  value="<?php echo $row->roomprice ?>"></td>
-              <td>
-                <input type="hidden" name="roomid"  value="<?php echo $row->roomid ?>">
-                <input type="submit" name="UpdateRoom"  value="Edit">
-                <input type="submit" name="DeleteRoom"  value="Delete">
-              </td>
+              <th>Select</th>
+              <th>Room Picture</th>
+              <th>Room name</th>
+              <th>Room description</th>
+              <th>Room location</th>
+              <th>Room Rating</th>
+              <th>Room Available</th>
+              <th>Room Price</th>
+              <th>Action</th>
             </tr>
-          </form>
-            <?php } ?>
-        </table>
+              <span class="invalidFeedback" style="color:red;">
+                <?php echo $data['roomupdateError'];?>
+              </span>
+              <?php $RoomRecords = $_SESSION['getrooms'];
+              foreach($RoomRecords as $row){
+              ?>
+              <tr>
+                <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
+                <td style="width:13%;">
+                  <center>
+                    <!--<a href="#viewImage-modal">View Image</a> -->
+                    <img src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
+                    <input type="hidden" name="roomimgname"  value="<?php echo $row->roomimage ?>">
+                  </center>
+                </td>
+                <td><input style="border:none" type="text" name="roomname"  value="<?php echo $row->roomname ?>"></td>
+                <td><input style="border:none" type="text" name="roomdesc"  value="<?php echo $row->roomdesc ?>"></td>
+                <td><input style="border:none" type="text" name="roomlocation"  value="<?php echo $row->roomlocation ?>"></td>
+                <td><?php echo $row->rating ?></td>
+                <td><input style="border:none" type="text" name="roomavail"  value="<?php echo $row->roomsavailable ?>"><button>🔍</button></td>
+                <td><input style="border:none" type="text" name="roomprice"  value="<?php echo $row->roomprice ?>"></td>
+                <td>
+                  <input type="hidden" name="roomid"  value="<?php echo $row->roomid ?>">
+                  <input type="submit" name="UpdateRoom"  value="Edit">
+                  <input type="submit" name="DeleteRoom"  value="Delete">
+                </td>
+              </tr>
+              <?php } ?>
+          </table>
               <!-- MODAL (di lng mag modal kai ang pag pasa sa value to modal kai mo gamit bootstrap
               instead resize lng ang images na ma display kanang uniform na sizes gamay lng siya) 
               
@@ -576,6 +576,8 @@ html {
           <div class="overlay"></div>
         </div>
               -->
+        </form>
+      </div>
       </div>
     </div>  
   </div>

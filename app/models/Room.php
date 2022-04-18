@@ -42,6 +42,14 @@ class Room{
             return false;
         }
     }
+    public function multipledeleteroom($roomids){
+        $this->db->query("DELETE FROM rooms WHERE roomid IN ($roomids)");
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public function updateroom($data){
         $this->db->query('UPDATE rooms SET roomname=:roomname, roomdesc=:roomdesc, roomlocation=:roomlocation, roomprice=:roomprice, roomsavailable=:roomsavailable, roomimage=:roomimage WHERE roomid = :roomid');
         $this->db->bind(':roomid', $data['roomid']);
