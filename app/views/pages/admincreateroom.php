@@ -502,6 +502,41 @@ html {
         <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
         <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
         <button id="delete" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms-->
+        <input style="border:none" type="text" name="roomsearch"  placeholder="search room here..">
+        <button id="search" type="submit" name="SearchRoom">Search Room</button><!--Can Search rooms-->
+          <table style="width:100%;text-align:left;background-color:#eadbc8;">
+            <span class="invalidFeedback" style="color:red;">
+              <?php echo $data['roomresultError'];?>
+            </span>
+            <span class="invalidFeedback" style="color:red;">
+              <?php echo $data['roomupdateError'];?>
+            </span>
+          <?php $RoomResult = $_SESSION['searchingrooms'];
+            foreach($RoomResult as $result){ ?>
+            <tr>
+                <td><input type="checkbox" name="sel_del[]" value="<?php echo $result->roomid ?>"></td>
+                <td style="width:13%;">
+                  <center>
+                    <img src="../public/img/roomimg/<?php echo $result->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
+                    <input type="hidden" name="roomimgname" value="<?php echo $result->roomimage ?>">
+                  </center>
+                </td>
+                <td><input style="border:none" type="text" name="roomname" value="<?php echo $result->roomname ?>"></td>
+                <td><input style="border:none" type="text" name="roomdesc" value="<?php echo $result->roomdesc ?>"></td>
+                <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $result->roomlocation ?>"></td>
+                <td><?php echo $result->rating ?></td>
+                <td><input style="border:none" type="text" name="roomavail" value="<?php echo $result->roomsavailable ?>"><button>🔍</button></td>
+                <td><input style="border:none" type="text" name="roomprice" value="<?php echo $result->roomprice ?>"></td>
+                <td>
+                  <input type="hidden" name="roomid" value="<?php echo $result->roomid ?>">
+                  <input type="submit" name="UpdateRoom" value="Edit">
+                  <input type="submit" name="DeleteRoom" value="Delete">
+                </td>
+            </tr>
+          </table>
+            </form>
+          <?php } ?>
+          <br>
           <table>
             <tr>
               <th>Select</th>
@@ -513,70 +548,33 @@ html {
               <th>Room Available</th>
               <th>Room Price</th>
               <th>Action</th>
-            </tr>
-              <span class="invalidFeedback" style="color:red;">
-                <?php echo $data['roomupdateError'];?>
-              </span>
+            </tr>  
               <?php $RoomRecords = $_SESSION['getrooms'];
-              foreach($RoomRecords as $row){
-              ?>
+              foreach($RoomRecords as $row){ ?>
+              <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
               <tr>
                 <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
                 <td style="width:13%;">
                   <center>
-                    <!--<a href="#viewImage-modal">View Image</a> -->
                     <img src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
                     <input type="hidden" name="roomimgname"  value="<?php echo $row->roomimage ?>">
                   </center>
                 </td>
-                <td><input style="border:none" type="text" name="roomname"  value="<?php echo $row->roomname ?>"></td>
-                <td><input style="border:none" type="text" name="roomdesc"  value="<?php echo $row->roomdesc ?>"></td>
-                <td><input style="border:none" type="text" name="roomlocation"  value="<?php echo $row->roomlocation ?>"></td>
+                <td><input style="border:none" type="text" name="roomname" value="<?php echo $row->roomname ?>"></td>
+                <td><input style="border:none" type="text" name="roomdesc" value="<?php echo $row->roomdesc ?>"></td>
+                <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $row->roomlocation ?>"></td>
                 <td><?php echo $row->rating ?></td>
-                <td><input style="border:none" type="text" name="roomavail"  value="<?php echo $row->roomsavailable ?>"><button>🔍</button></td>
-                <td><input style="border:none" type="text" name="roomprice"  value="<?php echo $row->roomprice ?>"></td>
+                <td><input style="border:none" type="text" name="roomavail" value="<?php echo $row->roomsavailable ?>"><button>🔍</button></td>
+                <td><input style="border:none" type="text" name="roomprice" value="<?php echo $row->roomprice ?>"></td>
                 <td>
-                  <input type="hidden" name="roomid"  value="<?php echo $row->roomid ?>">
-                  <input type="submit" name="UpdateRoom"  value="Edit">
-                  <input type="submit" name="DeleteRoom"  value="Delete">
+                  <input type="hidden" name="roomid" value="<?php echo $row->roomid ?>">
+                  <input type="submit" name="UpdateRoom" value="Edit">
+                  <input type="submit" name="DeleteRoom" value="Delete">
                 </td>
               </tr>
+              </form>
               <?php } ?>
           </table>
-              <!-- MODAL (di lng mag modal kai ang pag pasa sa value to modal kai mo gamit bootstrap
-              instead resize lng ang images na ma display kanang uniform na sizes gamay lng siya) 
-              
-        <div id="viewImage-modal">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="exit">
-                <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
-              </div>
-              <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
-                <div class="image">
-                  <img src="../public/img/roomimg/<?php echo $row->roomimage ?>">
-                  <h2>Room name</h2>
-                  <table>
-                    <tr>
-                      <td>Room Description</td>
-                    </tr>
-                    <tr>
-                      <td>Location</td>
-                    </tr>
-                      <td>Room Available</td>
-                    </tr>
-                    <tr>
-                      <td>Room Price</td>
-                    </tr>
-                  </table>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="overlay"></div>
-        </div>
-              -->
-        </form>
       </div>
       </div>
     </div>  
