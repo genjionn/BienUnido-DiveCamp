@@ -180,7 +180,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
 
     public function admincreateroom(){
         $data = [
-
+            'roomresultError' => '',
             'roomavailError' => '',
             'roompriceError' => '',
             'roomupdateError' => '',
@@ -200,6 +200,63 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         unset($_SESSION['getrooms']);
         $total = $this->roomModel->displayrooms(); //Display Rooms
         $_SESSION['getrooms'] = $total; //Session add for displaying rooms
+        $_SESSION['searchingrooms'] = [];
+        if (isset($_POST['SearchRoom'])){//SEARCH ROOM
+            $data = [
+                'roomupdateError' => '',
+                'roomsearch' => trim($_POST['roomsearch'])
+            ];
+            if(empty($data['roomsearch'])){
+                $data = [
+                    'roomresultError' => '',
+                    'roomavailError' => '',
+                    'roompriceError' => '',
+                    'roomupdateError' => '',
+                    'roomimgError' => '',
+                    'roomnameError' => '',
+                    'roomdescError' => '',
+                    'roomlocationError' => ''  
+                ];
+                $data['roomupdateError'] = 'Search Field must not be empty'; 
+            } else{
+                $data = [          
+                    'roomavailError' => '',
+                    'roompriceError' => '',
+                    'roomupdateError' => '',
+                    'roomimgError' => '',
+                    'roomnameError' => '',
+                    'roomdescError' => '',
+                    'roomlocationError' => '',
+                    'roomresultError' => '',
+                    'roomsearch' => trim($_POST['roomsearch'])
+                ];
+                unset($_SESSION['searchingrooms']);
+                $TempSearch = $this->roomModel->readroom($data['roomsearch']);
+                if($this->roomModel->readroom($data['roomsearch'])){
+                    $_SESSION['searchingrooms'] = $TempSearch;
+                    $data['roomresultError'] = '<button type="submit" name="searchreset">Reset</button>';
+                    $data['roomupdateError'] = 'Search Result:';
+                } else{
+                    $data = [          
+                        'roomavailError' => '',
+                        'roompriceError' => '',
+                        'roomupdateError' => '',
+                        'roomimgError' => '',
+                        'roomnameError' => '',
+                        'roomdescError' => '',
+                        'roomlocationError' => '',
+                        'roomresultError' => ''
+                    ];
+                    $_SESSION['searchingrooms'] = [];
+                    $data['roomupdateError'] = 'No such room exist';   
+                }
+            }    
+        }
+        if (isset($_POST['searchreset'])){//SEARCH Reset
+            unset($_SESSION['searchingrooms']);  
+            $_SESSION['searchingrooms'] = [];
+        }
+
         if (isset($_POST['UpdateRoom'])){ //UPDATE ROOM
             $data = [
                 'roomupdateError' => '',
@@ -273,7 +330,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         if (isset($_POST['MultiDelete'])){//MULTIPLE DELETE ROOM
             $data = [
                 'roomupdateError' => '',
-                'roomids' => implode(',', $_POST['sel_del'])
+                'roomids' => implode(',', $_POST['sel_del']),  
             ];
             if($this->roomModel->multipledeleteroom($data['roomids'])){
                 header('location:' . URLROOT . '/pages/admincreateroom');

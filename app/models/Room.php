@@ -50,6 +50,16 @@ class Room{
             return false;
         }
     }
+    public function readroom($roomsearch){
+        $this->db->query('SELECT * FROM rooms WHERE roomname LIKE :roomsearch');
+        $this->db->bind(':roomsearch', $roomsearch);
+        $record = $this->db->resultSet();
+        if($record > 0){
+            return $record;
+        } else{
+            return false;
+        }
+    }
     public function updateroom($data){
         $this->db->query('UPDATE rooms SET roomname=:roomname, roomdesc=:roomdesc, roomlocation=:roomlocation, roomprice=:roomprice, roomsavailable=:roomsavailable, roomimage=:roomimage WHERE roomid = :roomid');
         $this->db->bind(':roomid', $data['roomid']);
