@@ -496,12 +496,55 @@ html {
             </div>
             <div class="overlay"></div>
         </div>
+        <!-- Multiple Delete-->
+        <div id="viewImage-modal">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="exit">
+                <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
+              </div>
+              <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
+                <button id="delete" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms-->
+                <table border="1">
+                  <tr>
+                    <th>Select</th>
+                    <th>Room Picture</th>
+                    <th>Room name</th>
+                    <th>Room description</th>
+                    <th>Room location</th>
+                    <th>Room Rating</th>
+                    <th>Room Available</th>
+                    <th>Room Price</th>
+                  </tr>
+                  <?php $RoomRecords = $_SESSION['getrooms'];
+                  foreach($RoomRecords as $row){ ?>
+                  <tr>
+                    <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
+                    <td style="width:13%;">
+                      <center>
+                        <img src="../public/img/roomimg/<?php echo $row->roomimage ?>">
+                      </center>
+                    </td>
+                    <td><?php echo $row->roomname ?></td>
+                    <td><?php echo $row->roomdesc ?></td>
+                    <td><?php echo $row->roomlocation ?></td>
+                    <td><?php echo $row->rating ?></td>
+                    <td><?php echo $row->roomsavailable ?></td>
+                    <td><?php echo $row->roomprice ?></td>   
+                  </tr>
+                  <?php }?>
+                </table>
+              </form>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
         <!-- TABLE DATA -->
       <div class="table">
       <div class="addRoom-btn">
         <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
         <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
-        <button id="delete" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms-->
+        <button id="delete"><a href="#viewImage-modal">Multiple Delete</a></button><!--Can delete multiple rooms-->
         <input style="border:none" type="text" name="roomsearch"  placeholder="search room here..">
         <button id="search" type="submit" name="SearchRoom">Search Room</button><!--Can Search rooms-->
           <table style="width:100%;text-align:left;background-color:#eadbc8;">
@@ -514,7 +557,6 @@ html {
           <?php $RoomResult = $_SESSION['searchingrooms'];
             foreach($RoomResult as $result){ ?>
             <tr>
-                <td><input type="checkbox" name="sel_del[]" value="<?php echo $result->roomid ?>"></td>
                 <td style="width:13%;">
                   <center>
                     <img src="../public/img/roomimg/<?php echo $result->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
@@ -539,7 +581,6 @@ html {
           <br>
           <table>
             <tr>
-              <th>Select</th>
               <th>Room Picture</th>
               <th>Room name</th>
               <th>Room description</th>
@@ -553,7 +594,6 @@ html {
               foreach($RoomRecords as $row){ ?>
               <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
               <tr>
-                <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
                 <td style="width:13%;">
                   <center>
                     <img src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
