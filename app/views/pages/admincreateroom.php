@@ -97,7 +97,7 @@ html {
   display: block;
   height: auto;
   width: auto;
-  margin-left: 240px;
+  margin-left: 230px;
   padding: 5px 10px;
 }
 .container .content h1{
@@ -105,33 +105,53 @@ html {
   text-align: center;
   width: auto;
   letter-spacing: 4px;
-  /* background-image: linear-gradient(to bottom, #ffeb6e, #f8f193, #f4f6b5, #f4f9d6, #ffffff); */
   border-top-right-radius: 10px;
   padding: 30px 0px;
   text-shadow: 2px 2px lightgray;
 }
 
-.container .content .addRoom-btn{
-  padding: 15px 10px;
-}
 .container .content .addRoom-btn a{
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
   color:#fff;
 }
 .container .content .addRoom-btn button{
   border:none;
-  padding: 15px 10px;
-  width: 150px;
+  padding: 5px 10px;
+  width: 120px;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
-  margin:10px;
+  margin:5px;
+}
+.container .content #btn button{
+  background:red;
+  color:#fff;
+}
+.container .content .addRoom-btn #search-inp{
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 500px;
+}
+.container .content .addRoom-btn #search{
+  background: #fbc337;
+  color:#000;
+}
+.container .content .addRoom-btn #search:hover{
+  background: goldenrod;
+  color:#fff;
 }
 .container .content .addRoom-btn #create{
   background: #16558f;
 }
+.container .content .addRoom-btn #create:hover{
+  background: darkblue;
+}
 .container .content .addRoom-btn #delete{
   background: #933b27;
+}
+.container .content .addRoom-btn #delete:hover{
+  background: darkred;
 }
 
 
@@ -258,10 +278,10 @@ html {
 #addroom-modal .modal-body form .button input{
   font-family: 'Poppins',sans-serif;
   letter-spacing: 2px;
-  padding: 15px 20px;
+  padding: 5px 20px;
   margin-top: 15px;
   width: 150px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: white;
   border:none;
@@ -294,8 +314,8 @@ html {
 }
 
 
-/* Modal for VIew Image */
-#viewImage-modal {
+/* Modal for Multiple Delete */
+#multidel-modal {
   left: 59%;
   margin: -250px 0 0 -32%;
   opacity: 0;
@@ -313,13 +333,13 @@ html {
   
 }
 
-#viewImage-modal:target {
+#multidel-modal:target {
   opacity: 1;
   top: 50%;
   visibility: visible;
   }
 
-#viewImage-modal .modal-body {
+#multidel-modal .modal-body {
   padding: 20px;
   text-align: right;
   color: #000;
@@ -331,7 +351,7 @@ html {
   color: gray;
   display: block;
 }
-#viewImage-modal .modal-body { 
+#multidel-modal .modal-body { 
   display:block;
   justify-content: center;
   align-items: center;
@@ -343,39 +363,39 @@ html {
   margin:0%;
   padding:0%;
 }
-#viewImage-modal .modal-body .exit{ 
+#multidel-modal .modal-body .exit{ 
   display:block;
   padding: 5px 10px;
 }
-#viewImage-modal .modal-body .exit button{ 
+#multidel-modal .modal-body .exit button{ 
   padding:5px 10px;
-  background:#933b27;
+  background:red;
   border:none;
   border-radius: 100px;
 }
-#viewImage-modal .modal-body .exit i{ 
+#multidel-modal .modal-body .exit i{ 
   color:white;
 }
-#viewImage-modal .modal-body form{
+#multidel-modal .modal-body form{
   display: block;
 }
-#viewImage-modal .modal-body .image{
+#multidel-modal .modal-body .image{
   width: auto;
   height: auto;
   padding: 10px 10px;
   text-align: center;
 }
 
-#viewImage-modal .modal-body .image img{
+#multidel-modal .modal-body .image img{
   width: 250px;
   height: 250px;
 }
-#viewImage-modal .modal-body .image table td{
+#multidel-modal .modal-body .image table td{
   border:none;
   text-align: left;
   padding-left:15px;
 }
-#viewImage-modal .overlay {
+#multidel-modal .overlay {
   background-color: #000;
   background: rgba(0,0,0,.8);
   height: 100%;
@@ -384,6 +404,166 @@ html {
   top: 0;
   width: 100%;
   z-index: 10;
+}
+
+/* Modal Available room */
+#available-modal {
+  left: 59%;
+  margin: -250px 0 0 -32%;
+  opacity: 0;
+  position: absolute;
+  top: -50%;
+  visibility: hidden;
+  width: 50%;
+  border: 0px solid transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  box-sizing: border-box;transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  
+}
+
+#available-modal:target {
+  opacity: 1;
+  top: 50%;
+  visibility: visible;
+  }
+
+#available-modal .modal-body {
+  padding: 20px;
+  text-align: right;
+  color: #000;
+}
+.modal-content {
+  position: relative;
+  z-index: 20;
+  border-radius: 5px;
+  color: gray;
+  display: block;
+}
+#available-modal .modal-body { 
+  display:block;
+  justify-content: center;
+  align-items: center;
+  overflow-y:scroll;
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+  background-image: url("../img/background.png");
+  background-size:cover;
+  margin:0%;
+  padding:0%;
+}
+#available-modal .modal-body .exit{ 
+  display:block;
+  padding: 5px 10px;
+}
+#available-modal .modal-body .exit button{ 
+  padding:5px 10px;
+  background:red;
+  border:none;
+  border-radius: 100px;
+}
+#available-modal .modal-body .exit i{ 
+  color:white;
+}
+#available-modal .modal-body form{
+  display: block;
+}
+#available-modal .modal-body .image{
+  width: auto;
+  height: auto;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+#available-modal .modal-body .image img{
+  width: 250px;
+  height: 250px;
+}
+#available-modal .modal-body .image table td{
+  border:none;
+  text-align: left;
+  padding-left:15px;
+}
+#available-modal .overlay {
+  background-color: #000;
+  background: rgba(0,0,0,.8);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+/* search table */
+#search-table td input{
+  text-align: center;
+  font-size: 12px;
+  padding: 5px 0px;
+  outline-color: blue;
+}
+#search-table td{
+  width: 13%;
+  max-width: 13%;
+}
+/* main table */
+.main-table{
+  font-size: 12px;
+} 
+.main-table td{
+  width: 13%;
+  max-width: 13%;
+  text-align: center;
+}
+.main-table td input{
+  font-size: 12px;
+  outline-color: blue;
+  padding:5px 5px;
+  text-align: center;
+}
+/* multiple delete table */
+table input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+}
+form #delete-rooms{
+  padding: 10px 10px;
+  background: #933b27;
+  border:none;
+  color: white;
+  display:flex;
+  float: left;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+form #delete-rooms:hover{
+  background: darkred;
+}
+/* Action */
+.btn{
+  display:flex;
+}
+.btn input{
+  margin:5px;
+  padding: 5px 5px;
+  width: 50px;
+ 
+}
+.btn .update{
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background: #16558f;
+  color: white;
+}
+.btn .del{
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background: #933b27;
+  color: white;
 }
 /* media */
 
@@ -497,24 +677,20 @@ html {
             <div class="overlay"></div>
         </div>
         <!-- Multiple Delete-->
-        <div id="viewImage-modal">
+        <div id="multidel-modal">
           <div class="modal-content">
             <div class="modal-body">
               <div class="exit">
                 <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
               </div>
               <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
-                <button id="delete" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms-->
-                <table border="1">
+                <button id="delete-rooms" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms--> <br><br>
+                <table style="text-align:center;">
                   <tr>
                     <th>Select</th>
-                    <th>Room Picture</th>
+                    <th >Room Picture</th>
                     <th>Room name</th>
-                    <th>Room description</th>
-                    <th>Room location</th>
-                    <th>Room Rating</th>
-                    <th>Room Available</th>
-                    <th>Room Price</th>
+              
                   </tr>
                   <?php $RoomRecords = $_SESSION['getrooms'];
                   foreach($RoomRecords as $row){ ?>
@@ -522,15 +698,11 @@ html {
                     <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
                     <td style="width:13%;">
                       <center>
-                        <img src="../public/img/roomimg/<?php echo $row->roomimage ?>">
+                        <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $row->roomimage ?>">
                       </center>
                     </td>
                     <td><?php echo $row->roomname ?></td>
-                    <td><?php echo $row->roomdesc ?></td>
-                    <td><?php echo $row->roomlocation ?></td>
-                    <td><?php echo $row->rating ?></td>
-                    <td><?php echo $row->roomsavailable ?></td>
-                    <td><?php echo $row->roomprice ?></td>   
+                    
                   </tr>
                   <?php }?>
                 </table>
@@ -539,16 +711,28 @@ html {
           </div>
           <div class="overlay"></div>
         </div>
+         <!-- Multiple Delete-->
+         <div id="available-modal">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="exit">
+                <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
         <!-- TABLE DATA -->
       <div class="table">
       <div class="addRoom-btn">
         <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
+        <input id="search-inp"type="text" name="roomsearch"  placeholder="Search Room here..">
+        <button id="search" type="submit" name="SearchRoom">Search Room</button><!--Can Search rooms--><br><br>
         <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
-        <button id="delete"><a href="#viewImage-modal">Multiple Delete</a></button><!--Can delete multiple rooms-->
-        <input style="border:none" type="text" name="roomsearch"  placeholder="search room here..">
-        <button id="search" type="submit" name="SearchRoom">Search Room</button><!--Can Search rooms-->
-          <table style="width:100%;text-align:left;background-color:#eadbc8;">
-            <span class="invalidFeedback" style="color:red;">
+        <button id="delete"><a href="#multidel-modal">Multiple Delete</a></button><!--Can delete multiple rooms--> <br>
+        
+          <table id="search-table" style="width:100%; text-align:center;background-color:white;">
+            <span id="btn"class="invalidFeedback" style="color:red;">
               <?php echo $data['roomresultError'];?>
             </span>
             <span class="invalidFeedback" style="color:red;">
@@ -557,29 +741,32 @@ html {
           <?php $RoomResult = $_SESSION['searchingrooms'];
             foreach($RoomResult as $result){ ?>
             <tr>
-                <td style="width:13%;">
+                <td style="width:13%; max-width: 13%; padding: 10px;">
                   <center>
-                    <img src="../public/img/roomimg/<?php echo $result->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
+                    <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $result->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
                     <input type="hidden" name="roomimgname" value="<?php echo $result->roomimage ?>">
                   </center>
                 </td>
-                <td><input style="border:none" type="text" name="roomname" value="<?php echo $result->roomname ?>"></td>
+                <td ><input style="border:none" type="text" name="roomname" value="<?php echo $result->roomname ?>"></td>
                 <td><input style="border:none" type="text" name="roomdesc" value="<?php echo $result->roomdesc ?>"></td>
                 <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $result->roomlocation ?>"></td>
                 <td><?php echo $result->rating ?></td>
-                <td><input style="border:none" type="text" name="roomavail" value="<?php echo $result->roomsavailable ?>"><button>🔍</button></td>
+                <td><input style="border:none; width: 100px;" type="text" name="roomavail" value="<?php echo $result->roomsavailable ?>">
+                <button style=" background: #fbc337; border:1px solid #000; width: 40px;"><a href="#available-modal">🔍</a></button></td>
                 <td><input style="border:none" type="text" name="roomprice" value="<?php echo $result->roomprice ?>"></td>
                 <td>
-                  <input type="hidden" name="roomid" value="<?php echo $result->roomid ?>">
-                  <input type="submit" name="UpdateRoom" value="Edit">
-                  <input type="submit" name="DeleteRoom" value="Delete">
+                  <div class="btn">
+                    <input type="hidden" name="roomid" value="<?php echo $result->roomid ?>">
+                    <input class="update" type="submit" name="UpdateRoom" value="Update">
+                    <input class="del" type="submit" name="DeleteRoom" value="Delete">
+                  </div>
                 </td>
             </tr>
           </table>
             </form>
           <?php } ?>
           <br>
-          <table>
+          <table class="main-table" >
             <tr>
               <th>Room Picture</th>
               <th>Room name</th>
@@ -594,22 +781,25 @@ html {
               foreach($RoomRecords as $row){ ?>
               <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
               <tr>
-                <td style="width:13%;">
+                <td style="width:13%; padding: 10px;" >
                   <center>
-                    <img src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
+                    <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
                     <input type="hidden" name="roomimgname"  value="<?php echo $row->roomimage ?>">
                   </center>
                 </td>
-                <td><input style="border:none" type="text" name="roomname" value="<?php echo $row->roomname ?>"></td>
-                <td><input style="border:none" type="text" name="roomdesc" value="<?php echo $row->roomdesc ?>"></td>
+                <td ><input style="border:none" type="text" name="roomname" value="<?php echo $row->roomname ?>"></td>
+                <td ><input style="border:none;" type="text" name="roomdesc" value="<?php echo $row->roomdesc ?>"></td>
                 <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $row->roomlocation ?>"></td>
                 <td><?php echo $row->rating ?></td>
-                <td><input style="border:none" type="text" name="roomavail" value="<?php echo $row->roomsavailable ?>"><button>🔍</button></td>
-                <td><input style="border:none" type="text" name="roomprice" value="<?php echo $row->roomprice ?>"></td>
+                <td><input style="border:none; width: 100px;" type="text" name="roomavail" value="<?php echo $row->roomsavailable ?>">
+                <button style=" background: #fbc337; border:1px solid #000; width: 40px;"><a href="#available-modal">🔍</a></button></td>
+                <td><input style="border:none; width: 80px;" type="text" name="roomprice" value="<?php echo $row->roomprice ?>"></td>
                 <td>
+                 <div class="btn">
                   <input type="hidden" name="roomid" value="<?php echo $row->roomid ?>">
-                  <input type="submit" name="UpdateRoom" value="Edit">
-                  <input type="submit" name="DeleteRoom" value="Delete">
+                  <input class="update" type="submit" name="UpdateRoom" value="Update">
+                  <input class="del" type="submit" name="DeleteRoom" value="Delete">
+                 </div>
                 </td>
               </tr>
               </form>
