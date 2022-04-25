@@ -690,7 +690,6 @@ form #delete-rooms:hover{
                     <th>Select</th>
                     <th >Room Picture</th>
                     <th>Room name</th>
-              
                   </tr>
                   <?php $RoomRecords = $_SESSION['getrooms'];
                   foreach($RoomRecords as $row){ ?>
