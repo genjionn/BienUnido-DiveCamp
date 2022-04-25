@@ -100,6 +100,8 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->view('pages/userprofile');
     }
     public function adminhomepage(){
+        $total = $this->roomModel->displayrooms(); //Display Rooms
+        $_SESSION['getrooms'] = $total;
         $this->view('pages/adminhomepage');
     }
     public function adminprofile(){
@@ -330,13 +332,18 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         if (isset($_POST['MultiDelete'])){//MULTIPLE DELETE ROOM
             $data = [
                 'roomupdateError' => '',
-                'roomids' => implode(',', $_POST['sel_del']),  
+                'roomids' => isset($_POST['sel_del']) && is_array($_POST['sel_del']) ? $_POST['sel_del'] : [] 
             ];
-            if($this->roomModel->multipledeleteroom($data['roomids'])){
+            if(empty($data['roomids'])){
                 header('location:' . URLROOT . '/pages/admincreateroom');
             } else{
-                die('Something Went wrong');
-            }
+                $rids = implode(',', $data['roomids']);
+                if($this->roomModel->multipledeleteroom($rids)){
+                    header('location:' . URLROOT . '/pages/admincreateroom');
+                } else{
+                    die('Something Went wrong');
+                }
+            } 
         }
         if(isset($_POST['AddRoom'])) { //ADD ROOM
             //Sanitize post data
