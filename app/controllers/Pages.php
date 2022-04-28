@@ -14,13 +14,6 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function home(){
         $this->view('pages/userhomepage');
     }
-    public function reservation(){
-        $rooms = $this->roomModel->displayrooms();
-        $data = [
-            'rooms' => $rooms
-        ];
-        $this->view('pages/userreservation', $data);
-    }
     public function contact(){
         $this->view('pages/usercontactus');
     }
@@ -432,6 +425,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     }
     public function createreservation(){
         $data = [
+            'roomid' => '',
             'checkin_date' => '',
             'checkout_date' => '',
             'number_of_adult' => '',
@@ -446,7 +440,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
-                'roomid' => trim($_POST['roomid']),
+                'roomid' => $_SESSION['reserveID'],
                 'checkin_date' => trim($_POST['checkin_date']),
                 'checkout_date' => trim($_POST['checkout_date']),
                 'number_of_adult' => trim($_POST['number_of_adult']),
@@ -467,12 +461,15 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             if(empty($data['number_of_adult'])){
                 $data['number_of_adultError'] = 'Number of adults cannot be empty';
             }
+            if(empty($data['number_of_child'])){
+                $data['number_of_childError'] = 'Number of children cannot be empty, if none please select 0';
+            }
             if(empty($data['mobile_number'])){
                 $data['mobile_numberError'] = 'Please input your mobile number (in case for follow up reservation)';
             }
-            if(empty($data['checkin_dateError']) && empty($data['checkout_dateError']) && empty($data['number_of_adultError']) && empty($data['mobile_numberError'])){
+            if(empty($data['checkin_dateError']) && empty($data['checkout_dateError']) && empty($data['number_of_adultError']) && empty($data['mobile_numberError']) && empty($data['number_of_childError'])){
                 if($this->roomModel->bookRoom($data)){
-                    header("Location: " . URLROOT . "/pages/profile");
+                    header("Location: " . URLROOT . "/pages/reservation");
                 }else{
                     die("Something went wrong, please try again!");
                 }
@@ -481,6 +478,22 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             }
         }
         $this->view('pages/createreservation', $data);
+    }
+    public function reservation(){
+        $rooms = $this->roomModel->displayrooms();
+        unset($_SESSION['reserveID']);  
+        $data = [
+            'roomid' => '',
+            'rooms' => $rooms
+        ];
+        if(isset($_POST['ReserveRoom'])){
+            $data = [
+                'roomid' => trim($_POST['roomid']),
+            ];
+            $_SESSION['reserveID'] = $data['roomid'];
+            header("Location: ". URLROOT ."/pages/createreservation");
+        }
+        $this->view('pages/userreservation', $data);
     }
 }
 ?>

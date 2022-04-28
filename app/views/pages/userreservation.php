@@ -202,17 +202,20 @@ input[type=date], select, textarea {width: 100%;padding: 12px;border: 1px solid 
     <div class="content">
       <h1> RESERVATION </h1><br>
       <center>
-        <?php foreach($data['rooms'] as $room): ?>
+        <?php echo $data['roomid'];
+        foreach($data['rooms'] as $room): ?>
         <div class="card">
-          <a href="<?php echo URLROOT . "/pages/createreservation/" . $room->roomid ?>">
+          <form method="POST">
             <img src="../public/img/roomimg/<?php echo $room->roomimage ?>" alt="img">
+            <input type="hidden" name="roomid" value="<?php echo $room->roomid ?>">
             <h2><?php echo $room->roomname; ?></h2>
             <p><?php echo $room->roomsavailable?><span> room/s left</span></p>
             <p><i class="fa fa-peso-sign" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo number_format($room->roomprice, 2); ?><span></span></p>
             <p><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $room->rating ?>/10 <span>rating</span></p>
             <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $room->roomlocation ?></p>
-          </a>
-      </div>
+            <button id="" type="submit" name="ReserveRoom">Reserve</button>
+          </form>
+        </div>     
       <?php endforeach; ?>
     </center>
     </div>
