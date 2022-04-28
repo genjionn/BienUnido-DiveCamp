@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2022 at 08:22 AM
+-- Generation Time: Apr 28, 2022 at 06:38 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `divecamp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserves`
+--
+
+CREATE TABLE `reserves` (
+  `reserveid` int(255) NOT NULL,
+  `roomid` int(255) NOT NULL,
+  `checkin_date` varchar(255) NOT NULL,
+  `checkout_date` varchar(255) NOT NULL,
+  `number_of_adult` int(255) NOT NULL,
+  `number_of_child` int(255) NOT NULL,
+  `mobile_number` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reserves`
+--
+
+INSERT INTO `reserves` (`reserveid`, `roomid`, `checkin_date`, `checkout_date`, `number_of_adult`, `number_of_child`, `mobile_number`) VALUES
+(1, 22, '2022-04-20', '2022-04-27', 2, 1, 2147483647),
+(2, 24, '2022-04-13', '2022-04-20', 4, 1, 123456789),
+(3, 22, '2022-04-13', '2022-04-19', 2, 1, 2147483647),
+(4, 24, '2022-04-01', '2022-04-15', 3, 1, 123465),
+(5, 22, '2022-04-01', '2022-04-14', 3, 2, 896462);
 
 -- --------------------------------------------------------
 
@@ -79,6 +106,12 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `privil
 --
 
 --
+-- Indexes for table `reserves`
+--
+ALTER TABLE `reserves`
+  ADD PRIMARY KEY (`reserveid`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -95,10 +128,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `reserves`
+--
+ALTER TABLE `reserves`
+  MODIFY `reserveid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `users`

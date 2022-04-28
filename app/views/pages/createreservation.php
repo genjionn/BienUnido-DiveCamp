@@ -204,6 +204,7 @@ table th{
   <div class="container">
     <div class="content">
       <h1> Reservation </h1><br>
+      <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
       <table>
         <tr>
           <th>Check In Date</th>
@@ -214,54 +215,43 @@ table th{
         </tr>
         <tr> 
             <td>
-              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
                 <div class="form-item">
-                <input type="hidden" name="roomid" value="">
                 <input type="date" name="checkin_date" id="checkin_date">
                 <?php echo $data['checkin_dateError']; ?>
                 </div>
-              </form>
             </td>
             <td>
-              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
                 <div class="form-item">
                 <input type="date" name="checkout_date" id="checkout_date">
                 <?php echo $data['checkout_dateError']; ?>
                 </div>
-              </form>
             </td>
             <td>
-              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
                 <div class="form-item">
                 <input type="number" name="number_of_adult" placeholder="Number of Adult">
                 <?php echo $data['number_of_adultError']; ?>
                 </div>
-              </form>
             </td>
             <td>
-              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
                 <div class="form-item">
                 <input type="number" name="number_of_child" placeholder="Number of Child">
                 <?php echo $data['number_of_childError']; ?>
                 </div>
-              </form>
             </td>
             <td>
-              <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
                 <div class="form-item">
                 <input type="text" name="mobile_number" placeholder="Mobile Number">
                 <?php echo $data['mobile_numberError']; ?>
                 </div>
-              </form>
-            </td  
+            </td> 
         </tr>
       </table>
-  
       <div class="button">
         <center>
           <button id="btn-create" name="submit" type="submit">Book Now</button>
         </center>
       </div>
+      </form>
       <!-- <form action="<?php echo URLROOT; ?>/pages/createreservation" method="POST">
         <div class="form-item">
           <input type="hidden" name="roomid" value="">
