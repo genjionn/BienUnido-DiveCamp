@@ -101,5 +101,35 @@ class Room{
             return false;
         }
     }
+    public function bookRoomDeductAvail($data){ //deduct room availability
+        $this->db->query('UPDATE rooms SET roomsavailable=:roomsavailable WHERE roomid = :roomid');
+        $this->db->bind(':roomid', $data['roomid']);
+        $this->db->bind(':roomsavailable', $data['roomavail']);
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function bookRoomfindRoom($roomid){ //Reason ani kai isearch ang room para deduction sa room availability
+        $this->db->query('SELECT * FROM rooms WHERE roomid LIKE :roomid');
+        $this->db->bind(':roomid', $roomid);
+        $record = $this->db->resultSet();
+        if($record > 0){
+            return $record;
+        } else{
+            return false;
+        }
+    }
+    public function viewroom($roomid){
+        $this->db->query('SELECT * FROM reserves WHERE roomid LIKE :roomid');
+        $this->db->bind(':roomid', $roomid);
+        $record = $this->db->resultSet();
+        if($record > 0){
+            return $record;
+        } else{
+            return false;
+        }
+    }
 }
 ?>
