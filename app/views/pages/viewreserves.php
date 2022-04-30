@@ -613,195 +613,26 @@ form #delete-rooms:hover{
         <a class="nav4" href="<?php echo URLROOT; ?>/users/logout" class="menu-btn"><i class="fa fa-power-off"></i><span>&nbsp;&nbsp;</span> Logout</a><br>
       </div>  
   </div>
-<!-------------------NEED Front END Design -->
   <div class="container">
     <div class="content">
-      <h1> Create Room</h1><br>
-        <div id="addroom-modal">
-          <div class="modal-content">
-            <div class="modal-header">
-              <table>
-                <tr>
-                  <td style="width: 90%;">
-                    <h2>Create Room</h2>
-                  </td>
-                  <td style="width: 10%;"> 
-                    <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          <!--ADD ROOM MODAL -->
-          <div class="modal-body">
-            <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
-                <div class="row-one">
-                  <input type="file" name="roomimage" value="Upload Image">
-                    <span class="invalidFeedback" style="color:red;">
-                      <?php echo $data['roomimgError'];?>
-                    </span>
-                    <br>
-                    <input type="text" placeholder="Enter name room" name="roomname">
-                    <span class="invalidFeedback" style="color:red;">
-                      <?php echo $data['roomnameError'];?>
-                    </span>
-                </div>
-                <div class="row-two">
-                  <input type="text" placeholder="Enter room description" name="roomdesc">
-                  <span class="invalidFeedback" style="color:red;">
-                  <?php echo $data['roomdescError'];?>
-                  </span>
-                  
-                  <input type="text" placeholder="Enter room location" name="roomlocation">
-                  <span class="invalidFeedback" style="color:red;">
-                    <?php echo $data['roomlocationError'];?>
-                  </span>
-                </div>
-                <div class="row-three">
-                  <input type="text" placeholder="Enter room price" name="roomprice">
-                  <span class="invalidFeedback" style="color:red;">
-                  <?php echo $data['roompriceError'];?>
-                  </span>
-                  <input type="text" placeholder="Enter No. of Available Room" name="roomavail">
-                  <span class="invalidFeedback" style="color:red;">
-                    <?php echo $data['roomavailError'];?>
-                  </span>
-                </div>
-                <center>
-                  <div class="button input-box">
-                    <input name="AddRoom" type="submit" value="Add Room" id="roominsert"> 
-                  </div>
-                </center>      
-            </form>
-            </div>
-            </div>
-            <div class="overlay"></div>
-        </div>
-        <!-- Multiple Delete-->
-        <div id="multidel-modal">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="exit">
-                <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
-              </div>
-              <form action="<?php echo URLROOT; ?>/pages/admincreateroom" method="POST" id="roomform" enctype="multipart/form-data">
-                <button id="delete-rooms" type="submit" name="MultiDelete">Delete Rooms</button><!--Can delete multiple rooms--> <br><br>
-                <table style="text-align:center;">
-                  <tr>
-                    <th>Select</th>
-                    <th >Room Picture</th>
-                    <th>Room name</th>
-                  </tr>
-                  <?php $RoomRecords = $_SESSION['getrooms'];
-                  foreach($RoomRecords as $row){ ?>
-                  <tr>
-                    <td><input type="checkbox" name="sel_del[]" value="<?php echo $row->roomid ?>"></td>
-                    <td style="width:13%;">
-                      <center>
-                        <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $row->roomimage ?>">
-                      </center>
-                    </td>
-                    <td><?php echo $row->roomname ?></td>
-                  </tr>
-                  <?php }?>
-                </table>
-              </form>
-            </div>
-          </div>
-          <div class="overlay"></div>
-        </div>
-         <!-- Magnifying glass
-         <div id="available-modal">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="exit">
-                <button class="close"><a href="#" ><i class="fa fa-xmark"></i></a> </button>
-              </div>
-            </div>
-          </div>
-          <div class="overlay"></div>
-        </div> -->
-        <!-- TABLE DATA -->
-      <div class="table">
-      <div class="addRoom-btn">
-        <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
-        <input id="search-inp"type="text" name="roomsearch"  placeholder="Search Room here..">
-        <button id="search" type="submit" name="SearchRoom">Search Room</button><!--Can Search rooms--><br><br>
-        <button id="create"><a href="#addroom-modal">Create Rooms</a></button>
-        <button id="delete"><a href="#multidel-modal">Multiple Delete</a></button><!--Can delete multiple rooms--> <br>
-        
-          <table id="search-table" style="width:100%; text-align:center;background-color:white;">
-            <span id="btn"class="invalidFeedback" style="color:red;">
-              <?php echo $data['roomresultError'];?>
-            </span>
-            <span class="invalidFeedback" style="color:red;">
-              <?php echo $data['roomupdateError'];?>
-            </span>
-          <?php $RoomResult = $_SESSION['searchingrooms'];
-            foreach($RoomResult as $result){ ?>
-            <tr>
-                <td style="width:13%; max-width: 13%; padding: 10px;">
-                  <center>
-                    <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $result->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
-                    <input type="hidden" name="roomimgname" value="<?php echo $result->roomimage ?>">
-                  </center>
-                </td>
-                <td ><input style="border:none" type="text" name="roomname" value="<?php echo $result->roomname ?>"></td>
-                <td><input style="border:none" type="text" name="roomdesc" value="<?php echo $result->roomdesc ?>"></td>
-                <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $result->roomlocation ?>"></td>
-                <td><?php echo $result->rating ?></td>
-                <td><input style="border:none; width: 100px;" type="text" name="roomavail" value="<?php echo $result->roomsavailable ?>">
-                <button style=" background: #fbc337; border:1px solid #000; width: 40px;"><a href="#available-modal">🔍</a></button></td>
-                <td><input style="border:none" type="text" name="roomprice" value="<?php echo $result->roomprice ?>"></td>
-                <td>
-                  <div class="btn">
-                    <input type="hidden" name="roomid" value="<?php echo $result->roomid ?>">
-                    <input class="update" type="submit" name="UpdateRoom" value="Update">
-                    <input class="del" type="submit" name="DeleteRoom" value="Delete">
-                  </div>
-                </td>
-            </tr>
-          </table>
-            </form>
-          <?php } ?>
-          <br>
+      <h1>View User Reservation</h1><br>
           <table class="main-table" >
             <tr>
-              <th>Room Picture</th>
-              <th>Room name</th>
-              <th>Room description</th>
-              <th>Room location</th>
-              <th>Room Rating</th>
-              <th>Room Available</th>
-              <th>Room Price</th>
-              <th>Action</th>
+              <th>CheckIn Date</th>
+              <th>CheckOut Date</th>
+              <th>No. of Adult</th>
+              <th>No. of Child</th>
+              <th>Contact No.</th>
             </tr>  
-              <?php $RoomRecords = $_SESSION['getrooms'];
-              foreach($RoomRecords as $row){ ?>
-              <form method="POST" action='<?php echo URLROOT; ?>/pages/admincreateroom' enctype="multipart/form-data">
-              <tr>
-                <td style="width:13%; padding: 10px;" >
-                  <center>
-                    <img style="widht 250px; max-width: 250px; height: 150px; max-height: 150px; " src="../public/img/roomimg/<?php echo $row->roomimage ?>"><br><input type="file" name="UpdateRoomImage">
-                    <input type="hidden" name="roomimgname"  value="<?php echo $row->roomimage ?>">
-                  </center>
-                </td>
-                <td ><input style="border:none" type="text" name="roomname" value="<?php echo $row->roomname ?>"></td>
-                <td ><input style="border:none;" type="text" name="roomdesc" value="<?php echo $row->roomdesc ?>"></td>
-                <td><input style="border:none" type="text" name="roomlocation" value="<?php echo $row->roomlocation ?>"></td>
-                <td><?php echo $row->rating ?></td>
-                <td><input style="border:none; width: 100px;" type="text" name="roomavail" value="<?php echo $row->roomsavailable ?>">
-                <button type="submit" name="ViewReserve" style=" background: #fbc337; border:1px solid #000; width: 40px;">🔍</button></td>
-                <td><input style="border:none; width: 80px;" type="text" name="roomprice" value="<?php echo $row->roomprice ?>"></td>
-                <td>
-                 <div class="btn">
-                  <input type="hidden" name="roomid" value="<?php echo $row->roomid ?>">
-                  <input class="update" type="submit" name="UpdateRoom" value="Update">
-                  <input class="del" type="submit" name="DeleteRoom" value="Delete">
-                 </div>
-                </td>
-              </tr>
-              </form>
-              <?php } ?>
+            <?php  foreach($data['viewreserves'] as $reserves){ ?>
+            <tr>
+              <th><?php echo $reserves->checkin_date; ?></th>
+              <th><?php echo $reserves->checkout_date; ?></th>
+              <th><?php echo $reserves->number_of_adult; ?></th>
+              <th><?php echo $reserves->number_of_child; ?></th>
+              <th><?php echo $reserves->mobile_number; ?></th>
+            </tr> 
+            <?php }?>
           </table>
       </div>
       </div>

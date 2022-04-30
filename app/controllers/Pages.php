@@ -338,6 +338,14 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 }
             } 
         }
+        if(isset($_POST['ViewReserve'])){
+            unset($_SESSION['viewReserveID']);
+            $data = [
+                'roomid' => trim($_POST['roomid']),
+            ];
+            $_SESSION['viewReserveID'] = $data['roomid'];
+            header("Location: ". URLROOT ."/pages/viewreserves");
+        }
         if(isset($_POST['AddRoom'])) { //ADD ROOM
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //Uncoding unwanted characters
@@ -426,6 +434,7 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
     public function createreservation(){
         $data = [
             'roomid' => '',
+            'roomsavail' => '',
             'checkin_date' => '',
             'checkout_date' => '',
             'number_of_adult' => '',
@@ -435,7 +444,8 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             'checkout_dateError' => '',
             'number_of_adultError' => '',
             'number_of_childError' => '',
-            'mobile_numberError' => ''
+            'mobile_numberError' => '',
+            'roomavail' => ''
         ];
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -450,7 +460,8 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
                 'checkout_dateError' => '',
                 'number_of_adultError' => '',
                 'number_of_childError' => '',
-                'mobile_numberError' => ''
+                'mobile_numberError' => '',
+                'roomavail' => ''
             ];
             if(empty($data['checkin_date'])){
                 $data['checkin_dateError'] = 'Please select check in date';
@@ -469,7 +480,15 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             }
             if(empty($data['checkin_dateError']) && empty($data['checkout_dateError']) && empty($data['number_of_adultError']) && empty($data['mobile_numberError']) && empty($data['number_of_childError'])){
                 if($this->roomModel->bookRoom($data)){
-                    header("Location: " . URLROOT . "/pages/reservation");
+                    $TempSearch = $this->roomModel->bookRoomfindRoom($data['roomid']);
+                    $deduct = $TempSearch[0]->roomsavailable - 1;
+                    $data['roomavail'] = $deduct;
+                    print_r($deduct);
+                    if($this->roomModel->bookRoomDeductAvail($data)){
+                        header("Location: " . URLROOT . "/pages/reservation");
+                    }else{
+                        die("Something Went Wrong!");
+                    }
                 }else{
                     die("Something went wrong, please try again!");
                 }
@@ -494,6 +513,14 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             header("Location: ". URLROOT ."/pages/createreservation");
         }
         $this->view('pages/userreservation', $data);
+    }
+    public function viewreserves(){
+        $getviewID = $_SESSION['viewReserveID'];
+        $fetchreserves = $this->roomModel->viewroom($getviewID);
+        $data = [
+            'viewreserves' => $fetchreserves
+        ];
+        $this->view('pages/viewreserves', $data);
     }
 }
 ?>
