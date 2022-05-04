@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 06:38 AM
+-- Generation Time: May 04, 2022 at 03:36 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `reserves` (
   `reserveid` int(255) NOT NULL,
   `roomid` int(255) NOT NULL,
+  `userid` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `checkin_date` varchar(255) NOT NULL,
   `checkout_date` varchar(255) NOT NULL,
   `number_of_adult` int(255) NOT NULL,
@@ -41,12 +43,10 @@ CREATE TABLE `reserves` (
 -- Dumping data for table `reserves`
 --
 
-INSERT INTO `reserves` (`reserveid`, `roomid`, `checkin_date`, `checkout_date`, `number_of_adult`, `number_of_child`, `mobile_number`) VALUES
-(1, 22, '2022-04-20', '2022-04-27', 2, 1, 2147483647),
-(2, 24, '2022-04-13', '2022-04-20', 4, 1, 123456789),
-(3, 22, '2022-04-13', '2022-04-19', 2, 1, 2147483647),
-(4, 24, '2022-04-01', '2022-04-15', 3, 1, 123465),
-(5, 22, '2022-04-01', '2022-04-14', 3, 2, 896462);
+INSERT INTO `reserves` (`reserveid`, `roomid`, `userid`, `email`, `checkin_date`, `checkout_date`, `number_of_adult`, `number_of_child`, `mobile_number`) VALUES
+(15, 22, 2, 'testing123@gmail.com', '2022-05-05', '2022-05-12', 2, 1, 12344565),
+(16, 24, 2, 'testing123@gmail.com', '2022-05-06', '2022-05-13', 1, 1, 1232423),
+(17, 22, 2, 'testing123@gmail.com', '2022-05-05', '2022-05-31', 1, 1, 4342343);
 
 -- --------------------------------------------------------
 
@@ -71,8 +71,8 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`roomid`, `adminid`, `roomname`, `roomdesc`, `roomlocation`, `rating`, `roomsavailable`, `roomprice`, `roomimage`) VALUES
-(22, 3, 'Medium Room', 'Good For 2 People Room', 'BienUnido', 0, 10, '2300', '624e7cdf218763.43944350.jpg'),
-(24, 3, 'Small Room', 'Good for a single person', 'BienUnido', 0, 5, '1000', '624e62d05c31c0.57640541.jpg');
+(22, 3, 'Medium Room', 'Good For 2 People Room', 'BienUnido', 0, 7, '2300', '624e7cdf218763.43944350.jpg'),
+(24, 3, 'Small Room', 'Good for a single person', 'BienUnido', 0, 4, '1000', '624e62d05c31c0.57640541.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `reserves`
 --
 ALTER TABLE `reserves`
-  MODIFY `reserveid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `reserveid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `rooms`

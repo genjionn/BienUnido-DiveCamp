@@ -88,8 +88,10 @@ class Room{
         }
     }
     public function bookRoom($data){
-        $this->db->query('INSERT INTO reserves (roomid, checkin_date, checkout_date, number_of_adult, number_of_child, mobile_number) VALUES (:roomid, :checkin_date, :checkout_date, :number_of_adult, :number_of_child, :mobile_number)');
+        $this->db->query('INSERT INTO reserves (roomid, userid, email, checkin_date, checkout_date, number_of_adult, number_of_child, mobile_number) VALUES (:roomid, :userid, :email, :checkin_date, :checkout_date, :number_of_adult, :number_of_child, :mobile_number)');
         $this->db->bind(':roomid', $data['roomid']);
+        $this->db->bind(':userid', $data['userid']);
+        $this->db->bind(':email', $data['email']);
         $this->db->bind(':checkin_date', $data['checkin_date']);
         $this->db->bind(':checkout_date', $data['checkout_date']);
         $this->db->bind(':number_of_adult', $data['number_of_adult']);

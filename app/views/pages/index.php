@@ -415,21 +415,24 @@
 
     <section id="room">
         <div class="container">
+            <?php foreach($data['viewrooms'] as $room): ?>
             <div class="card1">
                     <a href="">
                         <center>
-                            <img src="img/room1.jpg" alt="">
-                            <h3>Small Room</h3><br>
+                            <img src="./public/img/roomimg/<?php echo $room->roomimage ?>" alt="img">
+                            <h3><?php echo $room->roomname; ?></h3><br>
                         </center>
 
-                        <i class=" fa fa-location-dot"></i>&nbsp;&nbsp;<label>Location: Bien Unido, Bohol</label><br>
-                        <i class="fa fa-peso-sign"></i>&nbsp;&nbsp;<label>Starting from: <i class="fa fa-peso-sign"></i> 2000</label><br>
-                        <i class="fa fa-star"></i>&nbsp;&nbsp;<label>Rating : 8/10</label><br><br>
+                        <i class=" fa fa-location-dot"></i>&nbsp;&nbsp;<label>Location: <?php echo $room->roomlocation ?></label><br>
+                        <i class="fa fa-peso-sign"></i>&nbsp;&nbsp;<label>Starting from: <i class="fa fa-peso-sign"></i> <?php echo number_format($room->roomprice, 2); ?></label><br>
+                        <i class="fa fa-star"></i>&nbsp;&nbsp;<label><?php echo $room->rating ?>/10</label><br><br>
                         <center>
-                            <button class="btn">Book Now</button>
+                            <a href="<?php echo URLROOT; ?>/users/login" style="background-color: #16558f; color: #fff;">Book</a>
                         </center>
                     </a>
             </div>
+            <?php endforeach; ?>
+            <!--
             <div class="card2">
                 <a href="">
                     <center>
@@ -459,7 +462,7 @@
                         <button class="btn">Book Now</button>
                     </center>
                 </a>
-            </div>
+            </div> -->
             
         </div>
     </section>
