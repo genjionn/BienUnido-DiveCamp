@@ -6,7 +6,11 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
         $this->pageModel = $this->model('Page');
     }
     public function index(){
-        $this->view('pages/index');
+        $allrooms = $this->roomModel->displayrooms(); //Display Rooms
+        $data = [
+            'viewrooms' => $allrooms
+        ];
+        $this->view('pages/index', $data);
     }
     public function about(){
         $this->view('pages/userabout');
@@ -451,6 +455,8 @@ class Pages extends Controller { //Mo extend ni siya sa libraries/Controller.php
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'roomid' => $_SESSION['reserveID'],
+                'userid' => $_SESSION['user_id'],
+                'email' => $_SESSION['email'],
                 'checkin_date' => trim($_POST['checkin_date']),
                 'checkout_date' => trim($_POST['checkout_date']),
                 'number_of_adult' => trim($_POST['number_of_adult']),

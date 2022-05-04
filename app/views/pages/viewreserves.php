@@ -618,6 +618,7 @@ form #delete-rooms:hover{
       <h1>View User Reservation</h1><br>
           <table class="main-table" >
             <tr>
+              <th>User Email</th>
               <th>CheckIn Date</th>
               <th>CheckOut Date</th>
               <th>No. of Adult</th>
@@ -626,6 +627,7 @@ form #delete-rooms:hover{
             </tr>  
             <?php  foreach($data['viewreserves'] as $reserves){ ?>
             <tr>
+              <th><?php echo $reserves->email; ?></th>
               <th><?php echo $reserves->checkin_date; ?></th>
               <th><?php echo $reserves->checkout_date; ?></th>
               <th><?php echo $reserves->number_of_adult; ?></th>
